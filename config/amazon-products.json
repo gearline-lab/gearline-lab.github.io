@@ -1,0 +1,14 @@
+{
+  "marketplace": "www.amazon.co.jp",
+  "partnerTag": "gearlineweb-22",
+  "products": [
+    {
+      "asin": "B0D1XLNWP2",
+      "files": ["ugreen-revodok-6in1.html"],
+      "fallback": {
+        "title": "UGREEN Revodok USB-C ハブ 6-in-1",
+        "url": "https://amzn.to/4wclWKm"
+      }
+    }
+  ]
+}
