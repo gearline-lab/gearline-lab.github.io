@@ -1,0 +1,16 @@
+{
+  "post": {
+    "text": "作業スペースを整えるときは、まず毎日抜き差しする機器を決めると、ケーブルの長さと置き場所を選びやすくなります。見た目より、戻しやすさを優先するのが続くコツです。 #GearlineLab #デスク環境 #Mac周辺機器"
+  },
+  "reposts": [
+    {
+      "uri": "at://did:plc:example/app.bsky.feed.post/example",
+      "cid": "bafyreiexample"
+    }
+  ],
+  "follows": [
+    {
+      "did": "did:plc:example"
+    }
+  ]
+}

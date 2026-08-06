@@ -1,0 +1,6 @@
+# Local-only Bluesky credentials and one-off execution plans.
+.env
+.env.*
+!.env.example
+config/bluesky-daily-plan.json
+data/bluesky-execution-log.jsonl
