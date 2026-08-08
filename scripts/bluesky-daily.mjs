@@ -11,6 +11,15 @@ const verifySession = args.has("--verify-session");
 const root = process.cwd();
 const forbiddenUrl = /(?:https?:\/\/|www\.|amzn\.to|amazon\.[a-z.]+|tag=)/iu;
 
+const buildHashtagFacets = (text) => [...text.matchAll(/#[\p{L}\p{N}_]+/gu)].map((match) => {
+  const start = Buffer.byteLength(text.slice(0, match.index), "utf8");
+  const end = start + Buffer.byteLength(match[0], "utf8");
+  return {
+    index: { byteStart: start, byteEnd: end },
+    features: [{ $type: "app.bsky.richtext.facet#tag", tag: match[0].slice(1) }]
+  };
+});
+
 const fail = (message) => {
   throw new Error(`Bluesky daily plan: ${message}`);
 };
@@ -68,7 +77,7 @@ if (verifySession && dryRun) fail("--verify-session と --dry-run は同時に�
 
 if (dryRun) {
   const plan = assertPlan(await readPlan());
-  console.log(JSON.stringify({ valid: true, postCharacters: [...plan.post.text].length, reposts: plan.reposts.length, follows: plan.follows.length }));
+  console.log(JSON.stringify({ valid: true, postCharacters: [...plan.post.text].length, hashtags: buildHashtagFacets(plan.post.text).length, reposts: plan.reposts.length, follows: plan.follows.length }));
   process.exit(0);
 }
 
@@ -100,6 +109,7 @@ const results = {};
 results.post = await createRecord(service, session.accessJwt, session.did, "app.bsky.feed.post", {
   $type: "app.bsky.feed.post",
   text: plan.post.text,
+  facets: buildHashtagFacets(plan.post.text),
   createdAt: now
 });
 
