@@ -32,12 +32,12 @@ if (await exists(planPath)) {
   result.daily = "waiting-for-validated-plan";
 }
 
-if (["Tue", "Fri"].includes(weekday)) {
-  const articlePlanPath = resolve(root, "config/article-publish-plan.json");
-  result.article = await exists(articlePlanPath)
-    ? "waiting-for-heartbeat-publication-qa"
-    : "waiting-for-researched-article-plan";
-}
+// A product article is evaluated every day. The heartbeat still has to create
+// a research-backed plan and pass article QA before it can be published.
+const articlePlanPath = resolve(root, "config/article-publish-plan.json");
+result.article = await exists(articlePlanPath)
+  ? "waiting-for-heartbeat-publication-qa"
+  : "waiting-for-researched-article-plan";
 
 if (weekday === "Mon") {
   const reportInputPath = resolve(root, "config/weekly-report-input.json");
