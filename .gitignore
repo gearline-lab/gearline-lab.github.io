@@ -4,6 +4,7 @@
 !.env.example
 config/bluesky-daily-plan.json
 config/article-publish-plan.json
+config/article-intro-plan.json
 config/weekly-report-input.json
 data/bluesky-execution-log.jsonl
 reports/

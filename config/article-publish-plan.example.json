@@ -1,0 +1,17 @@
+{
+  "articleFile": "example-product.html",
+  "product": {
+    "asin": "B000000000",
+    "trackingId": "gearlineweb-22",
+    "primarySource": "https://manufacturer.example/product",
+    "creatorApiVerified": true,
+    "authorizedImageVerified": true
+  },
+  "introPost": {
+    "text": "記事を公開しました。購入前に確認したい条件を整理しています。 https://gearline-lab.github.io/example-product.html #GearlineLab #デスク環境"
+  },
+  "publishFiles": [
+    "assets/thumbnails/example-product.png",
+    "config/amazon-products.json"
+  ]
+}

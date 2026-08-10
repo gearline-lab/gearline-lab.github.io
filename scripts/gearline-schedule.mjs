@@ -4,6 +4,17 @@ import { spawn } from "node:child_process";
 
 const root = process.cwd();
 const args = new Set(process.argv.slice(2));
+// Heartbeats call this script without flags. That is the live, guarded run;
+// --dry-run remains the explicit status-only mode for local verification.
+if (!args.has("--dry-run")) {
+  const forwarded = process.argv.slice(2).filter((arg) => arg !== "--execute");
+  const child = spawn("node", ["scripts/gearline-orchestrator.mjs", "--execute", ...forwarded], { cwd: root, stdio: "inherit" });
+  const code = await new Promise((resolveRun, rejectRun) => {
+    child.on("error", rejectRun);
+    child.on("close", resolveRun);
+  });
+  process.exit(code ?? 1);
+}
 const dateArg = process.argv.find((arg) => arg.startsWith("--date="))?.slice(7);
 const date = dateArg ? new Date(`${dateArg}T12:00:00+09:00`) : new Date();
 if (Number.isNaN(date.valueOf())) throw new Error("--date は YYYY-MM-DD で指定してください。");
