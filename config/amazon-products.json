@@ -17,6 +17,14 @@
         "title": "Bambu Lab A1 mini 3Dプリンター",
         "url": "https://www.amazon.co.jp/dp/B0CRYJBKQQ?tag=gearlineweb-22"
       }
+    },
+    {
+      "asin": "B0BJL8SJ59",
+      "files": ["elgato-stream-deck-plus.html"],
+      "fallback": {
+        "title": "Elgato Stream Deck +",
+        "url": "https://www.amazon.co.jp/dp/B0BJL8SJ59?tag=gearlineweb-22"
+      }
     }
   ]
 }

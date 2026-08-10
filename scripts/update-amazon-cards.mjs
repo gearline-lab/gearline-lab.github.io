@@ -46,22 +46,11 @@ const getToken = async () => {
   return tokenBody.access_token;
 };
 
-const getPrice = (item) => {
-  const listing = item.offersV2?.listings?.find((offer) => offer.isBuyBoxWinner) ?? item.offersV2?.listings?.[0];
-  const price = listing?.price;
-  if (!price) return null;
-  return price.displayAmount ?? price.displayPrice ?? price.amount ?? null;
-};
-
 const renderCard = ({ item, fallback, updatedAt }) => {
   const title = item.itemInfo?.title?.displayValue ?? fallback.title;
   const image = item.images?.primary?.large?.url ?? item.images?.primary?.medium?.url ?? item.images?.primary?.small?.url ?? null;
   const url = item.detailPageURL ?? fallback.url;
-  const price = getPrice(item);
-  const updated = new Intl.DateTimeFormat("ja-JP", {
-    dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Tokyo"
-  }).format(updatedAt);
-  const priceText = price ? `<strong>${escapeHtml(price)}</strong> <span>（${updated}時点）</span>` : "価格・在庫はAmazonの商品ページで最新情報を確認してください。";
+  const priceText = "価格・在庫はAmazonの商品ページで最新情報を確認してください。";
   const visual = image
     ? `<a class="product-card__visual" href="${escapeHtml(url)}" rel="nofollow sponsored"><img src="${escapeHtml(image)}" alt="${escapeHtml(title)}"></a>`
     : "";
