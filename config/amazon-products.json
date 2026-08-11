@@ -25,6 +25,14 @@
         "title": "Elgato Stream Deck +",
         "url": "https://www.amazon.co.jp/dp/B0BJL8SJ59?tag=gearlineweb-22"
       }
+    },
+    {
+      "asin": "B0BQMSXFP7",
+      "files": ["anker-332-usb-c-hub.html"],
+      "fallback": {
+        "title": "Anker 332 USB-C Hub (5-in-1)",
+        "url": "https://www.amazon.co.jp/dp/B0BQMSXFP7?tag=gearlineweb-22"
+      }
     }
   ]
 }
