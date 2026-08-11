@@ -76,7 +76,7 @@ if (await exists(paths.articlePlan)) {
   result.article = execute ? "qa-passed-awaiting-publish" : "qa-passed";
   if (execute) {
     const slug = plan.articleFile.replace(/\.html$/u, "");
-    const branch = `agent/publish-${slug}-${dateJst.replaceAll("-", "")}`;
+    const branch = `agent/publish-${slug}-${dateJst.replaceAll("-", "")}-${Date.now().toString(36)}`;
     const changed = await run("git", ["status", "--porcelain", "--", ...plan.files]);
     if (!changed) throw new Error("記事公開対象に未コミット変更がありません。");
     await run("git", ["fetch", "origin", "main"]);
