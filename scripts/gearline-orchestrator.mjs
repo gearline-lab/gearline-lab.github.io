@@ -44,14 +44,11 @@ const assertArticlePlan = (plan) => {
   if (!/^[a-z0-9-]+\.html$/u.test(plan.articleFile)) throw new Error("articleFile はサイト直下のslug.htmlに限定します。");
   if (!plan.product || !/^[A-Z0-9]{10}$/u.test(plan.product.asin ?? "")) throw new Error("product.asin が必要です。");
   if (plan.product.trackingId !== "gearlineweb-22") throw new Error("記事のtrackingIdは gearlineweb-22 に限定します。");
-  if (plan.product.creatorApiVerified !== true || plan.product.authorizedImageVerified !== true) {
-    throw new Error("Creators APIの商品名・販売URL・許諾画像の確認が必要です。");
-  }
   if (!/^https:\/\//u.test(plan.product.primarySource ?? "")) throw new Error("一次情報URLが必要です。");
   if (!plan.introPost || typeof plan.introPost.text !== "string") throw new Error("記事紹介投稿が必要です。");
   const url = `https://gearline-lab.github.io/${plan.articleFile}`;
   if (!plan.introPost.text.includes(url)) throw new Error("記事紹介投稿に公開URLがありません。");
-  const files = [...new Set([plan.articleFile, "index.html", ...(plan.publishFiles ?? [])])];
+  const files = [...new Set([plan.articleFile, "index.html", "config/amazon-products.json", ...(plan.publishFiles ?? [])])];
   for (const file of files) assertRepositoryPath(file);
   return { ...plan, files, url };
 };
@@ -75,14 +72,27 @@ if (await exists(paths.dailyPlan)) {
 
 if (await exists(paths.articlePlan)) {
   const plan = assertArticlePlan(await readJson(paths.articlePlan));
-  await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile]);
+  await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile, "--pre-creator"]);
   result.article = execute ? "qa-passed-awaiting-publish" : "qa-passed";
   if (execute) {
+    const slug = plan.articleFile.replace(/\.html$/u, "");
+    const branch = `agent/publish-${slug}-${dateJst.replaceAll("-", "")}`;
     const changed = await run("git", ["status", "--porcelain", "--", ...plan.files]);
     if (!changed) throw new Error("記事公開対象に未コミット変更がありません。");
+    await run("git", ["fetch", "origin", "main"]);
+    await run("git", ["checkout", "main"]);
+    await run("git", ["merge", "--ff-only", "origin/main"]);
+    await run("git", ["checkout", "-b", branch]);
     await run("git", ["add", "--", ...plan.files]);
     await run("git", ["commit", "-m", `Publish ${plan.articleFile}`]);
+    await run("git", ["push", "origin", `HEAD:refs/heads/${branch}`]);
+    await run("node", ["scripts/run-amazon-card-workflow-with-keychain.mjs", "--ref", branch]);
+    await run("git", ["fetch", "origin", branch]);
+    await run("git", ["merge", "--ff-only", `origin/${branch}`]);
+    await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile]);
     await run("git", ["push", "origin", "HEAD:main"]);
+    await run("git", ["checkout", "main"]);
+    await run("git", ["merge", "--ff-only", "origin/main"]);
     await mkdir(resolve(root, "config"), { recursive: true });
     await writeFile(paths.articleIntroPlan, `${JSON.stringify({ post: plan.introPost, reposts: [], follows: [] }, null, 2)}\n`);
     const intro = JSON.parse(await run("zsh", ["scripts/run-bluesky-daily-with-keychain.sh", "--article-intro", "--plan", "config/article-intro-plan.json"]));
