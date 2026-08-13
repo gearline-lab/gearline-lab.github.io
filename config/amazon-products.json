@@ -33,6 +33,14 @@
         "title": "Anker 332 USB-C Hub (5-in-1)",
         "url": "https://www.amazon.co.jp/dp/B0BQMSXFP7?tag=gearlineweb-22"
       }
+    },
+    {
+      "asin": "B0C5CGJ22Q",
+      "files": ["anker-511-nano-3.html"],
+      "fallback": {
+        "title": "Anker 511 Charger (Nano 3, 30W)",
+        "url": "https://www.amazon.co.jp/dp/B0C5CGJ22Q?tag=gearlineweb-22"
+      }
     }
   ]
 }
