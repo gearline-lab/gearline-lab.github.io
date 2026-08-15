@@ -43,7 +43,9 @@ const assertPlan = (plan, { articleIntro = false } = {}) => {
   const text = plan.post.text.trim();
   if (!text) fail("投稿本文が空です。");
   if ([...text].length > 300) fail("投稿は300文字以内にしてください。");
-  if (!/(?:^|\s)#GearlineLab(?:\s|$)/u.test(text)) fail("#GearlineLab を含めてください。");
+  const hashtags = buildHashtagFacets(text);
+  if (hashtags.length < 1 || hashtags.length > 2) fail("テーマに合う検索用ハッシュタグを1〜2件付けてください。");
+  if (/(?:^|\s)#GearlineLab(?:\s|$)/u.test(text)) fail("#GearlineLab ではなく、テーマに合う検索用ハッシュタグを使ってください。");
   const hasForbiddenUrl = forbiddenUrl.test(text);
   const siteUrls = [...text.matchAll(gearlineSiteUrl)];
   if (articleIntro) {
