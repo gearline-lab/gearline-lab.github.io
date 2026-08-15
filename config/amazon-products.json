@@ -3,6 +3,14 @@
   "partnerTag": "gearlineweb-22",
   "products": [
     {
+      "asin": "B0DKTPLRZ6",
+      "files": ["logicool-m196-bluetooth-mouse.html"],
+      "fallback": {
+        "title": "ロジクール M196 Bluetoothマウス",
+        "url": "https://www.amazon.co.jp/dp/B0DKTPLRZ6?tag=gearlineweb-22"
+      }
+    },
+    {
       "asin": "B0D1XLNWP2",
       "files": ["ugreen-revodok-6in1.html"],
       "fallback": {
