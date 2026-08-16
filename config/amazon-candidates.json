@@ -1,0 +1,11 @@
+{
+  "marketplace": "www.amazon.co.jp",
+  "partnerTag": "gearlineweb-22",
+  "candidates": [
+    {
+      "id": "logicool-k250",
+      "keywords": "ロジクール K250 Bluetooth キーボード",
+      "requiredTerms": ["K250", "ロジクール"]
+    }
+  ]
+}

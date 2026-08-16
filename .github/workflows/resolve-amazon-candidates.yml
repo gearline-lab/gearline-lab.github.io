@@ -1,0 +1,30 @@
+name: Resolve Amazon article candidates
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Resolve ASINs and permitted images with Creators API
+        env:
+          AMAZON_CREATOR_CREDENTIAL_ID: ${{ secrets.AMAZON_CREATOR_CREDENTIAL_ID }}
+          AMAZON_CREATOR_SECRET: ${{ secrets.AMAZON_CREATOR_SECRET }}
+          AMAZON_CREATOR_VERSION: ${{ secrets.AMAZON_CREATOR_VERSION }}
+        run: node scripts/resolve-amazon-candidates.mjs
+      - name: Commit verified candidate result
+        run: |
+          git diff --quiet && exit 0
+          git config user.name "gearline-lab[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add config/amazon-candidate-results.json
+          git commit -m "Resolve Amazon article candidates"
+          git push
