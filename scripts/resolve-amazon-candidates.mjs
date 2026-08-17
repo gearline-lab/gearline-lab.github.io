@@ -56,6 +56,12 @@ for (const candidate of input.candidates ?? []) {
     return candidate.requiredTerms.every((term) => title.includes(normalize(term)));
   });
   const purchasable = matches.filter((item) => item.detailPageURL && (item.images?.primary?.large?.url || item.images?.primary?.medium?.url));
+  const candidates = purchasable.map((item) => ({
+    asin: item.asin,
+    title: item.itemInfo?.title?.displayValue,
+    detailPageURL: item.detailPageURL,
+    imageURL: item.images?.primary?.large?.url ?? item.images?.primary?.medium?.url
+  }));
   results.push({
     id: candidate.id,
     query: candidate.keywords,
@@ -66,7 +72,8 @@ for (const candidate of input.candidates ?? []) {
       detailPageURL: purchasable[0].detailPageURL,
       imageURL: purchasable[0].images?.primary?.large?.url ?? purchasable[0].images?.primary?.medium?.url
     } : null,
-    matchCount: purchasable.length
+    matchCount: purchasable.length,
+    candidates
   });
 }
 await writeFile(outputPath, `${JSON.stringify({ checkedAt: new Date().toISOString(), marketplace: input.marketplace ?? "www.amazon.co.jp", results }, null, 2)}\n`);

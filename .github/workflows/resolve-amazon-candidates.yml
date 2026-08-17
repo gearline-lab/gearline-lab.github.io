@@ -24,9 +24,9 @@ jobs:
           test "${status:-0}" -eq 0 -o "${status:-0}" -eq 2
       - name: Commit verified candidate result
         run: |
-          git diff --quiet && exit 0
+          git add config/amazon-candidate-results.json
+          git diff --cached --quiet && exit 0
           git config user.name "gearline-lab[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add config/amazon-candidate-results.json
           git commit -m "Resolve Amazon article candidates"
           git push
