@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-08-17T01:54:55.656Z",
+  "marketplace": "www.amazon.co.jp",
+  "results": [
+    {
+      "id": "logicool-k250",
+      "query": "ロジクール K250GR Bluetooth キーボード",
+      "status": "ambiguous",
+      "item": null,
+      "matchCount": 4,
+      "candidates": [
+        {
+          "asin": "B0FDQK9T7D",
+          "title": "ロジクール Bluetooth ワイヤレスキーボード K250GR キーボード テンキー コンパクト 日本語配列 耐水 無線 ワイヤレス K250 Windows Mac Chrome グラファイト 国内正規品",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FDQK9T7D?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41NzS62Rf5L._SL500_.jpg"
+        },
+        {
+          "asin": "B0FDQL8KNL",
+          "title": "【Amazon.co.jp限定】 ロジクール Bluetooth ワイヤレスキーボード 無線 K250GRd 日本語配列 グラファイト 国内正規品",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FDQL8KNL?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41NzS62Rf5L._SL500_.jpg"
+        },
+        {
+          "asin": "B0FDQKRJJ3",
+          "title": "【Amazon.co.jp限定】 ロジクール Bluetooth ワイヤレスマウス キーボード セット MK250GRd 日本語配列 国内正規品",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FDQKRJJ3?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41bL3+cHgjL._SL500_.jpg"
+        },
+        {
+          "asin": "B0FDQMPJWZ",
+          "title": "ロジクール Bluetooth ワイヤレスマウス キーボード セット MK250GR テンキー コンパクト 日本語配列 耐水 無線 ワイヤレス MK250 Windows Mac Chrome グラファイト 国内正規品",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FDQMPJWZ?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41bL3+cHgjL._SL500_.jpg"
+        }
+      ]
+    }
+  ]
+}
