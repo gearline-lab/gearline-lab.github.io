@@ -5,7 +5,8 @@
     {
       "id": "logicool-k250",
       "keywords": "ロジクール K250GR Bluetooth キーボード",
-      "requiredTerms": ["K250GR", "ロジクール"]
+      "requiredTerms": ["K250GR", "ロジクール"],
+      "excludedTerms": ["K250GRd", "MK250", "Amazon.co.jp限定"]
     }
   ]
 }

@@ -53,7 +53,9 @@ for (const candidate of input.candidates ?? []) {
   const items = data.searchResult?.items ?? [];
   const matches = items.filter((item) => {
     const title = normalize(item.itemInfo?.title?.displayValue);
-    return candidate.requiredTerms.every((term) => title.includes(normalize(term)));
+    const includesRequired = candidate.requiredTerms.every((term) => title.includes(normalize(term)));
+    const includesExcluded = (candidate.excludedTerms ?? []).some((term) => title.includes(normalize(term)));
+    return includesRequired && !includesExcluded;
   });
   const purchasable = matches.filter((item) => item.detailPageURL && (item.images?.primary?.large?.url || item.images?.primary?.medium?.url));
   const candidates = purchasable.map((item) => ({
@@ -76,6 +78,7 @@ for (const candidate of input.candidates ?? []) {
     candidates
   });
 }
-await writeFile(outputPath, `${JSON.stringify({ checkedAt: new Date().toISOString(), marketplace: input.marketplace ?? "www.amazon.co.jp", results }, null, 2)}\n`);
+const selectedCandidate = results.find((result) => result.status === "resolved")?.item ?? null;
+await writeFile(outputPath, `${JSON.stringify({ checkedAt: new Date().toISOString(), marketplace: input.marketplace ?? "www.amazon.co.jp", selectedCandidate, results }, null, 2)}\n`);
 if (results.some((result) => result.status !== "resolved")) process.exitCode = 2;
 console.log(JSON.stringify({ outputPath, results }));
