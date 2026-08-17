@@ -19,7 +19,9 @@ jobs:
           AMAZON_CREATOR_CREDENTIAL_ID: ${{ secrets.AMAZON_CREATOR_CREDENTIAL_ID }}
           AMAZON_CREATOR_SECRET: ${{ secrets.AMAZON_CREATOR_SECRET }}
           AMAZON_CREATOR_VERSION: ${{ secrets.AMAZON_CREATOR_VERSION }}
-        run: node scripts/resolve-amazon-candidates.mjs
+        run: |
+          node scripts/resolve-amazon-candidates.mjs || status=$?
+          test "${status:-0}" -eq 0 -o "${status:-0}" -eq 2
       - name: Commit verified candidate result
         run: |
           git diff --quiet && exit 0
