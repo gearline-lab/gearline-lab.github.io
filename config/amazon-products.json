@@ -3,6 +3,14 @@
   "partnerTag": "gearlineweb-22",
   "products": [
     {
+      "asin": "B0FDQK9T7D",
+      "files": ["logicool-k250-bluetooth-keyboard.html"],
+      "fallback": {
+        "title": "ロジクール K250 Bluetooth ワイヤレスキーボード",
+        "url": "https://www.amazon.co.jp/dp/B0FDQK9T7D?tag=gearlineweb-22"
+      }
+    },
+    {
       "asin": "B0DKTPLRZ6",
       "files": ["logicool-m196-bluetooth-mouse.html"],
       "fallback": {
