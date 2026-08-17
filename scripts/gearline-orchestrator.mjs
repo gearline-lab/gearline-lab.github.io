@@ -50,6 +50,12 @@ const assertArticlePlan = (plan) => {
   if (!plan.product || !/^[A-Z0-9]{10}$/u.test(plan.product.asin ?? "")) throw new Error("product.asin が必要です。");
   if (plan.product.trackingId !== "gearlineweb-22") throw new Error("記事のtrackingIdは gearlineweb-22 に限定します。");
   if (!/^https:\/\//u.test(plan.product.primarySource ?? "")) throw new Error("一次情報URLが必要です。");
+  const intent = plan.searchIntent;
+  if (!intent || typeof intent !== "object") throw new Error("検索意図の設計が必要です。");
+  for (const key of ["primaryQuery", "readerSituation", "decisionToMake", "comparisonAxis"]) {
+    if (typeof intent[key] !== "string" || !intent[key].trim()) throw new Error(`searchIntent.${key} が必要です。`);
+  }
+  if (intent.primaryQuery.length < 6) throw new Error("searchIntent.primaryQuery は具体的な検索語にしてください。");
   if (!plan.introPost || typeof plan.introPost.text !== "string") throw new Error("記事紹介投稿が必要です。");
   const url = `https://gearline-lab.github.io/${plan.articleFile}`;
   if (!plan.introPost.text.includes(url)) throw new Error("記事紹介投稿に公開URLがありません。");

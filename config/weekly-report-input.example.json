@@ -15,7 +15,8 @@
       "views": 0,
       "engagementRate": 0,
       "averageEngagementTimeSeconds": 0,
-      "outboundClicks": 0
+      "outboundClicks": 0,
+      "affiliateClicks": 0
     }
   }
 }

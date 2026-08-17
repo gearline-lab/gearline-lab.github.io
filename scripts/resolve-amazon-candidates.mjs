@@ -38,6 +38,9 @@ for (const candidate of input.candidates ?? []) {
   if (!candidate?.id || !candidate?.keywords || !Array.isArray(candidate.requiredTerms) || !candidate.requiredTerms.length) {
     throw new Error("候補には id、keywords、requiredTerms が必要です。");
   }
+  if (!candidate.searchIntent || ["primaryQuery", "readerSituation", "decisionToMake", "comparisonAxis"].some((key) => !String(candidate.searchIntent[key] ?? "").trim())) {
+    throw new Error("候補には具体的な検索意図（primaryQuery、readerSituation、decisionToMake、comparisonAxis）が必要です。");
+  }
   const response = await fetch("https://creatorsapi.amazon/catalog/v1/searchItems", {
     method: "POST",
     headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", "x-marketplace": input.marketplace ?? "www.amazon.co.jp" },
@@ -67,6 +70,7 @@ for (const candidate of input.candidates ?? []) {
   results.push({
     id: candidate.id,
     query: candidate.keywords,
+    searchIntent: candidate.searchIntent,
     status: purchasable.length === 1 ? "resolved" : purchasable.length === 0 ? "not-found" : "ambiguous",
     item: purchasable.length === 1 ? {
       asin: purchasable[0].asin,

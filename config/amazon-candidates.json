@@ -6,7 +6,13 @@
       "id": "logicool-k250",
       "keywords": "ロジクール K250GR Bluetooth キーボード",
       "requiredTerms": ["K250GR", "ロジクール"],
-      "excludedTerms": ["K250GRd", "MK250", "Amazon.co.jp限定"]
+      "excludedTerms": ["K250GRd", "MK250", "Amazon.co.jp限定"],
+      "searchIntent": {
+        "primaryQuery": "Bluetooth テンキー キーボード Mac USBポート",
+        "readerSituation": "テンキーを残しつつ、MacBookのUSBポートをレシーバーで塞ぎたくない利用者",
+        "decisionToMake": "Bluetooth接続・テンキー・設置幅・電池式が自分の作業に合うか判断する",
+        "comparisonAxis": "数値入力の頻度とマウスまでの距離、USBポートの優先順位"
+      }
     }
   ]
 }

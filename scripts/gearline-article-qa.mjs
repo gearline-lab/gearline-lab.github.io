@@ -17,7 +17,8 @@ const required = [
   ["一次情報リンク", /https:\/\//u],
   ["サムネイル", /class="article-thumbnail"[\s\S]*?<img\s+/u],
   ["OG画像", /<meta\s+property="og:image"\s+content="https:\/\/gearline-lab\.github\.io\/assets\/thumbnails\//u],
-  ["生成画像の明示", /イメージ：|概念図/u]
+  ["生成画像の明示", /イメージ：|概念図/u],
+  ["Amazonクリック計測", /assets\/js\/affiliate-analytics\.js/u]
 ];
 const failures = required.flatMap(([label, pattern]) => {
   const hits = html.match(pattern)?.length ?? 0;
