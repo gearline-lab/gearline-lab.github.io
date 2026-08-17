@@ -21,8 +21,13 @@ const paths = {
 };
 
 const exists = async (path) => access(path).then(() => true).catch(() => false);
+// GitHub publishing must use the Gearline Lab credential configured for this
+// checkout. A parent shell can carry an unrelated GITHUB_TOKEN, which Git
+// prefers over the repository credential and causes a misleading 403.
+const childEnv = { ...process.env };
+delete childEnv.GITHUB_TOKEN;
 const run = (command, commandArgs) => new Promise((resolveRun, rejectRun) => {
-  const child = spawn(command, commandArgs, { cwd: root, stdio: ["ignore", "pipe", "pipe"] });
+  const child = spawn(command, commandArgs, { cwd: root, env: childEnv, stdio: ["ignore", "pipe", "pipe"] });
   let stdout = "";
   let stderr = "";
   child.stdout.on("data", (chunk) => { stdout += chunk; });
@@ -88,7 +93,9 @@ if (await exists(paths.articlePlan)) {
     await run("git", ["push", "origin", `HEAD:refs/heads/${branch}`]);
     await run("node", ["scripts/run-amazon-card-workflow-with-keychain.mjs", "--ref", branch]);
     await run("git", ["fetch", "origin", branch]);
-    await run("git", ["merge", "--ff-only", `origin/${branch}`]);
+    // A one-off fetch stores the remote branch in FETCH_HEAD even when no
+    // local remote-tracking ref exists. Merge that explicit revision.
+    await run("git", ["merge", "--ff-only", "FETCH_HEAD"]);
     await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile]);
     await run("git", ["push", "origin", "HEAD:main"]);
     await run("git", ["checkout", "main"]);
