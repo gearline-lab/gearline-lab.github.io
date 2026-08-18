@@ -3,6 +3,7 @@
 .env.*
 !.env.example
 config/bluesky-daily-plan.json
+config/bluesky-daily-candidates.json
 config/article-publish-plan.json
 config/article-intro-plan.json
 config/weekly-report-input.json
