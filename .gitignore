@@ -8,4 +8,5 @@ config/article-publish-plan.json
 config/article-intro-plan.json
 config/weekly-report-input.json
 data/bluesky-execution-log.jsonl
+data/bluesky-weekly-snapshots.json
 reports/
