@@ -210,6 +210,45 @@
       .posts {
         padding: 74px 0;
       }
+      .guides {
+        padding: 66px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .guide-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .guide-card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 24px;
+      }
+      .guide-card h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        letter-spacing: -0.04em;
+      }
+      .guide-card p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+      .guide-card ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.9;
+      }
+      .guide-card a {
+        color: #2563a8;
+        text-decoration: none;
+      }
+      .guide-card a:hover {
+        color: #1d4f88;
+      }
       .heading-row {
         display: flex;
         justify-content: space-between;
@@ -312,8 +351,12 @@
           gap: 32px;
         }
         .featured,
-        .posts {
+        .posts,
+        .guides {
           padding: 55px 0;
+        }
+        .guide-grid {
+          grid-template-columns: 1fr;
         }
         .post {
           grid-template-columns: 88px minmax(0, 1fr);
@@ -403,7 +446,7 @@
     <header class="topbar">
       <div class="wrap">
         <a class="brand" href="#top">GEARLINE<span>LAB</span></a>
-        <nav><a href="#latest">記事</a><a href="policy.html">運営方針</a></nav>
+        <nav><a href="#guides">目的別ガイド</a><a href="#latest">記事</a><a href="policy.html">運営方針</a></nav>
       </div>
     </header>
     <main id="top">
@@ -446,6 +489,42 @@
             <a href="#latest">デスク環境</a><a href="#latest">キーボード</a
             ><a href="#latest">Mac周辺機器</a><a href="#latest">3Dプリント</a
             ><a href="#latest">ガジェット</a>
+          </div>
+        </div>
+      </section>
+      <section class="guides" id="guides">
+        <div class="wrap">
+          <div class="heading-row">
+            <h2>目的別ガイド</h2>
+            <p>START WITH YOUR SETUP</p>
+          </div>
+          <div class="guide-grid">
+            <article class="guide-card">
+              <h3>MacBookのUSB-C接続を整える</h3>
+              <p>必要な端子を増やす前に、映像・高速データ・充電を同時に使うかでハブと充電器の役割を分けます。</p>
+              <ul>
+                <li><a href="anker-332-usb-c-hub.html">端子を最小限にしたい場合</a></li>
+                <li><a href="ugreen-revodok-6in1.html">4K/60Hzと10Gbpsが必要な場合</a></li>
+                <li><a href="anker-511-nano-3.html">1台用の小型充電器を選ぶ場合</a></li>
+              </ul>
+            </article>
+            <article class="guide-card">
+              <h3>入力デバイスを机に合わせる</h3>
+              <p>キーボードやマウスは、機能の多さではなく、USBポート・入力頻度・机上の距離から選びます。</p>
+              <ul>
+                <li><a href="logicool-k250-bluetooth-keyboard.html">テンキーとBluetoothを両立したい場合</a></li>
+                <li><a href="logicool-m196-bluetooth-mouse.html">持ち運び用マウスを選ぶ場合</a></li>
+                <li><a href="elgato-stream-deck-plus.html">反復操作を物理ボタンに移したい場合</a></li>
+              </ul>
+            </article>
+            <article class="guide-card">
+              <h3>3Dプリントを始める前に</h3>
+              <p>性能表の前に、作りたい物の大きさ・置き場所・使う材料を順番に確認します。</p>
+              <ul>
+                <li><a href="bambu-lab-a1-mini.html">A1 miniの造形サイズと設置条件</a></li>
+                <li><a href="desk-setup-before-buying.html">作業机の面積と配置を決める</a></li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
