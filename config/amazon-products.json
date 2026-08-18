@@ -51,6 +51,14 @@
       }
     },
     {
+      "asin": "B0CG56TZHW",
+      "files": ["anker-usbc-hub-10in1-dual-display.html"],
+      "fallback": {
+        "title": "Anker USB-C ハブ (10-in-1, Dual Display)",
+        "url": "https://www.amazon.co.jp/dp/B0CG56TZHW?tag=gearlineweb-22"
+      }
+    },
+    {
       "asin": "B0B2QQDKR8",
       "files": ["anker-511-nano-3.html"],
       "fallback": {
