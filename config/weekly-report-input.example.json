@@ -17,6 +17,14 @@
       "averageEngagementTimeSeconds": 0,
       "outboundClicks": 0,
       "affiliateClicks": 0
+    },
+    "searchConsole": {
+      "source": "Google Search Console official UI",
+      "verifiedAt": "2026-08-18T09:00:00+09:00",
+      "clicks": 0,
+      "impressions": 0,
+      "ctr": 0,
+      "averagePosition": 0
     }
   }
 }
