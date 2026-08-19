@@ -5,9 +5,8 @@ const root = process.cwd();
 const output = resolve(root, process.argv[2] ?? "config/bluesky-daily-candidates.json");
 const endpoint = "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts";
 const ownDid = "did:plc:m2ewkc3ld4d3woonfzxuhaod";
-const queries = ["デスク環境", "キーボード", "Mac周辺機器", "3Dプリント"];
-const topicPattern = /デスク|キーボード|Mac|USB.?C|配線|3Dプリント|3D.?print|CAD|モニター|周辺機器/iu;
-const concreteTopicPattern = /デスク環境|キーボード|3Dプリント|3D.?print|USB.?C|配線|Mac.*(?:周辺|接続|モニター)|モニター(?:アーム|台)/iu;
+const queries = ["デスク環境", "キーボード", "Mac周辺機器", "3Dプリント", "作業環境", "PCデスク", "ものづくり", "ゲーム環境"];
+const topicPattern = /デスク|キーボード|Mac|USB.?C|配線|3Dプリント|3D.?print|CAD|モニター|周辺機器|作業環境|PC|自作|制作|ゲーム環境/iu;
 const unsafePattern = /#PR\b|Amazonアソシエイト|amzn\.to|amazon\.|懸賞|プレゼント企画|相互フォロー|フォロバ/iu;
 const promotionalPattern = /新発売！|魅力とは|コスパ最強|作業効率.*爆上|今すぐ|限定|セール/iu;
 const urlPattern = /https?:\/\/|www\./iu;
@@ -32,7 +31,9 @@ for (const post of allPosts) {
   if (!post.uri || !post.cid || !post.author?.did || seen.has(post.uri)) continue;
   seen.add(post.uri);
   if (post.author.did === ownDid || !text || !Number.isFinite(createdAt) || createdAt < cutoff) continue;
-  if (!topicPattern.test(text) || !concreteTopicPattern.test(text)) continue;
+  if (!topicPattern.test(text)) continue;
+  // 読者層を広げるため、日常のPC利用・制作・ゲーム環境も候補にする。
+  // ただし、外部リンクを含む投稿や上記の明確な宣伝・スパム兆候は除外する。
   if (unsafePattern.test(text) || unsafePattern.test(authorText) || promotionalPattern.test(text) || urlPattern.test(text) || /公式アカウント|更新情報/iu.test(authorText)) continue;
   candidates.push({
     uri: post.uri,
@@ -49,7 +50,7 @@ const result = {
   queries,
   candidates: candidates.slice(0, 20),
   excluded: allPosts.length - candidates.length,
-  note: "候補はリポスト・フォロー実行前に、出典、活動実態、未フォロー状態を追加確認する。"
+  note: "候補はリポスト・フォロー実行前に、公開状態、未フォロー状態、明確なスパム兆候がないことを確認する。テーマは周辺でも可。"
 };
 
 await mkdir(resolve(root, "config"), { recursive: true });
