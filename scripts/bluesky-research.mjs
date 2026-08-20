@@ -21,7 +21,10 @@ const search = async (query) => {
   return payload.posts ?? [];
 };
 
-const allPosts = (await Promise.all(queries.map(search))).flat();
+const queryResults = await Promise.allSettled(queries.map(search));
+const failedQueries = queryResults.flatMap((result, index) => result.status === "rejected" ? [queries[index]] : []);
+const allPosts = queryResults.flatMap((result) => result.status === "fulfilled" ? result.value : []);
+if (!allPosts.length) throw new Error(`Bluesky検索結果を取得できませんでした: ${failedQueries.join(", ")}`);
 const seen = new Set();
 const candidates = [];
 for (const post of allPosts) {
@@ -48,6 +51,7 @@ const result = {
   checkedAt: new Date().toISOString(),
   source: "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts",
   queries,
+  failedQueries,
   candidates: candidates.slice(0, 20),
   excluded: allPosts.length - candidates.length,
   note: "候補はリポスト・フォロー実行前に、公開状態、未フォロー状態、明確なスパム兆候がないことを確認する。テーマは周辺でも可。"
