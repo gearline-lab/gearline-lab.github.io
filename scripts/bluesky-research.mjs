@@ -8,11 +8,13 @@ const endpoints = [
   "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts"
 ];
 const ownDid = "did:plc:m2ewkc3ld4d3woonfzxuhaod";
-const queries = ["デスク環境", "キーボード", "Mac周辺機器", "3Dプリント", "作業環境", "PCデスク", "ものづくり", "ゲーム環境"];
+const queries = [
+  "デスク環境", "キーボード", "Mac周辺機器", "3Dプリント", "作業環境", "PCデスク", "ものづくり", "ゲーム環境",
+  "MacBook", "USB-C ハブ", "モニターアーム", "配線整理", "メカニカルキーボード", "Bambu Lab", "Stream Deck", "Anker", "UGREEN", "Logicool"
+];
 const topicPattern = /デスク|キーボード|Mac|USB.?C|配線|3Dプリント|3D.?print|CAD|モニター|周辺機器|作業環境|PC|自作|制作|ゲーム環境/iu;
-const unsafePattern = /#PR\b|Amazonアソシエイト|amzn\.to|amazon\.|懸賞|プレゼント企画|相互フォロー|フォロバ/iu;
-const promotionalPattern = /新発売！|魅力とは|コスパ最強|作業効率.*爆上|今すぐ|限定|セール/iu;
-const urlPattern = /https?:\/\/|www\./iu;
+const unsafePattern = /#PR\b|Amazonアソシエイト|amzn\.to|amazon(?:\.|\b)|link\.amazon|懸賞|プレゼント企画|相互フォロー|フォロバ|anúncio/iu;
+const promotionalPattern = /新発売！|魅力とは|コスパ最強|作業効率.*爆上|今すぐ|限定|セール|おすすめ！|クーポン|\d{3,}[円¥]|⭐️|星[評価]\s*\d/iu;
 const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
 // 検索APIが一時的に不安定でも、過去に公開プロフィール・活動実態を
 // 確認した周辺テーマの個人アカウントの最新フィードを候補に使う。
@@ -71,10 +73,13 @@ for (const post of allPosts) {
   if (!post.uri || !post.cid || !post.author?.did || seen.has(post.uri)) continue;
   seen.add(post.uri);
   if (post.author.did === ownDid || !text || !Number.isFinite(createdAt) || createdAt < cutoff) continue;
-  if (!topicPattern.test(text)) continue;
+  if (!/[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u.test(text)) continue;
+  // 本文が短くても、プロフィールが明確に周辺テーマなら候補に残す。
+  if (!topicPattern.test(`${text} ${authorText}`)) continue;
   // 読者層を広げるため、日常のPC利用・制作・ゲーム環境も候補にする。
-  // ただし、外部リンクを含む投稿や上記の明確な宣伝・スパム兆候は除外する。
-  if (unsafePattern.test(text) || unsafePattern.test(authorText) || promotionalPattern.test(text) || urlPattern.test(text) || /公式アカウント|更新情報/iu.test(authorText)) continue;
+  // 外部リンク自体は一次情報・制作記録にも使われるため除外理由にしない。
+  // 明確な宣伝・スパム兆候だけを外す。
+  if (unsafePattern.test(text) || unsafePattern.test(authorText) || promotionalPattern.test(text)) continue;
   candidates.push({
     uri: post.uri,
     cid: post.cid,
@@ -92,7 +97,7 @@ const result = {
   fallbackFailedAuthors,
   candidates: candidates.slice(0, 20),
   excluded: allPosts.length - candidates.length,
-  note: "検索API失敗時は確認済み個人アカウントの最新フィードを使う。候補はリポスト・フォロー実行前に、公開状態、未フォロー状態、明確なスパム兆候がないことを確認する。テーマは周辺でも可。"
+  note: "検索需要に接続しやすい製品名・周辺語まで探索する。候補は実行前に公開状態・未フォロー状態・明確なスパム兆候だけを確認する。外部リンクだけでは除外しない。"
 };
 
 await mkdir(resolve(root, "config"), { recursive: true });
