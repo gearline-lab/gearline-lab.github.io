@@ -1,0 +1,25 @@
+{
+  "dailyArticle": {
+    "publicationType": "new",
+    "requiredSearchIntent": [
+      "primaryQuery",
+      "readerSituation",
+      "decisionToMake",
+      "comparisonAxis"
+    ],
+    "requiredReaderGuidance": [
+      "向く条件または比較・選び方",
+      "見送る条件または代替判断",
+      "関連する内部リンク"
+    ]
+  },
+  "articleIntro": {
+    "singleGearlineArticleUrl": true,
+    "utm": {
+      "source": "bluesky",
+      "medium": "social",
+      "campaign": "article_intro"
+    },
+    "forbidden": ["affiliate URL", "price", "stock"]
+  }
+}

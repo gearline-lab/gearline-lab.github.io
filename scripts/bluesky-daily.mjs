@@ -11,7 +11,7 @@ const verifySession = args.has("--verify-session");
 const articleIntro = args.has("--article-intro");
 const root = process.cwd();
 const forbiddenUrl = /(?:https?:\/\/|www\.|amzn\.to|amazon\.[a-z.]+|tag=)/iu;
-const gearlineSiteUrl = /https:\/\/gearline-lab\.github\.io\/[a-z0-9-]+\.html\b/giu;
+const gearlineSiteUrl = /https:\/\/gearline-lab\.github\.io\/[a-z0-9-]+\.html(?:\?[^\s]+)?/giu;
 
 const buildHashtagFacets = (text) => [...text.matchAll(/#[\p{L}\p{N}_]+/gu)].map((match) => {
   const start = Buffer.byteLength(text.slice(0, match.index), "utf8");
@@ -44,7 +44,7 @@ const assertPlan = (plan, { articleIntro = false } = {}) => {
   if (!text) fail("投稿本文が空です。");
   if ([...text].length > 300) fail("投稿は300文字以内にしてください。");
   const hashtags = buildHashtagFacets(text);
-  if (hashtags.length < 1 || hashtags.length > 2) fail("テーマに合う検索用ハッシュタグを1〜2件付けてください。");
+  if (hashtags.length < 1 || hashtags.length > 2) fail("検索用のテーマハッシュタグを1〜2件付けてください。");
   if (/(?:^|\s)#GearlineLab(?:\s|$)/u.test(text)) fail("#GearlineLab ではなく、テーマに合う検索用ハッシュタグを使ってください。");
   const hasForbiddenUrl = forbiddenUrl.test(text);
   const siteUrls = [...text.matchAll(gearlineSiteUrl)];

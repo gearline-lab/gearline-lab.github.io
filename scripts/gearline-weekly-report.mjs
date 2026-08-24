@@ -47,7 +47,7 @@ let analyticsLines = ["## GA4 サイト利用状況", "", "- GA4の確認済み�
 if (analytics) {
   if (analytics.measurementId !== "G-711HXNH46X") throw new Error("GA4の測定IDは G-711HXNH46X に限定します。");
   if (analytics.source !== "Google Analytics 4 official UI") throw new Error("GA4の値はGoogle Analytics 4公式画面で確認したものだけを入力してください。");
-  for (const [key, label] of [["activeUsers", "アクティブユーザー"], ["sessions", "セッション"], ["views", "表示回数"], ["engagementRate", "エンゲージメント率"], ["averageEngagementTimeSeconds", "平均エンゲージメント時間"], ["outboundClicks", "外部リンククリック"], ["affiliateClicks", "Amazonアフィリエイトクリック"]]) nonNegative(analytics[key] ?? 0, label);
+  for (const [key, label] of [["activeUsers", "アクティブユーザー"], ["sessions", "セッション"], ["views", "表示回数"], ["engagementRate", "エンゲージメント率"], ["averageEngagementTimeSeconds", "平均エンゲージメント時間"], ["outboundClicks", "外部リンククリック"], ["affiliateCardViews", "Amazonカード表示"], ["affiliateClicks", "Amazonアフィリエイトクリック"]]) nonNegative(analytics[key] ?? 0, label);
   const rate = Number(analytics.engagementRate ?? 0).toFixed(2);
   const avgTime = Number(analytics.averageEngagementTimeSeconds ?? 0).toFixed(1);
   analyticsLines = [
@@ -56,9 +56,9 @@ if (analytics) {
     `- 確認元: ${analytics.source}`,
     `- 確認時刻: ${analytics.verifiedAt ?? "未記録"}`,
     "",
-    "| アクティブユーザー | セッション | 表示回数 | エンゲージメント率 | 平均エンゲージメント時間 | 外部リンククリック | Amazonクリック |",
-    "|---:|---:|---:|---:|---:|---:|---:|",
-    `| ${analytics.activeUsers ?? 0} | ${analytics.sessions ?? 0} | ${analytics.views ?? 0} | ${rate}% | ${avgTime}秒 | ${analytics.outboundClicks ?? 0} | ${analytics.affiliateClicks ?? 0} |`,
+    "| アクティブユーザー | セッション | 表示回数 | エンゲージメント率 | 平均エンゲージメント時間 | 外部リンククリック | Amazonカード表示 | Amazonクリック |",
+    "|---:|---:|---:|---:|---:|---:|---:|---:|",
+    `| ${analytics.activeUsers ?? 0} | ${analytics.sessions ?? 0} | ${analytics.views ?? 0} | ${rate}% | ${avgTime}秒 | ${analytics.outboundClicks ?? 0} | ${analytics.affiliateCardViews ?? 0} | ${analytics.affiliateClicks ?? 0} |`,
     "",
     "- GA4は計測開始直後や集計遅延中に値が変動するため、紹介料・注文数とは別指標として扱います。"
   ];

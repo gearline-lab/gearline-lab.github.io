@@ -15,6 +15,8 @@ const required = [
     ["静的価格なし", /価格・在庫はAmazonの商品ページで最新情報を確認してください。/u]
   ]),
   ["一次情報リンク", /https:\/\//u],
+  ["購入判断の条件", /向く|見送る|比較|選び方/u],
+  ["関連する内部リンク", /href="[a-z0-9-]+\.html"/u],
   ["サムネイル", /class="article-thumbnail"[\s\S]*?<img\s+/u],
   ["OG画像", /<meta\s+property="og:image"\s+content="https:\/\/gearline-lab\.github\.io\/assets\/thumbnails\//u],
   ["生成画像の明示", /イメージ：|概念図/u],
