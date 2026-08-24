@@ -1,6 +1,11 @@
 {
   "period": "2026-08-03_to_2026-08-09",
   "targetFee": 0,
+  "amazonVerification": {
+    "source": "Amazon Associates official UI",
+    "status": "zero-activity-confirmed",
+    "verifiedAt": "2026-08-10T09:00:00+09:00"
+  },
   "trackingIds": [
     { "id": "gearlineweb-22", "clicks": 0, "orders": 0, "shipped": 0, "sales": 0, "fee": 0 },
     { "id": "gearlinebsky-22", "clicks": 0, "orders": 0, "shipped": 0, "sales": 0, "fee": 0 }

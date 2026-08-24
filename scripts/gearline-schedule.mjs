@@ -56,7 +56,7 @@ if (weekday === "Mon") {
   const reportInputPath = resolve(root, "config/weekly-report-input.json");
   result.weeklyReport = await exists(reportInputPath)
     ? "ready-to-render"
-    : "waiting-for-official-amazon-report-input";
+    : "ready-to-render-zero-activity-report";
 }
 
 console.log(JSON.stringify(result));

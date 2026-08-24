@@ -36,6 +36,14 @@ const run = (command, commandArgs) => new Promise((resolveRun, rejectRun) => {
   child.on("close", (code) => code === 0 ? resolveRun(stdout.trim()) : rejectRun(new Error(stderr || `${command} failed: ${code}`)));
 });
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
+const formatJstDate = (value) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo" }).format(value);
+const priorWeekPeriod = () => {
+  const start = new Date(date.valueOf());
+  start.setDate(start.getDate() - 7);
+  const end = new Date(date.valueOf());
+  end.setDate(end.getDate() - 1);
+  return `${formatJstDate(start)}_to_${formatJstDate(end)}`;
+};
 const assertRepositoryPath = (path) => {
   const absolute = resolve(root, path);
   if (!absolute.startsWith(`${root}${sep}`) || absolute.includes(`${sep}.git${sep}`)) {
@@ -135,6 +143,8 @@ if (weekday === "Mon") {
   result.weeklyReport = "waiting-for-official-amazon-report-input";
   if (await exists(paths.reportInput)) {
     result.weeklyReport = JSON.parse(await run("node", ["scripts/gearline-weekly-report.mjs", "config/weekly-report-input.json"]));
+  } else if (execute) {
+    result.weeklyReport = JSON.parse(await run("node", ["scripts/gearline-weekly-report.mjs", "--zero", `--period=${priorWeekPeriod()}`]));
   }
 }
 
