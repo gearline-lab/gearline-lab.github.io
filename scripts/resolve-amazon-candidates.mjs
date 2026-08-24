@@ -5,6 +5,10 @@ const root = process.cwd();
 const inputPath = resolve(root, process.argv[2] ?? "config/amazon-candidates.json");
 const outputPath = resolve(root, process.argv[3] ?? "config/amazon-candidate-results.json");
 const input = JSON.parse(await readFile(inputPath, "utf8"));
+const searchPolicy = JSON.parse(await readFile(resolve(root, "config/search-intent-policy.json"), "utf8"));
+const dailyPolicy = searchPolicy.dailyArticle ?? {};
+const allowedSignals = new Set(dailyPolicy.candidateDemandSignals ?? []);
+const minimumOpportunityScore = Number(dailyPolicy.minimumSearchOpportunityScore ?? 0);
 const clean = (value) => String(value ?? "").trim().replace(/^"|"$/g, "");
 const clientId = clean(process.env.AMAZON_CREATOR_CREDENTIAL_ID);
 const clientSecret = clean(process.env.AMAZON_CREATOR_SECRET);
@@ -41,6 +45,16 @@ for (const candidate of input.candidates ?? []) {
   if (!candidate.searchIntent || ["primaryQuery", "readerSituation", "decisionToMake", "comparisonAxis"].some((key) => !String(candidate.searchIntent[key] ?? "").trim())) {
     throw new Error("候補には具体的な検索意図（primaryQuery、readerSituation、decisionToMake、comparisonAxis）が必要です。");
   }
+  const demandSignals = candidate.searchDemand?.signals;
+  if (!Array.isArray(demandSignals) || !demandSignals.some((signal) => allowedSignals.has(signal))) {
+    throw new Error(`候補 ${candidate.id} には許可された検索需要シグナルが1つ以上必要です。`);
+  }
+  if (!String(candidate.searchDemand?.evidence ?? "").trim()) {
+    throw new Error(`候補 ${candidate.id} には検索需要の根拠が必要です。`);
+  }
+  if (!Number.isFinite(candidate.searchOpportunityScore) || candidate.searchOpportunityScore < minimumOpportunityScore || candidate.searchOpportunityScore > 100) {
+    throw new Error(`候補 ${candidate.id} の検索機会スコアは ${minimumOpportunityScore}〜100 で設定してください。`);
+  }
   const response = await fetch("https://creatorsapi.amazon/catalog/v1/searchItems", {
     method: "POST",
     headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", "x-marketplace": input.marketplace ?? "www.amazon.co.jp" },
@@ -71,6 +85,8 @@ for (const candidate of input.candidates ?? []) {
     id: candidate.id,
     query: candidate.keywords,
     searchIntent: candidate.searchIntent,
+    searchDemand: candidate.searchDemand,
+    searchOpportunityScore: candidate.searchOpportunityScore,
     status: purchasable.length === 1 ? "resolved" : purchasable.length === 0 ? "not-found" : "ambiguous",
     item: purchasable.length === 1 ? {
       asin: purchasable[0].asin,

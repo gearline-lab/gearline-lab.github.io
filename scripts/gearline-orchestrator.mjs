@@ -65,6 +65,15 @@ const assertArticlePlan = (plan) => {
     if (typeof intent[key] !== "string" || !intent[key].trim()) throw new Error(`searchIntent.${key} が必要です。`);
   }
   if (intent.primaryQuery.length < 6) throw new Error("searchIntent.primaryQuery は具体的な検索語にしてください。");
+  const demand = plan.searchDemand;
+  const allowedDemandSignals = new Set(["new-release", "compatibility-change", "comparison-query", "problem-query", "seasonal-demand"]);
+  if (!demand || !Array.isArray(demand.signals) || !demand.signals.some((signal) => allowedDemandSignals.has(signal))) {
+    throw new Error("検索需要シグナル（新製品・互換性変更・比較・悩み・季節性）を1つ以上設定してください。");
+  }
+  if (typeof demand.evidence !== "string" || !demand.evidence.trim()) throw new Error("検索需要の根拠が必要です。");
+  if (!Number.isFinite(plan.searchOpportunityScore) || plan.searchOpportunityScore < 70 || plan.searchOpportunityScore > 100) {
+    throw new Error("searchOpportunityScore は70〜100で設定してください。");
+  }
   if (!plan.introPost || typeof plan.introPost.text !== "string") throw new Error("記事紹介投稿が必要です。");
   const url = `https://gearline-lab.github.io/${plan.articleFile}`;
   if (!plan.introPost.text.includes(url)) throw new Error("記事紹介投稿に公開URLがありません。");

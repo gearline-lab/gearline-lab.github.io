@@ -12,7 +12,12 @@
         "readerSituation": "テンキーを残しつつ、MacBookのUSBポートをレシーバーで塞ぎたくない利用者",
         "decisionToMake": "Bluetooth接続・テンキー・設置幅・電池式が自分の作業に合うか判断する",
         "comparisonAxis": "数値入力の頻度とマウスまでの距離、USBポートの優先順位"
-      }
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Bluetooth・テンキー・Mac・USBポートという複数条件を含む比較/悩み解決型の検索意図。"
+      },
+      "searchOpportunityScore": 76
     }
   ]
 }

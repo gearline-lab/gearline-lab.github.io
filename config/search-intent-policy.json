@@ -11,7 +11,23 @@
       "向く条件または比較・選び方",
       "見送る条件または代替判断",
       "関連する内部リンク"
-    ]
+    ],
+    "candidateDemandSignals": [
+      "new-release",
+      "compatibility-change",
+      "comparison-query",
+      "problem-query",
+      "seasonal-demand"
+    ],
+    "minimumSearchOpportunityScore": 70,
+    "scoring": {
+      "querySpecificity": 25,
+      "purchaseIntent": 25,
+      "timeliness": 20,
+      "primarySourceStrength": 15,
+      "articleDifferentiation": 15
+    },
+    "selectionRule": "候補は検索需要シグナルを1つ以上、購入前に答える具体的な比較軸、一次情報URL、70点以上の機会スコアを持つ。単なる一般レビューや既存記事の焼き直しは選ばない。"
   },
   "articleIntro": {
     "singleGearlineArticleUrl": true,

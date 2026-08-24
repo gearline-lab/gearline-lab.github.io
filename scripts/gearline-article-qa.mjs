@@ -15,6 +15,9 @@ const required = [
     ["静的価格なし", /価格・在庫はAmazonの商品ページで最新情報を確認してください。/u]
   ]),
   ["一次情報リンク", /https:\/\//u],
+  ["検索向けdescription", /<meta\s+name="description"\s+content="[^"]{35,}"/u],
+  ["canonical", /<link\s+rel="canonical"\s+href="https:\/\/gearline-lab\.github\.io\/[a-z0-9-]+\.html"/u],
+  ["Article構造化データ", /"@type":"Article"/u],
   ["購入判断の条件", /向く|見送る|比較|選び方/u],
   ["関連する内部リンク", /href="[a-z0-9-]+\.html"/u],
   ["サムネイル", /class="article-thumbnail"[\s\S]*?<img\s+/u],
