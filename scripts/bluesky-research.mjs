@@ -3,7 +3,10 @@ import { resolve } from "node:path";
 
 const root = process.cwd();
 const output = resolve(root, process.argv[2] ?? "config/bluesky-daily-candidates.json");
-const endpoint = "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts";
+const endpoints = [
+  "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts",
+  "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts"
+];
 const ownDid = "did:plc:m2ewkc3ld4d3woonfzxuhaod";
 const queries = ["デスク環境", "キーボード", "Mac周辺機器", "3Dプリント", "作業環境", "PCデスク", "ものづくり", "ゲーム環境"];
 const topicPattern = /デスク|キーボード|Mac|USB.?C|配線|3Dプリント|3D.?print|CAD|モニター|周辺機器|作業環境|PC|自作|制作|ゲーム環境/iu;
@@ -11,20 +14,54 @@ const unsafePattern = /#PR\b|Amazonアソシエイト|amzn\.to|amazon\.|懸賞|�
 const promotionalPattern = /新発売！|魅力とは|コスパ最強|作業効率.*爆上|今すぐ|限定|セール/iu;
 const urlPattern = /https?:\/\/|www\./iu;
 const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
+// 検索APIが一時的に不安定でも、過去に公開プロフィール・活動実態を
+// 確認した周辺テーマの個人アカウントの最新フィードを候補に使う。
+const fallbackAuthors = [
+  "watatoji.bsky.social",
+  "kzkr.xyz",
+  "eeergs.me",
+  "99lv.bsky.social",
+  "hayashi-j.bsky.social"
+];
 
 const search = async (query) => {
-  const url = new URL(endpoint);
-  url.search = new URLSearchParams({ q: query, sort: "latest", limit: "25" }).toString();
+  const failures = [];
+  for (const endpoint of endpoints) {
+    const url = new URL(endpoint);
+    url.search = new URLSearchParams({ q: query, sort: "latest", limit: "25" }).toString();
+    try {
+      const response = await fetch(url, { headers: { Accept: "application/json" } });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      const payload = await response.json();
+      return payload.posts ?? [];
+    } catch (error) {
+      failures.push(`${new URL(endpoint).host}: ${error.message}`);
+    }
+  }
+  throw new Error(`Bluesky検索に失敗しました: ${failures.join(" / ")}`);
+};
+
+const fallbackFeed = async (actor) => {
+  const url = new URL("https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed");
+  url.search = new URLSearchParams({ actor, limit: "10" }).toString();
   const response = await fetch(url, { headers: { Accept: "application/json" } });
-  if (!response.ok) throw new Error(`Bluesky検索に失敗しました: ${response.status} ${response.statusText}`);
+  if (!response.ok) throw new Error(`${actor}: ${response.status} ${response.statusText}`);
   const payload = await response.json();
-  return payload.posts ?? [];
+  return (payload.feed ?? []).map((item) => item.post).filter(Boolean);
 };
 
 const queryResults = await Promise.allSettled(queries.map(search));
 const failedQueries = queryResults.flatMap((result, index) => result.status === "rejected" ? [queries[index]] : []);
-const allPosts = queryResults.flatMap((result) => result.status === "fulfilled" ? result.value : []);
-if (!allPosts.length) throw new Error(`Bluesky検索結果を取得できませんでした: ${failedQueries.join(", ")}`);
+let allPosts = queryResults.flatMap((result) => result.status === "fulfilled" ? result.value : []);
+let source = endpoints.join(",");
+let fallbackFailedAuthors = [];
+if (!allPosts.length) {
+  const fallbackResults = await Promise.allSettled(fallbackAuthors.map(fallbackFeed));
+  fallbackFailedAuthors = fallbackResults.flatMap((result, index) => result.status === "rejected" ? [fallbackAuthors[index]] : []);
+  allPosts = fallbackResults.flatMap((result) => result.status === "fulfilled" ? result.value : []);
+  source = "https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed";
+}
+if (!allPosts.length) throw new Error(`Bluesky候補を取得できませんでした: 検索=${failedQueries.join(", ")} / フォールバック=${fallbackFailedAuthors.join(", ")}`);
 const seen = new Set();
 const candidates = [];
 for (const post of allPosts) {
@@ -49,12 +86,13 @@ for (const post of allPosts) {
 
 const result = {
   checkedAt: new Date().toISOString(),
-  source: "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts",
+  source,
   queries,
   failedQueries,
+  fallbackFailedAuthors,
   candidates: candidates.slice(0, 20),
   excluded: allPosts.length - candidates.length,
-  note: "候補はリポスト・フォロー実行前に、公開状態、未フォロー状態、明確なスパム兆候がないことを確認する。テーマは周辺でも可。"
+  note: "検索API失敗時は確認済み個人アカウントの最新フィードを使う。候補はリポスト・フォロー実行前に、公開状態、未フォロー状態、明確なスパム兆候がないことを確認する。テーマは周辺でも可。"
 };
 
 await mkdir(resolve(root, "config"), { recursive: true });

@@ -9,6 +9,7 @@ const planPath = planFlagIndex >= 0
 const dryRun = args.has("--dry-run");
 const verifySession = args.has("--verify-session");
 const articleIntro = args.has("--article-intro");
+const engagementOnly = args.has("--engagement-only");
 const root = process.cwd();
 const forbiddenUrl = /(?:https?:\/\/|www\.|amzn\.to|amazon\.[a-z.]+|tag=)/iu;
 const gearlineSiteUrl = /https:\/\/gearline-lab\.github\.io\/[a-z0-9-]+\.html(?:\?[^\s]+)?/giu;
@@ -37,24 +38,25 @@ const fail = (message) => {
 
 const readPlan = async () => JSON.parse(await readFile(resolve(root, planPath), "utf8"));
 
-const assertPlan = (plan, { articleIntro = false } = {}) => {
+const assertPlan = (plan, { articleIntro = false, engagementOnly = false } = {}) => {
   if (!plan || typeof plan !== "object") fail("JSONオブジェクトが必要です。");
-  if (!plan.post || typeof plan.post.text !== "string") fail("post.text が必要です。");
-  const text = plan.post.text.trim();
-  if (!text) fail("投稿本文が空です。");
-  if ([...text].length > 300) fail("投稿は300文字以内にしてください。");
-  const hashtags = buildHashtagFacets(text);
-  if (hashtags.length < 1 || hashtags.length > 2) fail("検索用のテーマハッシュタグを1〜2件付けてください。");
-  if (/(?:^|\s)#GearlineLab(?:\s|$)/u.test(text)) fail("#GearlineLab ではなく、テーマに合う検索用ハッシュタグを使ってください。");
-  const hasForbiddenUrl = forbiddenUrl.test(text);
-  const siteUrls = [...text.matchAll(gearlineSiteUrl)];
-  if (articleIntro) {
-    const allUrls = [...text.matchAll(/https?:\/\/[^\s]+/gu)];
-    if (allUrls.length !== 1 || siteUrls.length !== 1 || /(?:amazon|amzn\.to|tag=)/iu.test(text)) {
-      fail("記事紹介投稿にはGearline Labの記事URLを1件だけ含められます。");
+  const text = plan.post?.text?.trim() ?? "";
+  if (!engagementOnly) {
+    if (!text) fail("post.text が必要です。");
+    if ([...text].length > 300) fail("投稿は300文字以内にしてください。");
+    const hashtags = buildHashtagFacets(text);
+    if (hashtags.length < 1 || hashtags.length > 2) fail("検索用のテーマハッシュタグを1〜2件付けてください。");
+    if (/(?:^|\s)#GearlineLab(?:\s|$)/u.test(text)) fail("#GearlineLab ではなく、テーマに合う検索用ハッシュタグを使ってください。");
+    const hasForbiddenUrl = forbiddenUrl.test(text);
+    const siteUrls = [...text.matchAll(gearlineSiteUrl)];
+    if (articleIntro) {
+      const allUrls = [...text.matchAll(/https?:\/\/[^\s]+/gu)];
+      if (allUrls.length !== 1 || siteUrls.length !== 1 || /(?:amazon|amzn\.to|tag=)/iu.test(text)) {
+        fail("記事紹介投稿にはGearline Labの記事URLを1件だけ含められます。");
+      }
+    } else if (hasForbiddenUrl) {
+      fail("日次投稿にURL・アフィリエイトリンクは含められません。");
     }
-  } else if (hasForbiddenUrl) {
-    fail("日次投稿にURL・アフィリエイトリンクは含められません。");
   }
   if (Array.isArray(plan.reposts) && plan.reposts.length > 3) fail("リポストは最大3件です。");
   if (Array.isArray(plan.follows) && plan.follows.length > 3) fail("フォローは最大3件です。");
@@ -64,7 +66,7 @@ const assertPlan = (plan, { articleIntro = false } = {}) => {
   for (const follow of plan.follows ?? []) {
     if (!follow?.did?.startsWith("did:")) fail("フォローには DID が必要です。");
   }
-  return { ...plan, post: { text }, reposts: plan.reposts ?? [], follows: plan.follows ?? [] };
+  return { ...plan, post: text ? { text } : null, reposts: plan.reposts ?? [], follows: plan.follows ?? [] };
 };
 
 const api = async (service, path, options = {}) => {
@@ -98,8 +100,8 @@ const hasDuplicateRecentPost = async (service, accessJwt, actor, text) => {
 if (verifySession && dryRun) fail("--verify-session と --dry-run は同時に指定できません。");
 
 if (dryRun) {
-  const plan = assertPlan(await readPlan(), { articleIntro });
-  console.log(JSON.stringify({ valid: true, postCharacters: [...plan.post.text].length, hashtags: buildHashtagFacets(plan.post.text).length, links: buildLinkFacets(plan.post.text).length, reposts: plan.reposts.length, follows: plan.follows.length }));
+  const plan = assertPlan(await readPlan(), { articleIntro, engagementOnly });
+  console.log(JSON.stringify({ valid: true, postCharacters: [...(plan.post?.text ?? "")].length, hashtags: buildHashtagFacets(plan.post?.text ?? "").length, links: buildLinkFacets(plan.post?.text ?? "").length, reposts: plan.reposts.length, follows: plan.follows.length }));
   process.exit(0);
 }
 
@@ -120,15 +122,15 @@ if (verifySession) {
   process.exit(0);
 }
 
-const plan = assertPlan(await readPlan(), { articleIntro });
+const plan = assertPlan(await readPlan(), { articleIntro, engagementOnly });
 
-if (await hasDuplicateRecentPost(service, session.accessJwt, session.did, plan.post.text)) {
+if (plan.post && await hasDuplicateRecentPost(service, session.accessJwt, session.did, plan.post.text)) {
   fail("直近14日以内に同じ本文の投稿があります。実行を中止しました。");
 }
 
 const now = new Date().toISOString();
-const results = {};
-results.post = await createRecord(service, session.accessJwt, session.did, "app.bsky.feed.post", {
+const results = { post: null };
+if (plan.post) results.post = await createRecord(service, session.accessJwt, session.did, "app.bsky.feed.post", {
   $type: "app.bsky.feed.post",
   text: plan.post.text,
   facets: [...buildHashtagFacets(plan.post.text), ...buildLinkFacets(plan.post.text)],
@@ -154,7 +156,7 @@ for (const follow of plan.follows) {
 }
 
 console.log(JSON.stringify({
-  posted: results.post.uri,
+  posted: results.post?.uri ?? null,
   reposted: results.reposts.length,
   followed: results.follows.length
 }));
