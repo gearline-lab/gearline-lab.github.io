@@ -1,0 +1,14 @@
+{
+  "dailyArticleCompletion": "new-canonical-url-only",
+  "requirements": [
+    "A new site-root HTML URL that does not already exist on origin/main",
+    "publicationType must be new",
+    "datePublished must match the JST execution date",
+    "Primary-source, Creator API, article QA, thumbnail, product cards, and public-page verification"
+  ],
+  "nonQualifyingWork": [
+    "Updating an existing article",
+    "Refreshing Amazon product cards",
+    "Changing metadata, images, or layout on an existing URL"
+  ]
+}

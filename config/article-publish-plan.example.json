@@ -1,4 +1,5 @@
 {
+  "publicationType": "new",
   "articleFile": "example-product.html",
   "product": {
     "asin": "B000000000",

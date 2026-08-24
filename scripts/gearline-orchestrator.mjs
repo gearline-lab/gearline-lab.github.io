@@ -45,6 +45,7 @@ const assertRepositoryPath = (path) => {
 };
 const assertArticlePlan = (plan) => {
   if (!plan || typeof plan !== "object") throw new Error("記事プランはJSONオブジェクトである必要があります。");
+  if (plan.publicationType !== "new") throw new Error("日次記事は publicationType: new の新規記事に限定します。既存記事の更新は日次公開として扱えません。");
   if (typeof plan.articleFile !== "string" || !plan.articleFile.endsWith(".html")) throw new Error("articleFile が必要です。");
   if (!/^[a-z0-9-]+\.html$/u.test(plan.articleFile)) throw new Error("articleFile はサイト直下のslug.htmlに限定します。");
   if (!plan.product || !/^[A-Z0-9]{10}$/u.test(plan.product.asin ?? "")) throw new Error("product.asin が必要です。");
@@ -62,6 +63,20 @@ const assertArticlePlan = (plan) => {
   const files = [...new Set([plan.articleFile, "index.html", "config/amazon-products.json", ...(plan.publishFiles ?? [])])];
   for (const file of files) assertRepositoryPath(file);
   return { ...plan, files, url };
+};
+
+const assertNewDailyArticle = async (plan) => {
+  try {
+    await run("git", ["cat-file", "-e", `origin/main:${plan.articleFile}`]);
+    throw new Error(`日次記事は新規URLである必要があります。既存記事は公開できません: ${plan.articleFile}`);
+  } catch (error) {
+    if (String(error.message).includes("日次記事は新規URL")) throw error;
+  }
+  const html = await readFile(assertRepositoryPath(plan.articleFile), "utf8");
+  const publishedOn = new RegExp(`datePublished[\\s\\S]{0,80}${dateJst}`, "u");
+  if (!publishedOn.test(html)) {
+    throw new Error(`新規記事には当日の日付を datePublished として設定してください: ${dateJst}`);
+  }
 };
 
 const result = {
@@ -83,6 +98,8 @@ if (await exists(paths.dailyPlan)) {
 
 if (await exists(paths.articlePlan)) {
   const plan = assertArticlePlan(await readJson(paths.articlePlan));
+  if (execute) await run("git", ["fetch", "origin", "main"]);
+  await assertNewDailyArticle(plan);
   await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile, "--pre-creator"]);
   result.article = execute ? "qa-passed-awaiting-publish" : "qa-passed";
   if (execute) {
@@ -90,7 +107,6 @@ if (await exists(paths.articlePlan)) {
     const branch = `agent/publish-${slug}-${dateJst.replaceAll("-", "")}-${Date.now().toString(36)}`;
     const changed = await run("git", ["status", "--porcelain", "--", ...plan.files]);
     if (!changed) throw new Error("記事公開対象に未コミット変更がありません。");
-    await run("git", ["fetch", "origin", "main"]);
     await run("git", ["checkout", "main"]);
     await run("git", ["merge", "--ff-only", "origin/main"]);
     await run("git", ["checkout", "-b", branch]);

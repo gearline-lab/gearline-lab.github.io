@@ -43,8 +43,10 @@ if (await exists(planPath)) {
   result.daily = "waiting-for-validated-plan";
 }
 
-// A product article is evaluated every day. The heartbeat still has to create
-// a research-backed plan and pass article QA before it can be published.
+// A product article is evaluated every day. Completion requires a new canonical
+// URL; revisions of existing articles are tracked separately and never count as
+// the daily article. The heartbeat still has to create a research-backed plan
+// and pass article QA before it can be published.
 const articlePlanPath = resolve(root, "config/article-publish-plan.json");
 result.article = await exists(articlePlanPath)
   ? "waiting-for-heartbeat-publication-qa"
