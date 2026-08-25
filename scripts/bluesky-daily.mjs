@@ -51,7 +51,7 @@ const assertPlan = (plan, { articleIntro = false, engagementOnly = false } = {})
     const siteUrls = [...text.matchAll(gearlineSiteUrl)];
     if (articleIntro) {
       const allUrls = [...text.matchAll(/https?:\/\/[^\s]+/gu)];
-      if (allUrls.length !== 1 || siteUrls.length !== 1 || /(?:amazon|amzn\.to|tag=)/iu.test(text)) {
+      if (allUrls.length !== 1 || siteUrls.length !== 1 || /(?:amazon\.(?:co\.jp|com)|amzn\.to|tag=)/iu.test(text)) {
         fail("記事紹介投稿にはGearline Labの記事URLを1件だけ含められます。");
       }
     } else if (hasForbiddenUrl) {
