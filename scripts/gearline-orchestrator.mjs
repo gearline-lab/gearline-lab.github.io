@@ -79,7 +79,7 @@ const assertArticlePlan = (plan) => {
   if (!plan.introPost.text.includes(url)) throw new Error("記事紹介投稿に公開URLがありません。");
   const siteUrls = plan.introPost.text.match(/https:\/\/gearline-lab\.github\.io\/[^\s]+/gu) ?? [];
   if (siteUrls.length !== 1 || siteUrls[0] !== url) throw new Error("記事紹介投稿には対象記事のURLを1件だけ入れてください。");
-  if (/(?:amazon|amzn\.to|tag=|価格|在庫)/iu.test(plan.introPost.text)) throw new Error("記事紹介投稿にAmazonリンク・価格・在庫は含められません。");
+  if (/(?:amazon\.(?:co\.jp|com)|amzn\.to|tag=|価格|在庫)/iu.test(plan.introPost.text)) throw new Error("記事紹介投稿にAmazonリンク・価格・在庫は含められません。");
   const trackedUrl = new URL(url);
   trackedUrl.searchParams.set("utm_source", "bluesky");
   trackedUrl.searchParams.set("utm_medium", "social");
