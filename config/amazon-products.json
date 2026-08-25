@@ -4,7 +4,7 @@
   "products": [
     {
       "asin": "B0FDQK9T7D",
-      "files": ["logicool-k250-bluetooth-keyboard.html"],
+      "files": ["logicool-k250-bluetooth-keyboard.html", "amazon-smile-sale-desk-gear-2026.html"],
       "fallback": {
         "title": "ロジクール K250 Bluetooth ワイヤレスキーボード",
         "url": "https://www.amazon.co.jp/dp/B0FDQK9T7D?tag=gearlineweb-22"
@@ -12,7 +12,7 @@
     },
     {
       "asin": "B0DKTPLRZ6",
-      "files": ["logicool-m196-bluetooth-mouse.html"],
+      "files": ["logicool-m196-bluetooth-mouse.html", "amazon-smile-sale-desk-gear-2026.html"],
       "fallback": {
         "title": "ロジクール M196 Bluetoothマウス",
         "url": "https://www.amazon.co.jp/dp/B0DKTPLRZ6?tag=gearlineweb-22"
@@ -20,7 +20,7 @@
     },
     {
       "asin": "B0D1XLNWP2",
-      "files": ["ugreen-revodok-6in1.html"],
+      "files": ["ugreen-revodok-6in1.html", "amazon-smile-sale-desk-gear-2026.html"],
       "fallback": {
         "title": "UGREEN Revodok USB-C ハブ 6-in-1",
         "url": "https://amzn.to/4wclWKm"
@@ -28,7 +28,7 @@
     },
     {
       "asin": "B0CRYJBKQQ",
-      "files": ["bambu-lab-a1-mini.html"],
+      "files": ["bambu-lab-a1-mini.html", "amazon-smile-sale-desk-gear-2026.html"],
       "fallback": {
         "title": "Bambu Lab A1 mini 3Dプリンター",
         "url": "https://www.amazon.co.jp/dp/B0CRYJBKQQ?tag=gearlineweb-22"
@@ -44,7 +44,7 @@
     },
     {
       "asin": "B0BQMSXFP7",
-      "files": ["anker-332-usb-c-hub.html"],
+      "files": ["anker-332-usb-c-hub.html", "amazon-smile-sale-desk-gear-2026.html"],
       "fallback": {
         "title": "Anker 332 USB-C Hub (5-in-1)",
         "url": "https://www.amazon.co.jp/dp/B0BQMSXFP7?tag=gearlineweb-22"
