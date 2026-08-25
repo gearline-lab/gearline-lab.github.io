@@ -85,7 +85,7 @@ const assertArticlePlan = (plan) => {
   trackedUrl.searchParams.set("utm_medium", "social");
   trackedUrl.searchParams.set("utm_campaign", "article_intro");
   const introPost = { ...plan.introPost, text: plan.introPost.text.replace(url, trackedUrl.toString()) };
-  const files = [...new Set([plan.articleFile, "index.html", "config/amazon-products.json", ...(plan.publishFiles ?? [])])];
+  const files = [...new Set([plan.articleFile, "index.html", "sitemap.xml", "config/amazon-products.json", ...(plan.publishFiles ?? [])])];
   for (const file of files) assertRepositoryPath(file);
   return { ...plan, introPost, files, url };
 };
@@ -102,6 +102,19 @@ const assertNewDailyArticle = async (plan) => {
   if (!publishedOn.test(html)) {
     throw new Error(`新規記事には当日の日付を datePublished として設定してください: ${dateJst}`);
   }
+};
+
+const registerArticleInSitemap = async (plan) => {
+  const sitemapPath = assertRepositoryPath("sitemap.xml");
+  const url = plan.url;
+  const entry = `  <url><loc>${url}</loc><lastmod>${dateJst}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>`;
+  let sitemap = await readFile(sitemapPath, "utf8");
+  const existing = new RegExp(`<url><loc>${url.replaceAll(".", "\\.")}</loc>[\\s\\S]*?</url>`, "u");
+  sitemap = existing.test(sitemap)
+    ? sitemap.replace(existing, entry)
+    : sitemap.replace("</urlset>", `${entry}\n</urlset>`);
+  if (!sitemap.includes(`<loc>${url}</loc>`)) throw new Error(`sitemap.xml に記事URLを登録できませんでした: ${url}`);
+  await writeFile(sitemapPath, sitemap);
 };
 
 const result = {
@@ -128,6 +141,7 @@ if (await exists(paths.articlePlan)) {
   await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile, "--pre-creator"]);
   result.article = execute ? "qa-passed-awaiting-publish" : "qa-passed";
   if (execute) {
+    await registerArticleInSitemap(plan);
     const slug = plan.articleFile.replace(/\.html$/u, "");
     const branch = `agent/publish-${slug}-${dateJst.replaceAll("-", "")}-${Date.now().toString(36)}`;
     const changed = await run("git", ["status", "--porcelain", "--", ...plan.files]);
