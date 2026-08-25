@@ -104,6 +104,15 @@ const assertNewDailyArticle = async (plan) => {
   }
 };
 
+const articleExistsOnOrigin = async (articleFile) => {
+  try {
+    await run("git", ["cat-file", "-e", `origin/main:${articleFile}`]);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 const registerArticleInSitemap = async (plan) => {
   const sitemapPath = assertRepositoryPath("sitemap.xml");
   const url = plan.url;
@@ -137,10 +146,17 @@ if (await exists(paths.dailyPlan)) {
 if (await exists(paths.articlePlan)) {
   const plan = assertArticlePlan(await readJson(paths.articlePlan));
   if (execute) await run("git", ["fetch", "origin", "main"]);
-  await assertNewDailyArticle(plan);
-  await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile, "--pre-creator"]);
-  result.article = execute ? "qa-passed-awaiting-publish" : "qa-passed";
-  if (execute) {
+  // A completed publish can leave its local, ignored plan behind if an
+  // earlier run stopped after pushing. It must not block all later daily and
+  // Monday work; only discard it after confirming the exact URL is on main.
+  if (await articleExistsOnOrigin(plan.articleFile)) {
+    if (execute) await rm(paths.articlePlan, { force: true });
+    result.article = execute ? "stale-published-plan-cleared" : "stale-published-plan";
+  } else {
+    await assertNewDailyArticle(plan);
+    await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile, "--pre-creator"]);
+    result.article = execute ? "qa-passed-awaiting-publish" : "qa-passed";
+    if (execute) {
     await registerArticleInSitemap(plan);
     const slug = plan.articleFile.replace(/\.html$/u, "");
     const branch = `agent/publish-${slug}-${dateJst.replaceAll("-", "")}-${Date.now().toString(36)}`;
@@ -166,16 +182,22 @@ if (await exists(paths.articlePlan)) {
     const intro = JSON.parse(await run("zsh", ["scripts/run-bluesky-daily-with-keychain.sh", "--article-intro", "--plan", "config/article-intro-plan.json"]));
     await rm(paths.articleIntroPlan, { force: true });
     await rm(paths.articlePlan, { force: true });
-    result.article = { published: plan.url, introPost: intro.posted };
+      result.article = { published: plan.url, introPost: intro.posted };
+    }
   }
 }
 
 if (weekday === "Mon") {
   result.weeklyReport = "waiting-for-official-amazon-report-input";
   if (await exists(paths.reportInput)) {
-    result.weeklyReport = JSON.parse(await run("node", ["scripts/gearline-weekly-report.mjs", "config/weekly-report-input.json"]));
+    const report = JSON.parse(await run("node", ["scripts/gearline-weekly-report.mjs", "config/weekly-report-input.json"]));
+    const growth = JSON.parse(await run("node", ["scripts/gearline-growth-review.mjs", "config/weekly-report-input.json"]));
+    result.weeklyReport = { report, growth };
   } else if (execute) {
-    result.weeklyReport = JSON.parse(await run("node", ["scripts/gearline-weekly-report.mjs", "--zero", `--period=${priorWeekPeriod()}`]));
+    const period = priorWeekPeriod();
+    const report = JSON.parse(await run("node", ["scripts/gearline-weekly-report.mjs", "--zero", `--period=${period}`]));
+    const growth = JSON.parse(await run("node", ["scripts/gearline-growth-review.mjs", "--zero", `--period=${period}`]));
+    result.weeklyReport = { report, growth };
   }
 }
 

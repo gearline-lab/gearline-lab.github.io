@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "cadence": "weekly",
+  "onePrimaryChangePerWeek": true,
+  "principle": "確認済みの公式値または公開プロフィール値だけで判定し、未取得の指標はゼロと推測しない。毎週変更するのは主因に対する1項目だけにする。",
+  "rules": [
+    {
+      "id": "search-demand-cluster",
+      "priority": 1,
+      "when": "searchConsole.impressions === 0",
+      "change": "翌週の記事候補を、話題性・互換性・比較・悩み解決の検索需要シグナルを持つ検索語クラスターへ寄せる。",
+      "expectedMetric": "Search Console の表示回数",
+      "verification": "翌週の新規URL数と、公開7日後の検索表示回数を確認する。"
+    },
+    {
+      "id": "search-snippet-match",
+      "priority": 2,
+      "when": "searchConsole.impressions >= 20 && searchConsole.ctr < 1",
+      "change": "表示されている検索語と記事タイトル・description・導入の結論を一致させる。",
+      "expectedMetric": "Search Console のCTR",
+      "verification": "同じURL群の次週CTRを前週と比較する。"
+    },
+    {
+      "id": "social-practical-angle",
+      "priority": 3,
+      "when": "bluesky.standalonePosts >= 5 && bluesky.followerDelta <= 0 && bluesky.interactions === 0",
+      "change": "SNSの独自投稿を、一般論ではなく失敗回避または条件分岐を一つに絞った実用型へ寄せる。",
+      "expectedMetric": "純増フォロワーと公開反応",
+      "verification": "翌週の公開プロフィール差分と各投稿の公開反応を確認する。"
+    },
+    {
+      "id": "affiliate-card-cta",
+      "priority": 4,
+      "when": "ga4.sessions > 0 && ga4.affiliateCardViews > 0 && ga4.affiliateClicks === 0",
+      "change": "新規記事の導入直後に、向く条件・見送る条件の直後へ商品カードを置き、行動の判断理由を明示する。",
+      "expectedMetric": "GA4 のAmazonアフィリエイトクリック",
+      "verification": "翌週、カード表示に対するクリック率を記事別に比較する。"
+    },
+    {
+      "id": "product-fit-qualifier",
+      "priority": 5,
+      "when": "amazon.clicks >= 5 && amazon.orders === 0",
+      "change": "商品選定で『買わない条件』と代替案を先に明記し、購入意図が具体的な検索語を優先する。",
+      "expectedMetric": "Amazonアソシエイトの注文数とCVR",
+      "verification": "翌週、クリック5件以上の記事群のCVRを比較する。"
+    }
+  ],
+  "default": {
+    "id": "daily-search-intent-baseline",
+    "change": "新規記事を毎日1本、具体的な購入前検索語・一次情報・比較軸を満たす形で公開する。",
+    "expectedMetric": "新規URL数と検索表示回数",
+    "verification": "翌週、公開数とSearch Consoleの表示回数を確認する。"
+  }
+}

@@ -6,6 +6,8 @@ const inputPath = resolve(root, process.argv[2] ?? "config/amazon-candidates.jso
 const outputPath = resolve(root, process.argv[3] ?? "config/amazon-candidate-results.json");
 const input = JSON.parse(await readFile(inputPath, "utf8"));
 const searchPolicy = JSON.parse(await readFile(resolve(root, "config/search-intent-policy.json"), "utf8"));
+let growthPlan = null;
+try { growthPlan = JSON.parse(await readFile(resolve(root, "config/next-week-growth-plan.json"), "utf8")); } catch { /* first weekly review has not run yet */ }
 const dailyPolicy = searchPolicy.dailyArticle ?? {};
 const allowedSignals = new Set(dailyPolicy.candidateDemandSignals ?? []);
 const minimumOpportunityScore = Number(dailyPolicy.minimumSearchOpportunityScore ?? 0);
@@ -98,7 +100,25 @@ for (const candidate of input.candidates ?? []) {
     candidates
   });
 }
-const selectedCandidate = results.find((result) => result.status === "resolved")?.item ?? null;
-await writeFile(outputPath, `${JSON.stringify({ checkedAt: new Date().toISOString(), marketplace: input.marketplace ?? "www.amazon.co.jp", selectedCandidate, results }, null, 2)}\n`);
+// Weekly optimisation may change the ranking, never the API safety checks or
+// the minimum SEO gate. This keeps daily publication moving while giving the
+// next article the strongest verified search opportunity first.
+const resolved = results.filter((result) => result.status === "resolved");
+const ranking = [...resolved].sort((a, b) => Number(b.searchOpportunityScore ?? 0) - Number(a.searchOpportunityScore ?? 0));
+const selected = ranking[0] ?? null;
+const selectedCandidate = selected?.item ?? null;
+await writeFile(outputPath, `${JSON.stringify({
+  checkedAt: new Date().toISOString(),
+  marketplace: input.marketplace ?? "www.amazon.co.jp",
+  growthDirective: growthPlan?.selectedChange ?? null,
+  selectedCandidate,
+  selectedCandidateContext: selected ? {
+    id: selected.id,
+    searchIntent: selected.searchIntent,
+    searchDemand: selected.searchDemand,
+    searchOpportunityScore: selected.searchOpportunityScore
+  } : null,
+  results
+}, null, 2)}\n`);
 if (results.some((result) => result.status !== "resolved")) process.exitCode = 2;
 console.log(JSON.stringify({ outputPath, results }));

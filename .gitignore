@@ -7,6 +7,7 @@ config/bluesky-daily-candidates.json
 config/article-publish-plan.json
 config/article-intro-plan.json
 config/weekly-report-input.json
+config/next-week-growth-plan.json
 data/bluesky-execution-log.jsonl
 data/bluesky-weekly-snapshots.json
 reports/
