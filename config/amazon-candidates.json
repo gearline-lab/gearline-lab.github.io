@@ -22,8 +22,8 @@
     {
       "id": "bambu-lab-p2s",
       "keywords": "Bambu Lab P2S 3Dプリンター",
-      "requiredTerms": ["Bambu Lab", "P2S"],
-      "excludedTerms": ["P1S", "A1", "A1 mini", "H2D"],
+      "requiredTerms": ["Bambu Lab", "P2S", "256×256×256"],
+      "excludedTerms": ["Combo", "AMS", "P1S", "A1", "A1 mini", "H2D", "ノズル"],
       "searchIntent": {
         "primaryQuery": "Bambu Lab P2S 3Dプリンター 仕様 設置条件 比較",
         "readerSituation": "A1 miniなどの小型機から、密閉型・高温材料対応の機種へ移行を検討している利用者",
