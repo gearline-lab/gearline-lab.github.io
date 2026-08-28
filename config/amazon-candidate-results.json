@@ -1,11 +1,29 @@
 {
-  "checkedAt": "2026-08-24T14:40:38.654Z",
+  "checkedAt": "2026-08-28T04:55:19.550Z",
   "marketplace": "www.amazon.co.jp",
+  "growthDirective": null,
   "selectedCandidate": {
     "asin": "B0FDQK9T7D",
     "title": "ロジクール Bluetooth ワイヤレスキーボード K250GR キーボード テンキー コンパクト 日本語配列 耐水 無線 ワイヤレス K250 Windows Mac Chrome グラファイト 国内正規品",
     "detailPageURL": "https://www.amazon.co.jp/dp/B0FDQK9T7D?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
     "imageURL": "https://m.media-amazon.com/images/I/41NzS62Rf5L._SL500_.jpg"
+  },
+  "selectedCandidateContext": {
+    "id": "logicool-k250",
+    "searchIntent": {
+      "primaryQuery": "Bluetooth テンキー キーボード Mac USBポート",
+      "readerSituation": "テンキーを残しつつ、MacBookのUSBポートをレシーバーで塞ぎたくない利用者",
+      "decisionToMake": "Bluetooth接続・テンキー・設置幅・電池式が自分の作業に合うか判断する",
+      "comparisonAxis": "数値入力の頻度とマウスまでの距離、USBポートの優先順位"
+    },
+    "searchDemand": {
+      "signals": [
+        "comparison-query",
+        "problem-query"
+      ],
+      "evidence": "Bluetooth・テンキー・Mac・USBポートという複数条件を含む比較/悩み解決型の検索意図。"
+    },
+    "searchOpportunityScore": 76
   },
   "results": [
     {
@@ -39,6 +57,54 @@
           "title": "ロジクール Bluetooth ワイヤレスキーボード K250GR キーボード テンキー コンパクト 日本語配列 耐水 無線 ワイヤレス K250 Windows Mac Chrome グラファイト 国内正規品",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0FDQK9T7D?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/41NzS62Rf5L._SL500_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "bambu-lab-p2s",
+      "query": "Bambu Lab P2S 3Dプリンター",
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab P2S 3Dプリンター 仕様 設置条件 比較",
+        "readerSituation": "A1 miniなどの小型機から、密閉型・高温材料対応の機種へ移行を検討している利用者",
+        "decisionToMake": "P2Sの造形サイズ、設置寸法、対応材料、AMS連携が自分の用途に必要か判断する",
+        "comparisonAxis": "小型オープン機との設置・材料・運用負担の差と、購入後に使い切れる機能か"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "specification-query",
+          "problem-query"
+        ],
+        "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
+      },
+      "searchOpportunityScore": 88,
+      "status": "ambiguous",
+      "item": null,
+      "matchCount": 4,
+      "candidates": [
+        {
+          "asin": "B0FT818HCH",
+          "title": "Bambu Lab P2S Combo 3Dプリンター AMS2 pro付き CoreXY 多色造形 自動調整 造形サイズ256×256×256mm³",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FT818HCH?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31DGs7R9XqL._SL500_.jpg"
+        },
+        {
+          "asin": "B0FT7ZLSSC",
+          "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
+        },
+        {
+          "asin": "B0GKGKXQ2L",
+          "title": "UniTak3D P2S / X2D 対応 0.6mm 高硬度鋼 ノズル 一体型 高温対応 ホットエンド Bambu Lab 用",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0GKGKXQ2L?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41frFfyUXvL._SL500_.jpg"
+        },
+        {
+          "asin": "B0GKG9Y9C6",
+          "title": "UniTak3D P2S / X2D 対応 0.2mm 高硬度鋼 ノズル 一体型 高温対応 ホットエンド Bambu Lab 用",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0GKG9Y9C6?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41pHAveiLeL._SL500_.jpg"
         }
       ]
     }
