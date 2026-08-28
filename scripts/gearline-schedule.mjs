@@ -22,6 +22,7 @@ const weekday = new Intl.DateTimeFormat("en-US", { weekday: "short", timeZone: "
 const dateJst = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tokyo" }).format(date);
 const planPath = resolve(root, "config/bluesky-daily-plan.json");
 const growthPlanPath = resolve(root, "config/next-week-growth-plan.json");
+const crossCheckPath = resolve(root, "reports", `cross-functional-check-${dateJst}.json`);
 
 const run = (command, commandArgs) => new Promise((resolveRun, rejectRun) => {
   const child = spawn(command, commandArgs, { cwd: root, stdio: ["ignore", "pipe", "pipe"] });
@@ -38,6 +39,9 @@ const growthPlan = await exists(growthPlanPath)
   ? JSON.parse(await readFile(growthPlanPath, "utf8")).selectedChange?.id ?? "available"
   : "waiting-for-first-weekly-review";
 const result = { date: dateJst, growthDirective: growthPlan, daily: "not-run", article: "not-due", weeklyReport: "not-due" };
+result.crossFunctional = await exists(crossCheckPath)
+  ? JSON.parse(await readFile(crossCheckPath, "utf8")).overall ? "passed" : "attention-needed"
+  : "not-run";
 
 // The Codex heartbeat researches and writes the local plan. This runner only
 // executes a validated plan; it never invents content or bypasses QA.
