@@ -18,6 +18,23 @@
         "evidence": "Bluetooth・テンキー・Mac・USBポートという複数条件を含む比較/悩み解決型の検索意図。"
       },
       "searchOpportunityScore": 76
+    },
+    {
+      "id": "bambu-lab-p2s",
+      "keywords": "Bambu Lab P2S 3Dプリンター",
+      "requiredTerms": ["Bambu Lab", "P2S"],
+      "excludedTerms": ["P1S", "A1", "A1 mini", "H2D"],
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab P2S 3Dプリンター 仕様 設置条件 比較",
+        "readerSituation": "A1 miniなどの小型機から、密閉型・高温材料対応の機種へ移行を検討している利用者",
+        "decisionToMake": "P2Sの造形サイズ、設置寸法、対応材料、AMS連携が自分の用途に必要か判断する",
+        "comparisonAxis": "小型オープン機との設置・材料・運用負担の差と、購入後に使い切れる機能か"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "specification-query", "problem-query"],
+        "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
+      },
+      "searchOpportunityScore": 88
     }
   ]
 }
