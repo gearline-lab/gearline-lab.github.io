@@ -40,7 +40,7 @@
       "id": "bambu-lab-h2s",
       "keywords": "Bambu Lab H2S 3Dプリンター",
       "requiredTerms": ["Bambu Lab", "H2S"],
-      "excludedTerms": ["Combo", "AMS", "H2D", "H2C", "レーザー", "ノズル"],
+      "excludedTerms": ["Combo", "AMS", "H2D", "H2C", "レーザー", "ノズル", "Hotend", "暖房", "ヒーター", "Assembly", "Parts", "組立", "Extruder"],
       "searchIntent": {
         "primaryQuery": "Bambu Lab H2S 3Dプリンター 設置サイズ 材料 比較",
         "readerSituation": "大型パーツや耐熱性を要する実用品を造形したく、密閉型の大型機を検討している利用者",
@@ -52,6 +52,23 @@
         "evidence": "Bambu Lab公式製品ページがH2Sの大型造形・高温対応・設置に関わる仕様を公開しており、機種比較と実用品造形の購入判断を求める検索意図に対応できる。"
       },
       "searchOpportunityScore": 91
+    },
+    {
+      "id": "bambu-lab-p1s",
+      "keywords": "Bambu Lab P1S 3Dプリンター",
+      "requiredTerms": ["Bambu Lab", "P1S", "3Dプリンター"],
+      "excludedTerms": ["Combo", "AMS", "Hotend", "ノズル", "フィラメント", "パーツ", "部品"],
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab P1S P2S 違い 3Dプリンター 比較",
+        "readerSituation": "密閉型3Dプリンターを検討しており、P1SとP2Sのどちらが用途と設置環境に合うか決めたい利用者",
+        "decisionToMake": "P1Sの密閉構造、造形サイズ、AMS連携と、P2Sへ予算を広げる必要性を判断する",
+        "comparisonAxis": "造形サイズ・材料対応・設置負担・将来の多色造形を、実際に作る物の大きさから比較する"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Bambu Lab公式P1Sページが密閉型・造形サイズ・AMS連携の仕様を公開しており、P2Sとの比較を必要とする購入検討者の条件分岐を作れる。"
+      },
+      "searchOpportunityScore": 87
     }
   ]
 }
