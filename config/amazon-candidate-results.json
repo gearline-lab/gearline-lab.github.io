@@ -1,30 +1,30 @@
 {
-  "checkedAt": "2026-08-29T11:31:42.590Z",
+  "checkedAt": "2026-08-29T11:34:16.174Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
-    "asin": "B0FT7ZLSSC",
-    "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
-    "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-    "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
+    "asin": "B0GFDMYSKN",
+    "title": "H2S Hotend 暖房組立キット Bambu Lab H2S 3Dプリンター用 H2S Hotend Assembly Extruder Parts クイックチェンジ ヒーターカートリッジとサーミスタ、ベースクリップ付き",
+    "detailPageURL": "https://www.amazon.co.jp/dp/B0GFDMYSKN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+    "imageURL": "https://m.media-amazon.com/images/I/313S8QsEvwL._SL500_.jpg"
   },
   "selectedCandidateContext": {
-    "id": "bambu-lab-p2s",
+    "id": "bambu-lab-h2s",
     "searchIntent": {
-      "primaryQuery": "Bambu Lab P2S 3Dプリンター 仕様 設置条件 比較",
-      "readerSituation": "A1 miniなどの小型機から、密閉型・高温材料対応の機種へ移行を検討している利用者",
-      "decisionToMake": "P2Sの造形サイズ、設置寸法、対応材料、AMS連携が自分の用途に必要か判断する",
-      "comparisonAxis": "小型オープン機との設置・材料・運用負担の差と、購入後に使い切れる機能か"
+      "primaryQuery": "Bambu Lab H2S 3Dプリンター 設置サイズ 材料 比較",
+      "readerSituation": "大型パーツや耐熱性を要する実用品を造形したく、密閉型の大型機を検討している利用者",
+      "decisionToMake": "H2Sの造形サイズ、設置スペース、加熱チャンバー、材料対応が自分の制作に必要か判断する",
+      "comparisonAxis": "大型造形と高温材料の必要性、設置・換気・運用負担を小型機と比較する"
     },
     "searchDemand": {
       "signals": [
+        "new-release",
         "comparison-query",
-        "specification-query",
         "problem-query"
       ],
-      "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
+      "evidence": "Bambu Lab公式製品ページがH2Sの大型造形・高温対応・設置に関わる仕様を公開しており、機種比較と実用品造形の購入判断を求める検索意図に対応できる。"
     },
-    "searchOpportunityScore": 88
+    "searchOpportunityScore": 91
   },
   "results": [
     {
@@ -93,6 +93,41 @@
           "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "bambu-lab-h2s",
+      "query": "Bambu Lab H2S 3Dプリンター",
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab H2S 3Dプリンター 設置サイズ 材料 比較",
+        "readerSituation": "大型パーツや耐熱性を要する実用品を造形したく、密閉型の大型機を検討している利用者",
+        "decisionToMake": "H2Sの造形サイズ、設置スペース、加熱チャンバー、材料対応が自分の制作に必要か判断する",
+        "comparisonAxis": "大型造形と高温材料の必要性、設置・換気・運用負担を小型機と比較する"
+      },
+      "searchDemand": {
+        "signals": [
+          "new-release",
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Bambu Lab公式製品ページがH2Sの大型造形・高温対応・設置に関わる仕様を公開しており、機種比較と実用品造形の購入判断を求める検索意図に対応できる。"
+      },
+      "searchOpportunityScore": 91,
+      "status": "resolved",
+      "item": {
+        "asin": "B0GFDMYSKN",
+        "title": "H2S Hotend 暖房組立キット Bambu Lab H2S 3Dプリンター用 H2S Hotend Assembly Extruder Parts クイックチェンジ ヒーターカートリッジとサーミスタ、ベースクリップ付き",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0GFDMYSKN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/313S8QsEvwL._SL500_.jpg"
+      },
+      "matchCount": 1,
+      "candidates": [
+        {
+          "asin": "B0GFDMYSKN",
+          "title": "H2S Hotend 暖房組立キット Bambu Lab H2S 3Dプリンター用 H2S Hotend Assembly Extruder Parts クイックチェンジ ヒーターカートリッジとサーミスタ、ベースクリップ付き",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0GFDMYSKN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/313S8QsEvwL._SL500_.jpg"
         }
       ]
     }
