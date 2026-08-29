@@ -1,30 +1,30 @@
 {
-  "checkedAt": "2026-08-29T11:34:16.174Z",
+  "checkedAt": "2026-08-29T11:35:11.939Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
-    "asin": "B0GFDMYSKN",
-    "title": "H2S Hotend 暖房組立キット Bambu Lab H2S 3Dプリンター用 H2S Hotend Assembly Extruder Parts クイックチェンジ ヒーターカートリッジとサーミスタ、ベースクリップ付き",
-    "detailPageURL": "https://www.amazon.co.jp/dp/B0GFDMYSKN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-    "imageURL": "https://m.media-amazon.com/images/I/313S8QsEvwL._SL500_.jpg"
+    "asin": "B0FT7ZLSSC",
+    "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
+    "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+    "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
   },
   "selectedCandidateContext": {
-    "id": "bambu-lab-h2s",
+    "id": "bambu-lab-p2s",
     "searchIntent": {
-      "primaryQuery": "Bambu Lab H2S 3Dプリンター 設置サイズ 材料 比較",
-      "readerSituation": "大型パーツや耐熱性を要する実用品を造形したく、密閉型の大型機を検討している利用者",
-      "decisionToMake": "H2Sの造形サイズ、設置スペース、加熱チャンバー、材料対応が自分の制作に必要か判断する",
-      "comparisonAxis": "大型造形と高温材料の必要性、設置・換気・運用負担を小型機と比較する"
+      "primaryQuery": "Bambu Lab P2S 3Dプリンター 仕様 設置条件 比較",
+      "readerSituation": "A1 miniなどの小型機から、密閉型・高温材料対応の機種へ移行を検討している利用者",
+      "decisionToMake": "P2Sの造形サイズ、設置寸法、対応材料、AMS連携が自分の用途に必要か判断する",
+      "comparisonAxis": "小型オープン機との設置・材料・運用負担の差と、購入後に使い切れる機能か"
     },
     "searchDemand": {
       "signals": [
-        "new-release",
         "comparison-query",
+        "specification-query",
         "problem-query"
       ],
-      "evidence": "Bambu Lab公式製品ページがH2Sの大型造形・高温対応・設置に関わる仕様を公開しており、機種比較と実用品造形の購入判断を求める検索意図に対応できる。"
+      "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
     },
-    "searchOpportunityScore": 91
+    "searchOpportunityScore": 88
   },
   "results": [
     {
@@ -114,20 +114,42 @@
         "evidence": "Bambu Lab公式製品ページがH2Sの大型造形・高温対応・設置に関わる仕様を公開しており、機種比較と実用品造形の購入判断を求める検索意図に対応できる。"
       },
       "searchOpportunityScore": 91,
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
+    },
+    {
+      "id": "bambu-lab-p1s",
+      "query": "Bambu Lab P1S 3Dプリンター",
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab P1S P2S 違い 3Dプリンター 比較",
+        "readerSituation": "密閉型3Dプリンターを検討しており、P1SとP2Sのどちらが用途と設置環境に合うか決めたい利用者",
+        "decisionToMake": "P1Sの密閉構造、造形サイズ、AMS連携と、P2Sへ予算を広げる必要性を判断する",
+        "comparisonAxis": "造形サイズ・材料対応・設置負担・将来の多色造形を、実際に作る物の大きさから比較する"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Bambu Lab公式P1Sページが密閉型・造形サイズ・AMS連携の仕様を公開しており、P2Sとの比較を必要とする購入検討者の条件分岐を作れる。"
+      },
+      "searchOpportunityScore": 87,
       "status": "resolved",
       "item": {
-        "asin": "B0GFDMYSKN",
-        "title": "H2S Hotend 暖房組立キット Bambu Lab H2S 3Dプリンター用 H2S Hotend Assembly Extruder Parts クイックチェンジ ヒーターカートリッジとサーミスタ、ベースクリップ付き",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0GFDMYSKN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/313S8QsEvwL._SL500_.jpg"
+        "asin": "B0FPFQ1D4X",
+        "title": "IdeaFormer IR3 両面 金色 PEI スムース PEI + テクスチャー PEI ビルドプレート 258x258mm for Bambu Lab A1/P1P/P1S/P2S/X1/X1C/X1E/X2D に適用 スプリングスチールプレート バンブーラボ用 加熱ベッド 3Dプリンタービルドプラットフォーム スムーズ ゴールデン PEI プレートfor Bambu 3Dプリンター",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0FPFQ1D4X?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/514rar+dDWL._SL500_.jpg"
       },
       "matchCount": 1,
       "candidates": [
         {
-          "asin": "B0GFDMYSKN",
-          "title": "H2S Hotend 暖房組立キット Bambu Lab H2S 3Dプリンター用 H2S Hotend Assembly Extruder Parts クイックチェンジ ヒーターカートリッジとサーミスタ、ベースクリップ付き",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0GFDMYSKN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/313S8QsEvwL._SL500_.jpg"
+          "asin": "B0FPFQ1D4X",
+          "title": "IdeaFormer IR3 両面 金色 PEI スムース PEI + テクスチャー PEI ビルドプレート 258x258mm for Bambu Lab A1/P1P/P1S/P2S/X1/X1C/X1E/X2D に適用 スプリングスチールプレート バンブーラボ用 加熱ベッド 3Dプリンタービルドプラットフォーム スムーズ ゴールデン PEI プレートfor Bambu 3Dプリンター",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FPFQ1D4X?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/514rar+dDWL._SL500_.jpg"
         }
       ]
     }
