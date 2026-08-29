@@ -12,6 +12,7 @@ const dailyPolicy = searchPolicy.dailyArticle ?? {};
 const allowedSignals = new Set(dailyPolicy.candidateDemandSignals ?? []);
 const minimumOpportunityScore = Number(dailyPolicy.minimumSearchOpportunityScore ?? 0);
 const clean = (value) => String(value ?? "").trim().replace(/^"|"$/g, "");
+const sleep = (milliseconds) => new Promise((resolveSleep) => setTimeout(resolveSleep, milliseconds));
 const clientId = clean(process.env.AMAZON_CREATOR_CREDENTIAL_ID);
 const clientSecret = clean(process.env.AMAZON_CREATOR_SECRET);
 const version = clean(process.env.AMAZON_CREATOR_VERSION);
@@ -57,16 +58,22 @@ for (const candidate of input.candidates ?? []) {
   if (!Number.isFinite(candidate.searchOpportunityScore) || candidate.searchOpportunityScore < minimumOpportunityScore || candidate.searchOpportunityScore > 100) {
     throw new Error(`候補 ${candidate.id} の検索機会スコアは ${minimumOpportunityScore}〜100 で設定してください。`);
   }
-  const response = await fetch("https://creatorsapi.amazon/catalog/v1/searchItems", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", "x-marketplace": input.marketplace ?? "www.amazon.co.jp" },
-    body: JSON.stringify({
-      keywords: candidate.keywords,
-      itemCount: 10,
-      partnerTag: input.partnerTag ?? "gearlineweb-22",
-      resources: ["itemInfo.title", "images.primary.large", "images.primary.medium", "offersV2.listings.isBuyBoxWinner"]
-    })
-  });
+  let response;
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    response = await fetch("https://creatorsapi.amazon/catalog/v1/searchItems", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", "x-marketplace": input.marketplace ?? "www.amazon.co.jp" },
+      body: JSON.stringify({
+        keywords: candidate.keywords,
+        itemCount: 10,
+        partnerTag: input.partnerTag ?? "gearlineweb-22",
+        resources: ["itemInfo.title", "images.primary.large", "images.primary.medium", "offersV2.listings.isBuyBoxWinner"]
+      })
+    });
+    if (response.ok || response.status !== 429 || attempt === 3) break;
+    const retryAfterSeconds = Number(response.headers.get("retry-after"));
+    await sleep(Number.isFinite(retryAfterSeconds) ? retryAfterSeconds * 1000 : 1_000 * (attempt + 1));
+  }
   if (!response.ok) throw new Error(`SearchItemsに失敗しました: ${response.status}`);
   const data = await response.json();
   const items = data.searchResult?.items ?? [];
