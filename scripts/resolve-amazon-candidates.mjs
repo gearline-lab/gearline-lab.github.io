@@ -77,11 +77,13 @@ for (const candidate of input.candidates ?? []) {
   if (!response.ok) throw new Error(`SearchItemsに失敗しました: ${response.status}`);
   const data = await response.json();
   const items = data.searchResult?.items ?? [];
+  const requiredTitlePrefix = normalize(candidate.requiredTitlePrefix ?? "");
   const matches = items.filter((item) => {
     const title = normalize(item.itemInfo?.title?.displayValue);
     const includesRequired = candidate.requiredTerms.every((term) => title.includes(normalize(term)));
     const includesExcluded = (candidate.excludedTerms ?? []).some((term) => title.includes(normalize(term)));
-    return includesRequired && !includesExcluded;
+    const hasRequiredPrefix = !requiredTitlePrefix || title.startsWith(requiredTitlePrefix);
+    return includesRequired && !includesExcluded && hasRequiredPrefix;
   });
   const purchasable = matches.filter((item) => item.detailPageURL && (item.images?.primary?.large?.url || item.images?.primary?.medium?.url));
   const candidates = purchasable.map((item) => ({
@@ -96,6 +98,7 @@ for (const candidate of input.candidates ?? []) {
     searchIntent: candidate.searchIntent,
     searchDemand: candidate.searchDemand,
     searchOpportunityScore: candidate.searchOpportunityScore,
+    publicationEligible: candidate.publicationEligible !== false,
     status: purchasable.length === 1 ? "resolved" : purchasable.length === 0 ? "not-found" : "ambiguous",
     item: purchasable.length === 1 ? {
       asin: purchasable[0].asin,
@@ -110,7 +113,7 @@ for (const candidate of input.candidates ?? []) {
 // Weekly optimisation may change the ranking, never the API safety checks or
 // the minimum SEO gate. This keeps daily publication moving while giving the
 // next article the strongest verified search opportunity first.
-const resolved = results.filter((result) => result.status === "resolved");
+const resolved = results.filter((result) => result.status === "resolved" && result.publicationEligible);
 const ranking = [...resolved].sort((a, b) => Number(b.searchOpportunityScore ?? 0) - Number(a.searchOpportunityScore ?? 0));
 const selected = ranking[0] ?? null;
 const selectedCandidate = selected?.item ?? null;

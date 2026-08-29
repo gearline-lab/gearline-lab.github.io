@@ -4,6 +4,7 @@
   "candidates": [
     {
       "id": "logicool-k250",
+      "publicationEligible": false,
       "keywords": "ロジクール K250GR Bluetooth キーボード",
       "requiredTerms": ["K250GR", "ロジクール"],
       "excludedTerms": ["K250GRd", "MK250", "Amazon.co.jp限定"],
@@ -21,6 +22,7 @@
     },
     {
       "id": "bambu-lab-p2s",
+      "publicationEligible": false,
       "keywords": "Bambu Lab P2S 3Dプリンター",
       "requiredTerms": ["Bambu Lab", "P2S", "256×256×256"],
       "excludedTerms": ["Combo", "AMS", "P1S", "A1", "A1 mini", "H2D", "ノズル"],
@@ -38,6 +40,7 @@
     },
     {
       "id": "bambu-lab-h2s",
+      "requiredTitlePrefix": "Bambu Lab H2S",
       "keywords": "Bambu Lab H2S 3Dプリンター",
       "requiredTerms": ["Bambu Lab", "H2S"],
       "excludedTerms": ["Combo", "AMS", "H2D", "H2C", "レーザー", "ノズル", "Hotend", "暖房", "ヒーター", "Assembly", "Parts", "組立", "Extruder"],
@@ -55,6 +58,7 @@
     },
     {
       "id": "bambu-lab-p1s",
+      "requiredTitlePrefix": "Bambu Lab P1S",
       "keywords": "Bambu Lab P1S 3Dプリンター",
       "requiredTerms": ["Bambu Lab", "P1S", "3Dプリンター"],
       "excludedTerms": ["Combo", "AMS", "Hotend", "ノズル", "フィラメント", "パーツ", "部品"],
@@ -69,6 +73,24 @@
         "evidence": "Bambu Lab公式P1Sページが密閉型・造形サイズ・AMS連携の仕様を公開しており、P2Sとの比較を必要とする購入検討者の条件分岐を作れる。"
       },
       "searchOpportunityScore": 87
+    },
+    {
+      "id": "anker-675-usb-c-docking-station",
+      "keywords": "Anker 675 USB-C ドッキングステーション 12-in-1",
+      "requiredTitlePrefix": "Anker 675",
+      "requiredTerms": ["Anker", "675", "USB-C", "ドッキングステーション"],
+      "excludedTerms": ["ケース", "スタンドのみ", "マニュアル", "交換", "対応"],
+      "searchIntent": {
+        "primaryQuery": "Anker 675 USB-C ドッキングステーション Mac モニタースタンド 設置",
+        "readerSituation": "モニター下の空間を使いながら、MacBookの充電・映像・周辺機器の接続を一箇所にまとめたい利用者",
+        "decisionToMake": "モニタースタンド一体型の設置寸法と、PC側のUSB-C対応条件が自分の机に合うか判断する",
+        "comparisonAxis": "机の奥行き、モニター重量、必要なポート、DisplayPort Alt Mode対応を個別ハブと比較する"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Anker公式製品ページがスタンド一体型の設置寸法、ポート構成、対応機種と接続条件を公開しており、デスク配線とモニター下収納を同時に見直したい購入前の判断に対応できる。"
+      },
+      "searchOpportunityScore": 86
     }
   ]
 }
