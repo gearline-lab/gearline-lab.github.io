@@ -1,30 +1,29 @@
 {
-  "checkedAt": "2026-08-29T11:35:11.939Z",
+  "checkedAt": "2026-08-29T11:36:49.686Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
-    "asin": "B0FT7ZLSSC",
-    "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
-    "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-    "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
+    "asin": "B0BP67HQ9W",
+    "title": "Anker 675 USB-C ドッキングステーション (12-in-1, Monitor Stand, Wireless)",
+    "detailPageURL": "https://www.amazon.co.jp/dp/B0BP67HQ9W?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+    "imageURL": "https://m.media-amazon.com/images/I/31HDj5jzPqL._SL500_.jpg"
   },
   "selectedCandidateContext": {
-    "id": "bambu-lab-p2s",
+    "id": "anker-675-usb-c-docking-station",
     "searchIntent": {
-      "primaryQuery": "Bambu Lab P2S 3Dプリンター 仕様 設置条件 比較",
-      "readerSituation": "A1 miniなどの小型機から、密閉型・高温材料対応の機種へ移行を検討している利用者",
-      "decisionToMake": "P2Sの造形サイズ、設置寸法、対応材料、AMS連携が自分の用途に必要か判断する",
-      "comparisonAxis": "小型オープン機との設置・材料・運用負担の差と、購入後に使い切れる機能か"
+      "primaryQuery": "Anker 675 USB-C ドッキングステーション Mac モニタースタンド 設置",
+      "readerSituation": "モニター下の空間を使いながら、MacBookの充電・映像・周辺機器の接続を一箇所にまとめたい利用者",
+      "decisionToMake": "モニタースタンド一体型の設置寸法と、PC側のUSB-C対応条件が自分の机に合うか判断する",
+      "comparisonAxis": "机の奥行き、モニター重量、必要なポート、DisplayPort Alt Mode対応を個別ハブと比較する"
     },
     "searchDemand": {
       "signals": [
         "comparison-query",
-        "specification-query",
         "problem-query"
       ],
-      "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
+      "evidence": "Anker公式製品ページがスタンド一体型の設置寸法、ポート構成、対応機種と接続条件を公開しており、デスク配線とモニター下収納を同時に見直したい購入前の判断に対応できる。"
     },
-    "searchOpportunityScore": 88
+    "searchOpportunityScore": 86
   },
   "results": [
     {
@@ -44,6 +43,7 @@
         "evidence": "Bluetooth・テンキー・Mac・USBポートという複数条件を含む比較/悩み解決型の検索意図。"
       },
       "searchOpportunityScore": 76,
+      "publicationEligible": false,
       "status": "resolved",
       "item": {
         "asin": "B0FDQK9T7D",
@@ -79,6 +79,7 @@
         "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
       },
       "searchOpportunityScore": 88,
+      "publicationEligible": false,
       "status": "resolved",
       "item": {
         "asin": "B0FT7ZLSSC",
@@ -114,6 +115,7 @@
         "evidence": "Bambu Lab公式製品ページがH2Sの大型造形・高温対応・設置に関わる仕様を公開しており、機種比較と実用品造形の購入判断を求める検索意図に対応できる。"
       },
       "searchOpportunityScore": 91,
+      "publicationEligible": true,
       "status": "not-found",
       "item": null,
       "matchCount": 0,
@@ -136,20 +138,44 @@
         "evidence": "Bambu Lab公式P1Sページが密閉型・造形サイズ・AMS連携の仕様を公開しており、P2Sとの比較を必要とする購入検討者の条件分岐を作れる。"
       },
       "searchOpportunityScore": 87,
+      "publicationEligible": true,
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
+    },
+    {
+      "id": "anker-675-usb-c-docking-station",
+      "query": "Anker 675 USB-C ドッキングステーション 12-in-1",
+      "searchIntent": {
+        "primaryQuery": "Anker 675 USB-C ドッキングステーション Mac モニタースタンド 設置",
+        "readerSituation": "モニター下の空間を使いながら、MacBookの充電・映像・周辺機器の接続を一箇所にまとめたい利用者",
+        "decisionToMake": "モニタースタンド一体型の設置寸法と、PC側のUSB-C対応条件が自分の机に合うか判断する",
+        "comparisonAxis": "机の奥行き、モニター重量、必要なポート、DisplayPort Alt Mode対応を個別ハブと比較する"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Anker公式製品ページがスタンド一体型の設置寸法、ポート構成、対応機種と接続条件を公開しており、デスク配線とモニター下収納を同時に見直したい購入前の判断に対応できる。"
+      },
+      "searchOpportunityScore": 86,
+      "publicationEligible": true,
       "status": "resolved",
       "item": {
-        "asin": "B0FPFQ1D4X",
-        "title": "IdeaFormer IR3 両面 金色 PEI スムース PEI + テクスチャー PEI ビルドプレート 258x258mm for Bambu Lab A1/P1P/P1S/P2S/X1/X1C/X1E/X2D に適用 スプリングスチールプレート バンブーラボ用 加熱ベッド 3Dプリンタービルドプラットフォーム スムーズ ゴールデン PEI プレートfor Bambu 3Dプリンター",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0FPFQ1D4X?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/514rar+dDWL._SL500_.jpg"
+        "asin": "B0BP67HQ9W",
+        "title": "Anker 675 USB-C ドッキングステーション (12-in-1, Monitor Stand, Wireless)",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0BP67HQ9W?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/31HDj5jzPqL._SL500_.jpg"
       },
       "matchCount": 1,
       "candidates": [
         {
-          "asin": "B0FPFQ1D4X",
-          "title": "IdeaFormer IR3 両面 金色 PEI スムース PEI + テクスチャー PEI ビルドプレート 258x258mm for Bambu Lab A1/P1P/P1S/P2S/X1/X1C/X1E/X2D に適用 スプリングスチールプレート バンブーラボ用 加熱ベッド 3Dプリンタービルドプラットフォーム スムーズ ゴールデン PEI プレートfor Bambu 3Dプリンター",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0FPFQ1D4X?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/514rar+dDWL._SL500_.jpg"
+          "asin": "B0BP67HQ9W",
+          "title": "Anker 675 USB-C ドッキングステーション (12-in-1, Monitor Stand, Wireless)",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0BP67HQ9W?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31HDj5jzPqL._SL500_.jpg"
         }
       ]
     }
