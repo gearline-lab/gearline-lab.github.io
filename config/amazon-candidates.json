@@ -35,6 +35,23 @@
         "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
       },
       "searchOpportunityScore": 88
+    },
+    {
+      "id": "bambu-lab-h2s",
+      "keywords": "Bambu Lab H2S 3Dプリンター",
+      "requiredTerms": ["Bambu Lab", "H2S"],
+      "excludedTerms": ["Combo", "AMS", "H2D", "H2C", "レーザー", "ノズル"],
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab H2S 3Dプリンター 設置サイズ 材料 比較",
+        "readerSituation": "大型パーツや耐熱性を要する実用品を造形したく、密閉型の大型機を検討している利用者",
+        "decisionToMake": "H2Sの造形サイズ、設置スペース、加熱チャンバー、材料対応が自分の制作に必要か判断する",
+        "comparisonAxis": "大型造形と高温材料の必要性、設置・換気・運用負担を小型機と比較する"
+      },
+      "searchDemand": {
+        "signals": ["new-release", "comparison-query", "problem-query"],
+        "evidence": "Bambu Lab公式製品ページがH2Sの大型造形・高温対応・設置に関わる仕様を公開しており、機種比較と実用品造形の購入判断を求める検索意図に対応できる。"
+      },
+      "searchOpportunityScore": 91
     }
   ]
 }
