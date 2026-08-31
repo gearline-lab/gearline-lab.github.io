@@ -1,29 +1,30 @@
 {
-  "checkedAt": "2026-08-31T12:12:29.148Z",
+  "checkedAt": "2026-08-31T12:21:07.595Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
-    "asin": "B0GH6FBWK1",
-    "title": "Bambu Lab P1S/X1C用3Dプリンターフィルターシステム HEPA H13カーボンフィルター付き",
-    "detailPageURL": "https://www.amazon.co.jp/dp/B0GH6FBWK1?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-    "imageURL": "https://m.media-amazon.com/images/I/31xZ8vxvBUL._SL500_.jpg"
+    "asin": "B0FLD8KKN7",
+    "title": "Anker Nano ドッキングステーション (13-in-1, 着脱式USB-C ハブ)",
+    "detailPageURL": "https://www.amazon.co.jp/dp/B0FLD8KKN7?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+    "imageURL": "https://m.media-amazon.com/images/I/31XH9M2cqJL._SL500_.jpg"
   },
   "selectedCandidateContext": {
-    "id": "bambu-lab-p1s",
+    "id": "anker-nano-docking-station-13in1",
     "searchIntent": {
-      "primaryQuery": "Bambu Lab P1S P2S 違い 3Dプリンター 比較",
-      "readerSituation": "密閉型3Dプリンターを検討しており、P1SとP2Sのどちらが用途と設置環境に合うか決めたい利用者",
-      "decisionToMake": "P1Sの密閉構造、造形サイズ、AMS連携と、P2Sへ予算を広げる必要性を判断する",
-      "comparisonAxis": "造形サイズ・材料対応・設置負担・将来の多色造形を、実際に作る物の大きさから比較する"
+      "primaryQuery": "Anker Nano ドッキングステーション 13-in-1 Mac 設置 複数モニター",
+      "readerSituation": "MacBookの映像・有線LAN・周辺機器をまとめたい一方、持ち運べるUSB-Cハブも併用したい利用者",
+      "decisionToMake": "据え置きドックと着脱式ハブを1台にまとめる構成が、自分の接続・設置条件に合うか判断する",
+      "comparisonAxis": "映像出力の条件、常設する端子、着脱式ハブの使い方、机上と持ち出しの切り替え"
     },
     "searchDemand": {
       "signals": [
+        "new-release",
         "comparison-query",
         "problem-query"
       ],
-      "evidence": "Bambu Lab公式P1Sページが密閉型・造形サイズ・AMS連携の仕様を公開しており、P2Sとの比較を必要とする購入検討者の条件分岐を作れる。"
+      "evidence": "Anker Japan公式製品ページが2026年1月発売の着脱式USB-Cハブを備えた13-in-1ドックとして仕様とmacOSでの映像出力注意点を公開している。"
     },
-    "searchOpportunityScore": 87
+    "searchOpportunityScore": 90
   },
   "results": [
     {
@@ -139,22 +140,10 @@
       },
       "searchOpportunityScore": 87,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0GH6FBWK1",
-        "title": "Bambu Lab P1S/X1C用3Dプリンターフィルターシステム HEPA H13カーボンフィルター付き",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0GH6FBWK1?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/31xZ8vxvBUL._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0GH6FBWK1",
-          "title": "Bambu Lab P1S/X1C用3Dプリンターフィルターシステム HEPA H13カーボンフィルター付き",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0GH6FBWK1?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/31xZ8vxvBUL._SL500_.jpg"
-        }
-      ]
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
       "id": "anker-675-usb-c-docking-station",
@@ -188,6 +177,42 @@
           "title": "Anker 675 USB-C ドッキングステーション (12-in-1, Monitor Stand, Wireless)",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0BP67HQ9W?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/31HDj5jzPqL._SL500_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "anker-nano-docking-station-13in1",
+      "query": "Anker Nano ドッキングステーション 13-in-1 着脱式 USB-C ハブ",
+      "searchIntent": {
+        "primaryQuery": "Anker Nano ドッキングステーション 13-in-1 Mac 設置 複数モニター",
+        "readerSituation": "MacBookの映像・有線LAN・周辺機器をまとめたい一方、持ち運べるUSB-Cハブも併用したい利用者",
+        "decisionToMake": "据え置きドックと着脱式ハブを1台にまとめる構成が、自分の接続・設置条件に合うか判断する",
+        "comparisonAxis": "映像出力の条件、常設する端子、着脱式ハブの使い方、机上と持ち出しの切り替え"
+      },
+      "searchDemand": {
+        "signals": [
+          "new-release",
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Anker Japan公式製品ページが2026年1月発売の着脱式USB-Cハブを備えた13-in-1ドックとして仕様とmacOSでの映像出力注意点を公開している。"
+      },
+      "searchOpportunityScore": 90,
+      "publicationEligible": true,
+      "status": "resolved",
+      "item": {
+        "asin": "B0FLD8KKN7",
+        "title": "Anker Nano ドッキングステーション (13-in-1, 着脱式USB-C ハブ)",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0FLD8KKN7?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/31XH9M2cqJL._SL500_.jpg"
+      },
+      "matchCount": 1,
+      "candidates": [
+        {
+          "asin": "B0FLD8KKN7",
+          "title": "Anker Nano ドッキングステーション (13-in-1, 着脱式USB-C ハブ)",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FLD8KKN7?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31XH9M2cqJL._SL500_.jpg"
         }
       ]
     }
