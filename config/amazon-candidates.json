@@ -61,7 +61,7 @@
       "requiredTitlePrefix": "Bambu Lab P1S",
       "keywords": "Bambu Lab P1S 3Dプリンター",
       "requiredTerms": ["Bambu Lab", "P1S", "3Dプリンター"],
-      "excludedTerms": ["Combo", "AMS", "Hotend", "ノズル", "フィラメント", "パーツ", "部品"],
+      "excludedTerms": ["Combo", "AMS", "Hotend", "ノズル", "フィラメント", "パーツ", "部品", "フィルター", "Filter"],
       "searchIntent": {
         "primaryQuery": "Bambu Lab P1S P2S 違い 3Dプリンター 比較",
         "readerSituation": "密閉型3Dプリンターを検討しており、P1SとP2Sのどちらが用途と設置環境に合うか決めたい利用者",
@@ -91,6 +91,24 @@
         "evidence": "Anker公式製品ページがスタンド一体型の設置寸法、ポート構成、対応機種と接続条件を公開しており、デスク配線とモニター下収納を同時に見直したい購入前の判断に対応できる。"
       },
       "searchOpportunityScore": 86
+    },
+    {
+      "id": "anker-nano-docking-station-13in1",
+      "requiredTitlePrefix": "Anker Nano",
+      "keywords": "Anker Nano ドッキングステーション 13-in-1 着脱式 USB-C ハブ",
+      "requiredTerms": ["Anker", "Nano", "13-in-1"],
+      "excludedTerms": ["ケース", "ケーブルのみ", "マニュアル", "交換", "対応", "スタンドのみ"],
+      "searchIntent": {
+        "primaryQuery": "Anker Nano ドッキングステーション 13-in-1 Mac 設置 複数モニター",
+        "readerSituation": "MacBookの映像・有線LAN・周辺機器をまとめたい一方、持ち運べるUSB-Cハブも併用したい利用者",
+        "decisionToMake": "据え置きドックと着脱式ハブを1台にまとめる構成が、自分の接続・設置条件に合うか判断する",
+        "comparisonAxis": "映像出力の条件、常設する端子、着脱式ハブの使い方、机上と持ち出しの切り替え"
+      },
+      "searchDemand": {
+        "signals": ["new-release", "comparison-query", "problem-query"],
+        "evidence": "Anker Japan公式製品ページが2026年1月発売の着脱式USB-Cハブを備えた13-in-1ドックとして仕様とmacOSでの映像出力注意点を公開している。"
+      },
+      "searchOpportunityScore": 90
     }
   ]
 }
