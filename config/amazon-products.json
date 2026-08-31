@@ -3,6 +3,14 @@
   "partnerTag": "gearlineweb-22",
   "products": [
     {
+      "asin": "B0FLD8KKN7",
+      "files": ["anker-nano-docking-station-13in1.html"],
+      "fallback": {
+        "title": "Anker Nano ドッキングステーション (13-in-1, 着脱式USB-C ハブ)",
+        "url": "https://www.amazon.co.jp/dp/B0FLD8KKN7?tag=gearlineweb-22"
+      }
+    },
+    {
       "asin": "B0BP67HQ9W",
       "files": ["anker-675-docking-station.html"],
       "fallback": {
