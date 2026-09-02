@@ -134,6 +134,30 @@ const result = {
   weeklyReport: "not-due"
 };
 
+// A heartbeat should not stall merely because its ignored, per-run social
+// plan has not been materialized yet.  Research is read-only and the planner
+// writes a bounded plan; the existing Bluesky runner still performs all
+// validation and authenticated side effects.
+if (!(await exists(paths.dailyPlan)) && execute) {
+  // Search is best-effort.  If the public search endpoint is temporarily
+  // unavailable, the planner still emits a verified evergreen post plan;
+  // it never fabricates a repost or follow candidate from the failed query.
+  try {
+    await run("node", ["scripts/bluesky-research.mjs", "config/bluesky-daily-candidates.json"]);
+  } catch {
+    // prepare-daily-social-plan.mjs will use the evergreen fallback and an
+    // empty engagement list when no fresh candidate file is available.
+  }
+  await run("node", ["scripts/prepare-daily-social-plan.mjs", "config/bluesky-daily-candidates.json"]);
+}
+
+if (!(await exists(paths.articlePlan)) && execute) {
+  // Use the latest locally verified Creator-API result to materialize a new
+  // article URL and its QA-ready draft.  The publication path below still
+  // performs the final Creator API card refresh and all existing QA gates.
+  await run("node", ["scripts/prepare-daily-article-plan.mjs"]);
+}
+
 if (await exists(paths.dailyPlan)) {
   if (execute) {
     result.dailySocial = JSON.parse(await run("zsh", ["scripts/run-bluesky-daily-with-keychain.sh"]));
