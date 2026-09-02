@@ -3,6 +3,25 @@
   "partnerTag": "gearlineweb-22",
   "candidates": [
     {
+      "id": "logicool-mx-keys-s",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "ロジクール MX Keys S",
+      "keywords": "ロジクール MX Keys S キーボード",
+      "requiredTerms": ["ロジクール", "MX Keys S"],
+      "excludedTerms": ["ケース", "カバー", "キーキャップ", "交換", "マニュアル"],
+      "searchIntent": {
+        "primaryQuery": "MX Keys S Mac 日本語配列 Bluetooth Logi Options+ 比較",
+        "readerSituation": "Macで長文入力や複数端末の切り替えを行い、テンキーの有無と接続方式を見直したい利用者",
+        "decisionToMake": "MX Keys Sの配列・接続・設置幅が、自分の入力頻度とMacの運用に合うか判断する",
+        "comparisonAxis": "テンキーと机上幅、Bluetooth／Logi Bolt、複数端末切替、バックライト運用"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Logicool公式製品ページがMac対応、複数端末切替、配列、接続方式を掲載しており、購入前の条件比較を構成できる。"
+      },
+      "searchOpportunityScore": 84
+    },
+    {
       "id": "logicool-k250",
       "publicationEligible": false,
       "keywords": "ロジクール K250GR Bluetooth キーボード",
