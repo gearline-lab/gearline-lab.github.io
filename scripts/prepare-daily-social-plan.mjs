@@ -74,4 +74,4 @@ const plan = {
   source: fresh ? "bluesky-research" : "evergreen-fallback"
 };
 await writeFile(output, `${JSON.stringify(plan, null, 2)}\n`);
-console.log(JSON.stringify({ output, theme: evergreen[(day - 1) % evergreen.length][0], follows: follows.length }));
+console.log(JSON.stringify({ output, theme: selected[0], follows: follows.length }));
