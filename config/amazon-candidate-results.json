@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-02T23:47:57.947Z",
+  "checkedAt": "2026-09-02T23:49:45.943Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -27,6 +27,137 @@
     "searchOpportunityScore": 90
   },
   "results": [
+    {
+      "id": "ugreen-revodok-6in1",
+      "query": "UGREEN Revodok USB-C ハブ 6-in-1 100W",
+      "searchIntent": {
+        "primaryQuery": "UGREEN Revodok 6-in-1 Mac 4K60Hz 10Gbps 選び方",
+        "readerSituation": "MacBookの外部ディスプレイと高速ストレージを1台のUSB-Cハブへまとめたい利用者",
+        "decisionToMake": "映像出力・データ速度・給電の条件が自分のMacと周辺機器に合うか判断する",
+        "comparisonAxis": "4K60Hz、10Gbps、PD入力、端子の常設と持ち出し"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "UGREEN公式製品ページが映像・データ・給電の仕様を公開しており、Macの接続条件を購入前に比較できる。"
+      },
+      "searchOpportunityScore": 82,
+      "publicationEligible": true,
+      "status": "ambiguous",
+      "item": null,
+      "matchCount": 3,
+      "candidates": [
+        {
+          "asin": "B0D1XLNWP2",
+          "title": "UGREEN Revodok USB-C ハブ 6in1 100W USB PD対応 4K 60Hz 10Gbps 高速データ転送",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0D1XLNWP2?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41WuZUNHBSL._SL500_.jpg"
+        },
+        {
+          "asin": "B0F24B1VJN",
+          "title": "UGREEN Revodok USB-C ハブ 6in1 拡張ハブ DP出力 4K@60Hz PD100W充電",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0F24B1VJN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41YSrMTH5lL._SL500_.jpg"
+        },
+        {
+          "asin": "B0BY8QNV1C",
+          "title": "UGREEN Revodok 206 6 in 1 USB Cハブ 2HDMI出力 4K60Hz 100W PD充電 5Gbpsデータ転送",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0BY8QNV1C?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41aj7Mv8F0L._SL500_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "anker-332-usb-c-hub",
+      "query": "Anker 332 USB-C ハブ 5-in-1",
+      "searchIntent": {
+        "primaryQuery": "Anker 332 USB-C ハブ Mac ポート不足 5-in-1 比較",
+        "readerSituation": "MacBookのポート不足を最小限の端子追加で解消したい利用者",
+        "decisionToMake": "5-in-1の端子構成と接続条件が自分の机上運用に足りるか判断する",
+        "comparisonAxis": "必要端子、映像出力、給電、常設と持ち出しの切り替え"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Anker公式製品ページが端子構成と対応条件を公開しており、ポート不足の具体的な解決策として比較できる。"
+      },
+      "searchOpportunityScore": 78,
+      "publicationEligible": true,
+      "status": "ambiguous",
+      "item": null,
+      "matchCount": 5,
+      "candidates": [
+        {
+          "asin": "B0BQMSXFP7",
+          "title": "Anker 332 USB-C ハブ (5-in-1)",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0BQMSXFP7?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21Fc56KQjUL._SL500_.jpg"
+        },
+        {
+          "asin": "B0CYBRLBM9",
+          "title": "Anker 332 USB-C ハブ (5-in-1) ブルー",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBRLBM9?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21QppvfyG1L._SL500_.jpg"
+        },
+        {
+          "asin": "B0CYBSLZ9B",
+          "title": "Anker 332 USB-C ハブ (5-in-1) ホワイト",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBSLZ9B?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21aOwHE50UL._SL500_.jpg"
+        },
+        {
+          "asin": "B0CYBGKTPG",
+          "title": "Anker 332 USB-C ハブ (5-in-1) グリーン",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBGKTPG?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21uXEmlv0gL._SL500_.jpg"
+        },
+        {
+          "asin": "B0CYBV27NH",
+          "title": "Anker 332 USB-C ハブ (5-in-1) グレー",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBV27NH?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21UARC0iw2L._SL500_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "elgato-stream-deck-plus",
+      "query": "Elgato Stream Deck +",
+      "searchIntent": {
+        "primaryQuery": "Stream Deck + Mac ショートカット ダイヤル 使い道 比較",
+        "readerSituation": "反復操作や連続調整をキーボード以外へ分け、Mac作業の切り替えを減らしたい利用者",
+        "decisionToMake": "キーとダイヤルの操作が自分の作業フローに必要か判断する",
+        "comparisonAxis": "反復操作、連続調整、プロファイル、設置位置、導入後の管理"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Elgato公式仕様がキー・ダイヤル・プロファイルの機能を公開しており、Mac作業への適合を条件で比較できる。"
+      },
+      "searchOpportunityScore": 80,
+      "publicationEligible": true,
+      "status": "resolved",
+      "item": {
+        "asin": "B0BJL8SJ59",
+        "title": "Elgato Stream Deck +【並行輸入品】",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0BJL8SJ59?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/31oPaAlexKL._SL500_.jpg"
+      },
+      "matchCount": 1,
+      "candidates": [
+        {
+          "asin": "B0BJL8SJ59",
+          "title": "Elgato Stream Deck +【並行輸入品】",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0BJL8SJ59?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31oPaAlexKL._SL500_.jpg"
+        }
+      ]
+    },
     {
       "id": "apple-studio-display",
       "query": "Apple Studio Display 27インチ",
