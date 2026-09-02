@@ -3,6 +3,63 @@
   "partnerTag": "gearlineweb-22",
   "candidates": [
     {
+      "id": "ugreen-revodok-6in1",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "UGREEN Revodok",
+      "keywords": "UGREEN Revodok USB-C ハブ 6-in-1 100W",
+      "requiredTerms": ["UGREEN", "Revodok", "6-in-1"],
+      "excludedTerms": ["ケース", "ケーブルのみ", "交換", "マニュアル"],
+      "searchIntent": {
+        "primaryQuery": "UGREEN Revodok 6-in-1 Mac 4K60Hz 10Gbps 選び方",
+        "readerSituation": "MacBookの外部ディスプレイと高速ストレージを1台のUSB-Cハブへまとめたい利用者",
+        "decisionToMake": "映像出力・データ速度・給電の条件が自分のMacと周辺機器に合うか判断する",
+        "comparisonAxis": "4K60Hz、10Gbps、PD入力、端子の常設と持ち出し"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "UGREEN公式製品ページが映像・データ・給電の仕様を公開しており、Macの接続条件を購入前に比較できる。"
+      },
+      "searchOpportunityScore": 82
+    },
+    {
+      "id": "anker-332-usb-c-hub",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "Anker 332",
+      "keywords": "Anker 332 USB-C ハブ 5-in-1",
+      "requiredTerms": ["Anker", "332", "USB-C"],
+      "excludedTerms": ["ケース", "ケーブルのみ", "交換", "マニュアル"],
+      "searchIntent": {
+        "primaryQuery": "Anker 332 USB-C ハブ Mac ポート不足 5-in-1 比較",
+        "readerSituation": "MacBookのポート不足を最小限の端子追加で解消したい利用者",
+        "decisionToMake": "5-in-1の端子構成と接続条件が自分の机上運用に足りるか判断する",
+        "comparisonAxis": "必要端子、映像出力、給電、常設と持ち出しの切り替え"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Anker公式製品ページが端子構成と対応条件を公開しており、ポート不足の具体的な解決策として比較できる。"
+      },
+      "searchOpportunityScore": 78
+    },
+    {
+      "id": "elgato-stream-deck-plus",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "Elgato Stream Deck +",
+      "keywords": "Elgato Stream Deck +",
+      "requiredTerms": ["Elgato", "Stream Deck +"],
+      "excludedTerms": ["mini", "XL", "Neo", "ケース", "カバー", "交換", "キーキャップ"],
+      "searchIntent": {
+        "primaryQuery": "Stream Deck + Mac ショートカット ダイヤル 使い道 比較",
+        "readerSituation": "反復操作や連続調整をキーボード以外へ分け、Mac作業の切り替えを減らしたい利用者",
+        "decisionToMake": "キーとダイヤルの操作が自分の作業フローに必要か判断する",
+        "comparisonAxis": "反復操作、連続調整、プロファイル、設置位置、導入後の管理"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Elgato公式仕様がキー・ダイヤル・プロファイルの機能を公開しており、Mac作業への適合を条件で比較できる。"
+      },
+      "searchOpportunityScore": 80
+    },
+    {
       "id": "apple-studio-display",
       "publicationEligible": true,
       "requiredTitlePrefix": "Apple Studio Display",
