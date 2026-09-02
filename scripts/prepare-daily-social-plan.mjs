@@ -38,7 +38,32 @@ for (const candidate of candidates) {
   if (follows.length === 3) break;
 }
 
-const [, text, hashtags] = evergreen[(day - 1) % evergreen.length];
+// Check the public author feed before choosing the rotated evergreen.  This
+// prevents the execution step from stopping when a rotated post was already
+// published within the duplicate window.  A failed read is non-fatal; the
+// runner's normal validation still remains the final guard.
+let recentTexts = new Set();
+try {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  const response = await fetch("https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=gearline-lab.bsky.social&limit=100", { signal: controller.signal });
+  clearTimeout(timeout);
+  if (response.ok) {
+    const feed = await response.json();
+    recentTexts = new Set((feed.feed ?? [])
+      .filter(({ post }) => Date.parse(post?.indexedAt ?? post?.record?.createdAt ?? 0) >= Date.now() - 14 * 24 * 60 * 60 * 1000)
+      .map(({ post }) => post?.record?.text?.trim())
+      .filter(Boolean));
+  }
+} catch {
+  // Keep the fallback deterministic if the public endpoint is unavailable.
+}
+
+const startIndex = (day - 1) % evergreen.length;
+const selected = Array.from({ length: evergreen.length }, (_, offset) => evergreen[(startIndex + offset) % evergreen.length])
+  .find(([, candidateText, candidateHashtags]) => !recentTexts.has(`${candidateText} ${candidateHashtags.join(" ")}`))
+  ?? evergreen[startIndex];
+const [, text, hashtags] = selected;
 const plan = {
   post: { text: `${text} ${hashtags.join(" ")}` },
   // Reposts remain opt-in from the researched plan; an empty list is safer
