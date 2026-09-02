@@ -74,7 +74,10 @@ const response = await fetch("https://creatorsapi.amazon/catalog/v1/getItems", {
   })
 });
 
-if (!response.ok) throw new Error(`Creator APIのGetItemsに失敗しました: ${response.status}`);
+if (!response.ok) {
+  const errorBody = await response.text();
+  throw new Error(`Creator APIのGetItemsに失敗しました: ${response.status} ${errorBody.slice(0, 500)}`);
+}
 const data = await response.json();
 const items = data.itemsResult?.items ?? data.itemResults?.items ?? [];
 const itemsByAsin = new Map(items.map((item) => [item.asin, item]));
