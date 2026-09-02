@@ -4,7 +4,9 @@
   "products": [
     {
       "asin": "B0FLD8KKN7",
-      "files": ["anker-nano-docking-station-13in1.html"],
+      "files": [
+        "anker-nano-docking-station-13in1.html"
+      ],
       "fallback": {
         "title": "Anker Nano ドッキングステーション (13-in-1, 着脱式USB-C ハブ)",
         "url": "https://www.amazon.co.jp/dp/B0FLD8KKN7?tag=gearlineweb-22"
@@ -12,7 +14,9 @@
     },
     {
       "asin": "B0BP67HQ9W",
-      "files": ["anker-675-docking-station.html"],
+      "files": [
+        "anker-675-docking-station.html"
+      ],
       "fallback": {
         "title": "Anker 675 USB-C ドッキングステーション (12-in-1, Monitor Stand, Wireless)",
         "url": "https://www.amazon.co.jp/dp/B0BP67HQ9W?tag=gearlineweb-22"
@@ -20,7 +24,10 @@
     },
     {
       "asin": "B0FDQK9T7D",
-      "files": ["logicool-k250-bluetooth-keyboard.html", "amazon-smile-sale-desk-gear-2026.html"],
+      "files": [
+        "logicool-k250-bluetooth-keyboard.html",
+        "amazon-smile-sale-desk-gear-2026.html"
+      ],
       "fallback": {
         "title": "ロジクール K250 Bluetooth ワイヤレスキーボード",
         "url": "https://www.amazon.co.jp/dp/B0FDQK9T7D?tag=gearlineweb-22"
@@ -28,7 +35,10 @@
     },
     {
       "asin": "B0DKTPLRZ6",
-      "files": ["logicool-m196-bluetooth-mouse.html", "amazon-smile-sale-desk-gear-2026.html"],
+      "files": [
+        "logicool-m196-bluetooth-mouse.html",
+        "amazon-smile-sale-desk-gear-2026.html"
+      ],
       "fallback": {
         "title": "ロジクール M196 Bluetoothマウス",
         "url": "https://www.amazon.co.jp/dp/B0DKTPLRZ6?tag=gearlineweb-22"
@@ -36,7 +46,10 @@
     },
     {
       "asin": "B0D1XLNWP2",
-      "files": ["ugreen-revodok-6in1.html", "amazon-smile-sale-desk-gear-2026.html"],
+      "files": [
+        "ugreen-revodok-6in1.html",
+        "amazon-smile-sale-desk-gear-2026.html"
+      ],
       "fallback": {
         "title": "UGREEN Revodok USB-C ハブ 6-in-1",
         "url": "https://amzn.to/4wclWKm"
@@ -44,7 +57,10 @@
     },
     {
       "asin": "B0CRYJBKQQ",
-      "files": ["bambu-lab-a1-mini.html", "amazon-smile-sale-desk-gear-2026.html"],
+      "files": [
+        "bambu-lab-a1-mini.html",
+        "amazon-smile-sale-desk-gear-2026.html"
+      ],
       "fallback": {
         "title": "Bambu Lab A1 mini 3Dプリンター",
         "url": "https://www.amazon.co.jp/dp/B0CRYJBKQQ?tag=gearlineweb-22"
@@ -52,7 +68,9 @@
     },
     {
       "asin": "B0BJL8SJ59",
-      "files": ["elgato-stream-deck-plus.html"],
+      "files": [
+        "elgato-stream-deck-plus.html"
+      ],
       "fallback": {
         "title": "Elgato Stream Deck +",
         "url": "https://www.amazon.co.jp/dp/B0BJL8SJ59?tag=gearlineweb-22"
@@ -60,7 +78,10 @@
     },
     {
       "asin": "B0BQMSXFP7",
-      "files": ["anker-332-usb-c-hub.html", "amazon-smile-sale-desk-gear-2026.html"],
+      "files": [
+        "anker-332-usb-c-hub.html",
+        "amazon-smile-sale-desk-gear-2026.html"
+      ],
       "fallback": {
         "title": "Anker 332 USB-C Hub (5-in-1)",
         "url": "https://www.amazon.co.jp/dp/B0BQMSXFP7?tag=gearlineweb-22"
@@ -68,7 +89,9 @@
     },
     {
       "asin": "B0CG56TZHW",
-      "files": ["anker-usbc-hub-10in1-dual-display.html"],
+      "files": [
+        "anker-usbc-hub-10in1-dual-display.html"
+      ],
       "fallback": {
         "title": "Anker USB-C ハブ (10-in-1, Dual Display)",
         "url": "https://www.amazon.co.jp/dp/B0CG56TZHW?tag=gearlineweb-22"
@@ -76,10 +99,22 @@
     },
     {
       "asin": "B0B2QQDKR8",
-      "files": ["anker-511-nano-3.html"],
+      "files": [
+        "anker-511-nano-3.html"
+      ],
       "fallback": {
         "title": "Anker 511 Charger (Nano 3, 30W)",
         "url": "https://www.amazon.co.jp/dp/B0B2QQDKR8?tag=gearlineweb-22"
+      }
+    },
+    {
+      "asin": "B0D7ZN2JXZ",
+      "files": [
+        "logicool-mx-keys-s-mac-guide.html"
+      ],
+      "fallback": {
+        "title": "ロジクール MX KEYS S ワイヤレス キーボード for Mac KX800sMSG US配列 Bluetooth Smart Actions 対応 Mac iPad iOS 無線 薄型 USB TYPE-C 充電式 ワイヤレスキーボード KX800s スペースグレー 国内正規品",
+        "url": "https://www.amazon.co.jp/dp/B0D7ZN2JXZ?tag=gearlineweb-22&linkCode=osi&th=1&psc=1"
       }
     }
   ]
