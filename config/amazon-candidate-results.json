@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-31T12:21:07.595Z",
+  "checkedAt": "2026-09-02T23:34:39.114Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -27,6 +27,41 @@
     "searchOpportunityScore": 90
   },
   "results": [
+    {
+      "id": "logicool-mx-keys-s",
+      "query": "ロジクール MX Keys S キーボード",
+      "searchIntent": {
+        "primaryQuery": "MX Keys S Mac 日本語配列 Bluetooth Logi Options+ 比較",
+        "readerSituation": "Macで長文入力や複数端末の切り替えを行い、テンキーの有無と接続方式を見直したい利用者",
+        "decisionToMake": "MX Keys Sの配列・接続・設置幅が、自分の入力頻度とMacの運用に合うか判断する",
+        "comparisonAxis": "テンキーと机上幅、Bluetooth／Logi Bolt、複数端末切替、バックライト運用"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Logicool公式製品ページがMac対応、複数端末切替、配列、接続方式を掲載しており、購入前の条件比較を構成できる。"
+      },
+      "searchOpportunityScore": 84,
+      "publicationEligible": true,
+      "status": "resolved",
+      "item": {
+        "asin": "B0D7ZN2JXZ",
+        "title": "ロジクール MX KEYS S ワイヤレス キーボード for Mac KX800sMSG US配列 Bluetooth Smart Actions 対応 Mac iPad iOS 無線 薄型 USB TYPE-C 充電式 ワイヤレスキーボード KX800s スペースグレー 国内正規品",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0D7ZN2JXZ?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/41o5rj12trL._SL500_.jpg"
+      },
+      "matchCount": 1,
+      "candidates": [
+        {
+          "asin": "B0D7ZN2JXZ",
+          "title": "ロジクール MX KEYS S ワイヤレス キーボード for Mac KX800sMSG US配列 Bluetooth Smart Actions 対応 Mac iPad iOS 無線 薄型 USB TYPE-C 充電式 ワイヤレスキーボード KX800s スペースグレー 国内正規品",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0D7ZN2JXZ?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41o5rj12trL._SL500_.jpg"
+        }
+      ]
+    },
     {
       "id": "logicool-k250",
       "query": "ロジクール K250GR Bluetooth キーボード",
