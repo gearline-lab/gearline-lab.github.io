@@ -3,6 +3,44 @@
   "partnerTag": "gearlineweb-22",
   "candidates": [
     {
+      "id": "apple-studio-display",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "Apple Studio Display",
+      "keywords": "Apple Studio Display 27インチ",
+      "requiredTerms": ["Apple", "Studio Display"],
+      "excludedTerms": ["壁掛け", "スタンド", "保護", "ケーブル", "マウント", "中古"],
+      "searchIntent": {
+        "primaryQuery": "Apple Studio Display 27インチ Mac デスク環境 仕様 比較",
+        "readerSituation": "Macの作業領域を広げたいが、解像度・カメラ・スピーカーを一体で導入する必要性を見極めたい利用者",
+        "decisionToMake": "Studio Displayの表示・接続・設置条件が、自分のMacと机に合うか判断する",
+        "comparisonAxis": "解像度、接続方式、カメラと音声、スタンド仕様、机の奥行き"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Apple公式仕様が表示・カメラ・音声・Mac互換条件を公開しており、購入前の設置と用途比較に使える。"
+      },
+      "searchOpportunityScore": 89
+    },
+    {
+      "id": "bambu-lab-a1",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "Bambu Lab A1",
+      "keywords": "Bambu Lab A1 3Dプリンター",
+      "requiredTerms": ["Bambu Lab", "A1", "3Dプリンター"],
+      "excludedTerms": ["A1 mini", "Combo", "P1S", "P2S", "H2D", "ノズル", "部品", "フィラメント"],
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab A1 3Dプリンター 造形サイズ 設置条件 比較",
+        "readerSituation": "A1 miniより大きな造形物を作りたいが、開放型機の設置と材料運用を確認したい利用者",
+        "decisionToMake": "A1の造形サイズ、設置スペース、材料対応が自分の制作に必要か判断する",
+        "comparisonAxis": "造形サイズ、設置幅、材料、メンテナンス、A1 miniとの差"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Bambu Lab公式製品情報が造形サイズ・対応材料・設置条件を公開し、小型機からの買い替え比較を構成できる。"
+      },
+      "searchOpportunityScore": 86
+    },
+    {
       "id": "logicool-mx-keys-s",
       "publicationEligible": true,
       "requiredTitlePrefix": "ロジクール MX Keys S",
