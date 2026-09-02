@@ -17,6 +17,9 @@ if (!Number.isFinite(verifiedAt) || Date.now() - verifiedAt > 7 * 24 * 60 * 60 *
   throw new Error("Creators API候補が7日以内に確認されていません。先に候補解決を再実行してください。");
 }
 const sourceById = {
+  "ugreen-revodok-6in1": "https://ugreen.jp/products/ugreen-revodok-usb-c-%E3%83%8F%E3%83%96-6-in-1-100w",
+  "anker-332-usb-c-hub": "https://www.ankerjapan.com/products/A8355",
+  "elgato-stream-deck-plus": "https://www.elgato.com/ww/en/p/stream-deck-plus",
   "apple-studio-display": "https://www.apple.com/jp/studio-display/",
   "bambu-lab-a1": "https://jp.store.bambulab.com/products/a1",
   "logicool-mx-keys-s": "https://www.logicool.co.jp/ja-jp/products/keyboards/mx-keys-s.html",
@@ -25,6 +28,9 @@ const sourceById = {
   "anker-nano-docking-station-13in1": "https://www.ankerjapan.com/products/a83c3111"
 };
 const slugById = {
+  "ugreen-revodok-6in1": "ugreen-revodok-6in1-buying-guide.html",
+  "anker-332-usb-c-hub": "anker-332-usb-c-hub-buying-guide.html",
+  "elgato-stream-deck-plus": "elgato-stream-deck-plus-workflow-guide.html",
   "apple-studio-display": "apple-studio-display-desk-guide.html",
   "bambu-lab-a1": "bambu-lab-a1-desk-guide.html",
   "logicool-mx-keys-s": "logicool-mx-keys-s-mac-guide.html",
@@ -39,7 +45,13 @@ const selected = candidates[0];
 if (!selected) throw new Error("新規URLにできるCreators API確認済み候補がありません。");
 const product = selected.item;
 const slug = slugById[selected.id];
-const title = selected.id === "apple-studio-display"
+const title = selected.id === "ugreen-revodok-6in1"
+  ? "UGREEN Revodok 6-in-1を選ぶ前に。Macの接続条件を整理する"
+  : selected.id === "anker-332-usb-c-hub"
+    ? "Anker 332を選ぶ前に。Macのポート不足を条件で見極める"
+    : selected.id === "elgato-stream-deck-plus"
+      ? "Stream Deck +をMac作業に置く前に。キーとダイヤルの使い分け"
+      : selected.id === "apple-studio-display"
   ? "Apple Studio Displayを机に置く前に。Mac向けモニターの条件整理"
   : selected.id === "bambu-lab-a1"
     ? "Bambu Lab A1を選ぶ前に。造形サイズと設置条件を確認する"
@@ -50,7 +62,13 @@ const title = selected.id === "apple-studio-display"
   : selected.id === "anker-675-usb-c-docking-station"
     ? "Anker 675を机に置く前に。モニタースタンド一体型ドックの配置条件"
     : "Anker Nanoを常設する前に。着脱式USB-Cハブの接続を決める条件";
-const description = selected.id === "apple-studio-display"
+const description = selected.id === "ugreen-revodok-6in1"
+  ? "UGREEN Revodok 6-in-1の映像、データ、給電条件を公式情報から整理し、Macの接続に合うか判断する購入ガイドです。"
+  : selected.id === "anker-332-usb-c-hub"
+    ? "Anker 332 USB-Cハブの端子構成と対応条件を公式情報から整理し、Macのポート不足を解消できるか判断するガイドです。"
+    : selected.id === "elgato-stream-deck-plus"
+      ? "Elgato Stream Deck +のキー、ダイヤル、プロファイルを公式情報から整理し、Mac作業に必要か判断するガイドです。"
+      : selected.id === "apple-studio-display"
   ? "Apple Studio Displayの表示、接続、カメラ、音声、設置条件を公式情報から整理し、Macユーザーの購入判断を支援するガイドです。"
   : selected.id === "bambu-lab-a1"
     ? "Bambu Lab A1の造形サイズ、材料、設置、メンテナンス条件を公式情報から整理し、A1 miniとの差を判断する購入ガイドです。"
@@ -62,7 +80,13 @@ const description = selected.id === "apple-studio-display"
 const image = product.imageURL;
 const amazonUrl = product.detailPageURL;
 const thumbnailName = slug.replace(/\.html$/u, ".png");
-const thumbnailSource = selected.id === "apple-studio-display"
+const thumbnailSource = selected.id === "ugreen-revodok-6in1"
+  ? "assets/thumbnails/ugreen-revodok-6in1.png"
+  : selected.id === "anker-332-usb-c-hub"
+    ? "assets/thumbnails/anker-332-usb-c-hub.png"
+    : selected.id === "elgato-stream-deck-plus"
+      ? "assets/thumbnails/stream-deck-plus.png"
+      : selected.id === "apple-studio-display"
   ? "assets/thumbnails/desk-setup-before-buying.png"
   : selected.id === "bambu-lab-a1"
     ? "assets/thumbnails/bambu-lab-a1-mini.png"
