@@ -23,6 +23,20 @@ const evergreen = [
   ["メンテナンス安全", "机まわりの電源タップを見直すときは、口数を増やす前に消費電力の大きい機器を洗い出します。ACアダプターが隣の差し口を塞ぐ場合もあるので、配置と定格を一緒に確認するのが安全です。", ["#デスク環境", "#ガジェット"]]
 ];
 
+// Multiple operational attempts can occur on the same calendar day (for
+// example, after a transient API or deployment failure).  Keep a second,
+// distinct angle for each theme so the duplicate guard never forces a repeat
+// of an already-published body within the 14-day window.
+const evergreenAlternates = [
+  ["接続と配線", "USB-C機器をつなぐ前に、映像・データ・給電のどれを通す経路かを一つずつ書き出します。経路が決まれば、ハブやケーブルの仕様を必要な範囲に絞れます。", ["#USBCHub", "#配線整理"]],
+  ["入力デバイス", "キーボードを選ぶときは、よく使う修飾キーの位置を先に確認します。配列が合っていても、毎日押すキーが遠いと入力の負担が増えるため、作業アプリごとに確認するのが安全です。", ["#キーボード", "#デスク環境"]],
+  ["机上配置", "机の奥行きが限られる場合は、モニターの台座・キーボード・ポインティングデバイスの順に置き場所を決めます。先に固定物を置くと、手元の動線を後から削らずに済みます。", ["#デスク環境", "#机上整理"]],
+  ["3Dプリントの実用", "3Dプリント部品は、造形方向で強度とサポート量が変わります。交換部品なら荷重の向きを、固定部品なら取り付け面を先に決めてからスライサー設定を詰めると判断しやすくなります。", ["#3Dプリント", "#ものづくり"]],
+  ["購入前比較", "購入候補を比べるときは、必要な条件を満たさない製品を先に除外します。残った候補だけで使う頻度・設置・保守を並べると、数字の多さに引っ張られにくくなります。", ["#購入ガイド", "#ガジェット"]],
+  ["macOS作業", "Macの周辺機器は、接続直後だけでなく再起動後の認識も確認します。常用する構成は、電源投入から作業開始までの手順を書き出すと、購入前に見落としを減らせます。", ["#Mac周辺機器", "#macOS"]],
+  ["メンテナンス安全", "電源タップを整理するときは、抜け止めより先にケーブルの張りを確認します。机を動かしたときにプラグへ力がかからない余長を残すと、端子やコンセントへの負担を抑えられます。", ["#電源タップ", "#デスク環境"]]
+];
+
 const hasFile = await access(candidatesPath).then(() => true).catch(() => false);
 const source = hasFile ? JSON.parse(await readFile(candidatesPath, "utf8")) : { candidates: [] };
 const checkedAt = Date.parse(source.checkedAt ?? "");
@@ -59,10 +73,11 @@ try {
   // Keep the fallback deterministic if the public endpoint is unavailable.
 }
 
-const startIndex = (day - 1) % evergreen.length;
-const selected = Array.from({ length: evergreen.length }, (_, offset) => evergreen[(startIndex + offset) % evergreen.length])
+const pool = [...evergreen, ...evergreenAlternates];
+const startIndex = (day - 1) % pool.length;
+const selected = Array.from({ length: pool.length }, (_, offset) => pool[(startIndex + offset) % pool.length])
   .find(([, candidateText, candidateHashtags]) => !recentTexts.has(`${candidateText} ${candidateHashtags.join(" ")}`))
-  ?? evergreen[startIndex];
+  ?? pool[startIndex];
 const [, text, hashtags] = selected;
 const plan = {
   post: { text: `${text} ${hashtags.join(" ")}` },
