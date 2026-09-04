@@ -205,6 +205,10 @@ if (await exists(paths.articlePlan)) {
     // of stopping on a non-fast-forward divergence.
     await run("git", ["merge", "--no-edit", "--no-ff", "origin/main"]);
     await run("git", ["checkout", "-b", branch]);
+    // Restore the generated publication files before staging them on the new
+    // branch.  Keeping the stash until after `git add` makes the files
+    // invisible and causes a misleading pathspec failure.
+    if (hadStash) await run("git", ["stash", "pop"]);
     await run("git", ["add", "--", ...plan.files]);
     await run("git", ["commit", "-m", `Publish ${plan.articleFile}`]);
     await run("git", ["push", "origin", `HEAD:refs/heads/${branch}`]);
@@ -213,7 +217,6 @@ if (await exists(paths.articlePlan)) {
     // A one-off fetch stores the remote branch in FETCH_HEAD even when no
     // local remote-tracking ref exists. Merge that explicit revision.
     await run("git", ["merge", "--ff-only", "FETCH_HEAD"]);
-    if (hadStash) await run("git", ["stash", "pop"]);
     await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile]);
     await run("git", ["push", "origin", "HEAD:main"]);
     await run("git", ["checkout", "main"]);
