@@ -58,25 +58,35 @@ const renderCard = ({ item, fallback, updatedAt }) => {
 };
 
 const token = await getToken();
-const response = await fetch("https://creatorsapi.amazon/catalog/v1/getItems", {
-  method: "POST",
-  headers: {
-    Authorization: `Bearer ${token}`,
-    "Content-Type": "application/json",
-    "x-marketplace": config.marketplace
-  },
-  body: JSON.stringify({
-    itemIds: config.products.map((product) => product.asin),
-    itemIdType: "ASIN",
-    marketplace: config.marketplace,
-    partnerTag: config.partnerTag,
-    resources: ["images.primary.large", "images.primary.medium", "itemInfo.title", "offersV2.listings.price", "offersV2.listings.isBuyBoxWinner"]
-  })
-});
-
-if (!response.ok) throw new Error(`Creator APIのGetItemsに失敗しました: ${response.status}`);
-const data = await response.json();
-const items = data.itemsResult?.items ?? data.itemResults?.items ?? [];
+const itemIds = config.products.map((product) => product.asin);
+const items = [];
+// Creators API accepts at most 10 ASINs per GetItems request.  Keep the
+// catalog refresh reliable as the product registry grows by batching requests
+// and combining the returned item records before rendering cards.
+for (let offset = 0; offset < itemIds.length; offset += 10) {
+  const batch = itemIds.slice(offset, offset + 10);
+  const response = await fetch("https://creatorsapi.amazon/catalog/v1/getItems", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+      "x-marketplace": config.marketplace
+    },
+    body: JSON.stringify({
+      itemIds: batch,
+      itemIdType: "ASIN",
+      marketplace: config.marketplace,
+      partnerTag: config.partnerTag,
+      resources: ["images.primary.large", "images.primary.medium", "itemInfo.title", "offersV2.listings.price", "offersV2.listings.isBuyBoxWinner"]
+    })
+  });
+  if (!response.ok) {
+    const errorBody = await response.text();
+    throw new Error(`Creator APIのGetItemsに失敗しました: ${response.status} ${errorBody.slice(0, 500)}`);
+  }
+  const data = await response.json();
+  items.push(...(data.itemsResult?.items ?? data.itemResults?.items ?? []));
+}
 const itemsByAsin = new Map(items.map((item) => [item.asin, item]));
 const updatedAt = new Date();
 

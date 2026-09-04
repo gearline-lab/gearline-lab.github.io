@@ -26,6 +26,11 @@ const exists = async (path) => access(path).then(() => true).catch(() => false);
 // prefers over the repository credential and causes a misleading 403.
 const childEnv = { ...process.env };
 delete childEnv.GITHUB_TOKEN;
+// Prefer the authenticated GitHub CLI identity over any stale system
+// keychain entry (which can otherwise report a misleading 403 for pushes).
+childEnv.GIT_CONFIG_NOSYSTEM = "1";
+childEnv.GIT_TERMINAL_PROMPT = "0";
+childEnv.GIT_ASKPASS = resolve(root, "scripts/github-askpass.sh");
 const run = (command, commandArgs) => new Promise((resolveRun, rejectRun) => {
   const child = spawn(command, commandArgs, { cwd: root, env: childEnv, stdio: ["ignore", "pipe", "pipe"] });
   let stdout = "";
@@ -184,10 +189,21 @@ if (await exists(paths.articlePlan)) {
     await registerArticleInSitemap(plan);
     const slug = plan.articleFile.replace(/\.html$/u, "");
     const branch = `agent/publish-${slug}-${dateJst.replaceAll("-", "")}-${Date.now().toString(36)}`;
-    const changed = await run("git", ["status", "--porcelain", "--", ...plan.files]);
-    if (!changed) throw new Error("記事公開対象に未コミット変更がありません。");
+    // A previous interrupted run can leave generated publication files in
+    // the working tree. Stash only the files in this plan before switching to
+    // main, then restore them after synchronizing with origin/main.
+    const stashLabel = `gearline-publish-${Date.now().toString(36)}`;
+    const stashResult = await run("git", ["stash", "push", "--include-untracked", "-m", stashLabel, "--", ...plan.files]);
+    const hadStash = !stashResult.includes("No local changes");
+    if (!hadStash) {
+      const changed = await run("git", ["status", "--porcelain", "--", ...plan.files]);
+      if (!changed) throw new Error("記事公開対象に未コミット変更がありません。");
+    }
     await run("git", ["checkout", "main"]);
-    await run("git", ["merge", "--ff-only", "origin/main"]);
+    // A local run may have created maintenance commits through the GitHub API
+    // while the remote also advanced. Merge the fetched main safely instead
+    // of stopping on a non-fast-forward divergence.
+    await run("git", ["merge", "--no-edit", "--no-ff", "origin/main"]);
     await run("git", ["checkout", "-b", branch]);
     await run("git", ["add", "--", ...plan.files]);
     await run("git", ["commit", "-m", `Publish ${plan.articleFile}`]);
@@ -197,6 +213,7 @@ if (await exists(paths.articlePlan)) {
     // A one-off fetch stores the remote branch in FETCH_HEAD even when no
     // local remote-tracking ref exists. Merge that explicit revision.
     await run("git", ["merge", "--ff-only", "FETCH_HEAD"]);
+    if (hadStash) await run("git", ["stash", "pop"]);
     await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile]);
     await run("git", ["push", "origin", "HEAD:main"]);
     await run("git", ["checkout", "main"]);

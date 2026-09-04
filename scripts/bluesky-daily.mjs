@@ -70,12 +70,18 @@ const assertPlan = (plan, { articleIntro = false, engagementOnly = false } = {})
 };
 
 const api = async (service, path, options = {}) => {
-  const response = await fetch(`${service}/xrpc/${path}`, options);
-  if (!response.ok) {
+  const readOnly = !options.method || options.method.toUpperCase() === "GET";
+  for (let attempt = 0; attempt < (readOnly ? 3 : 1); attempt += 1) {
+    const response = await fetch(`${service}/xrpc/${path}`, options);
+    if (response.ok) return response.json();
     const body = await response.text();
+    if (readOnly && response.status >= 500 && attempt < 2) {
+      await new Promise((resolve) => setTimeout(resolve, 500 * (attempt + 1)));
+      continue;
+    }
     throw new Error(`${path} が失敗しました: ${response.status} ${body.slice(0, 300)}`);
   }
-  return response.json();
+  throw new Error(`${path} が失敗しました。`);
 };
 
 const createRecord = (service, accessJwt, repo, collection, record) => api(service, "com.atproto.repo.createRecord", {
