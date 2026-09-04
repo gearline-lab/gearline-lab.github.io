@@ -189,8 +189,13 @@ if (await exists(paths.articlePlan)) {
     await registerArticleInSitemap(plan);
     const slug = plan.articleFile.replace(/\.html$/u, "");
     const branch = `agent/publish-${slug}-${dateJst.replaceAll("-", "")}-${Date.now().toString(36)}`;
+    // A previous interrupted run can leave generated publication files in
+    // the working tree. Stash only the files in this plan before switching to
+    // main, then restore them after synchronizing with origin/main.
+    const stashLabel = `gearline-publish-${Date.now().toString(36)}`;
+    const stashResult = await run("git", ["stash", "push", "--include-untracked", "-m", stashLabel, "--", ...plan.files]);
     const changed = await run("git", ["status", "--porcelain", "--", ...plan.files]);
-    if (!changed) throw new Error("記事公開対象に未コミット変更がありません。");
+    if (!changed && !stashResult.includes("No local changes")) throw new Error("記事公開対象に未コミット変更がありません。");
     await run("git", ["checkout", "main"]);
     // A local run may have created maintenance commits through the GitHub API
     // while the remote also advanced. Merge the fetched main safely instead
@@ -205,6 +210,7 @@ if (await exists(paths.articlePlan)) {
     // A one-off fetch stores the remote branch in FETCH_HEAD even when no
     // local remote-tracking ref exists. Merge that explicit revision.
     await run("git", ["merge", "--ff-only", "FETCH_HEAD"]);
+    if (!stashResult.includes("No local changes")) await run("git", ["stash", "pop"]);
     await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile]);
     await run("git", ["push", "origin", "HEAD:main"]);
     await run("git", ["checkout", "main"]);
