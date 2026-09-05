@@ -118,7 +118,7 @@
     },
     {
       "id": "logicool-k250",
-      "publicationEligible": false,
+      "publicationEligible": true,
       "keywords": "ロジクール K250GR Bluetooth キーボード",
       "requiredTerms": ["K250GR", "ロジクール"],
       "excludedTerms": ["K250GRd", "MK250", "Amazon.co.jp限定"],
@@ -223,6 +223,25 @@
         "evidence": "Anker Japan公式製品ページが2026年1月発売の着脱式USB-Cハブを備えた13-in-1ドックとして仕様とmacOSでの映像出力注意点を公開している。"
       },
       "searchOpportunityScore": 90
+    },
+    {
+      "id": "elgato-wave-3",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "Elgato Wave:3",
+      "keywords": "Elgato Wave:3 USBマイク",
+      "requiredTerms": ["Elgato", "Wave:3", "USBマイク"],
+      "excludedTerms": ["Wave:1", "Wave DX", "アーム", "スタンド", "ケーブル", "ポップガード"],
+      "searchIntent": {
+        "primaryQuery": "Elgato Wave:3 Mac USBマイク 配信 会議 選び方",
+        "readerSituation": "Macで会議・収録・配信の音声を整えたいが、USBマイクの設置と接続条件を先に確認したい利用者",
+        "decisionToMake": "Wave:3の接続方式、設置、入力調整が自分の作業環境に合うか判断する",
+        "comparisonAxis": "USB接続、入力調整、設置スペース、会議と収録の切り替え"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Elgato公式製品ページがUSB接続、入力調整、設置に関わる仕様を公開しており、Macの会議・収録用途で購入前条件を比較できる。"
+      },
+      "searchOpportunityScore": 83
     }
   ]
 }

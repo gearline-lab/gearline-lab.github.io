@@ -23,6 +23,7 @@ const sourceById = {
   "apple-studio-display": "https://www.apple.com/jp/studio-display/",
   "bambu-lab-a1": "https://jp.store.bambulab.com/products/a1",
   "logicool-mx-keys-s": "https://www.logicool.co.jp/ja-jp/products/keyboards/mx-keys-s.html",
+  "logicool-k250": "https://www.logicool.co.jp/ja-jp/products/keyboards/k250.html",
   "bambu-lab-p2s": "https://jp.store.bambulab.com/products/p2s",
   "anker-675-usb-c-docking-station": "https://www.ankerjapan.com/products/a8377",
   "anker-nano-docking-station-13in1": "https://www.ankerjapan.com/products/a83c3111"
@@ -34,6 +35,7 @@ const slugById = {
   "apple-studio-display": "apple-studio-display-desk-guide.html",
   "bambu-lab-a1": "bambu-lab-a1-desk-guide.html",
   "logicool-mx-keys-s": "logicool-mx-keys-s-mac-guide.html",
+  "logicool-k250": "logicool-k250-mac-number-input-guide.html",
   "bambu-lab-p2s": "bambu-lab-p2s-materials-guide.html",
   "anker-675-usb-c-docking-station": "anker-675-desk-layout-guide.html",
   "anker-nano-docking-station-13in1": "anker-nano-docking-station-setup-guide.html"
@@ -59,6 +61,8 @@ const title = selected.id === "ugreen-revodok-6in1"
   ? "Bambu Lab P2Sの材料選びを購入前に整理。密閉型3Dプリンターを使い切る条件"
   : selected.id === "logicool-mx-keys-s"
     ? "MX Keys SをMacで使う前に。配列と接続を決める購入ガイド"
+  : selected.id === "logicool-k250"
+    ? "ロジクール K250をMacで使う前に。テンキーと接続条件を整理する"
   : selected.id === "anker-675-usb-c-docking-station"
     ? "Anker 675を机に置く前に。モニタースタンド一体型ドックの配置条件"
     : "Anker Nanoを常設する前に。着脱式USB-Cハブの接続を決める条件";
@@ -76,6 +80,8 @@ const description = selected.id === "ugreen-revodok-6in1"
   ? "Bambu Lab P2Sの造形サイズ、ノズル、材料、設置条件を公式情報から整理し、必要な人と見送る人を分ける購入ガイドです。"
   : selected.id === "logicool-mx-keys-s"
     ? "Logicool MX Keys Sの配列、接続方式、複数端末切替、設置幅を公式情報から整理し、Macで使う条件を判断する購入ガイドです。"
+  : selected.id === "logicool-k250"
+    ? "ロジクール K250のBluetooth接続、テンキー、設置幅、耐水条件を公式情報から整理し、Macの数値入力に合うか判断する購入ガイドです。"
   : "ドッキングステーションを机へ置く前に、設置寸法、接続条件、常設と持ち出しの分け方を公式情報から整理する購入ガイドです。";
 const image = product.imageURL;
 const amazonUrl = product.detailPageURL;
@@ -94,6 +100,8 @@ const thumbnailSource = selected.id === "ugreen-revodok-6in1"
   ? "assets/thumbnails/bambu-lab-p2s.png"
   : selected.id === "logicool-mx-keys-s"
     ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
+  : selected.id === "logicool-k250"
+    ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
   : selected.id === "anker-675-usb-c-docking-station"
     ? "assets/thumbnails/anker-675-docking-station.png"
     : "assets/thumbnails/anker-nano-docking-station-13in1.png";
@@ -109,6 +117,8 @@ const specText = selected.id === "logicool-mx-keys-s"
   ? "MX Keys SはBluetooth Low EnergyとLogi Bolt USBレシーバーに対応し、複数端末の切り替えを公式仕様で案内しています。今回のAPI取得商品はMac向けUS配列モデルなので、購入前に配列と入力ソースを確認します。"
   : selected.id === "elgato-stream-deck-plus"
     ? "Stream Deck +はキーとダイヤルを組み合わせ、アプリごとのプロファイルで操作を切り替えられます。公式の技術仕様と対応ソフトを、自分の反復作業と照合します。"
+    : selected.id === "logicool-k250"
+      ? "K250はBluetooth接続とテンキーを備えたキーボードです。Macで数値入力を行う頻度、USBポートを空けたいか、設置幅と電池交換の動線を公式仕様と照合します。"
     : selected.id.includes("ugreen") || selected.id.includes("anker")
       ? "USB-Cハブは端子数だけでなく、映像・データ・給電の役割を分けて確認します。Mac側の対応仕様と、常設する端子／持ち出す端子を先に書き出します。"
       : selected.id.includes("apple")
@@ -118,6 +128,8 @@ const useText = selected.id === "logicool-mx-keys-s"
   ? "長文入力やショートカットが中心なら、テンキーの有無、手首の位置、バックライトの必要性を先に決めます。複数端末を切り替える場合は各端末の入力ソースも確認します。"
   : selected.id === "elgato-stream-deck-plus"
     ? "毎日繰り返す操作を3つだけ書き出し、キーに割り当てる操作とダイヤルで連続調整する操作を分けます。置き場所は手を伸ばす距離とケーブルの取り回しで決めます。"
+    : selected.id === "logicool-k250"
+      ? "数値入力が多い作業ではテンキーの位置を先に決め、マウスまでの距離と机の幅を測ります。Bluetooth接続を使う場合は、Macの入力ソース切り替えと電池交換の手順も確認します。"
     : selected.id.includes("bambu")
       ? "本体の設置だけでなく、扉の開閉、材料交換、排熱、清掃の動線を確保します。増設機器を使う場合は、増設後のケーブルと置き場所も先に測ります。"
       : "常設する接続と抜き差しする接続を分け、机の手前には交換頻度の高い端子だけを残します。設置場所を測ってからケーブル長を選ぶと余長が増えにくくなります。";
