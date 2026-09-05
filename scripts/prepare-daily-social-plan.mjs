@@ -58,16 +58,25 @@ for (const candidate of candidates) {
 // runner's normal validation still remains the final guard.
 let recentTexts = new Set();
 try {
+  const localHistory = JSON.parse(await readFile(resolve(root, "data/bluesky-post-history.json"), "utf8"));
+  recentTexts = new Set(localHistory
+    .filter((entry) => Date.parse(entry?.createdAt ?? 0) >= Date.now() - 14 * 24 * 60 * 60 * 1000)
+    .map((entry) => entry?.text?.trim())
+    .filter(Boolean));
+} catch {
+  // The public feed remains the source of truth on a first run.
+}
+try {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
   const response = await fetch("https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=gearline-lab.bsky.social&limit=100", { signal: controller.signal });
   clearTimeout(timeout);
   if (response.ok) {
     const feed = await response.json();
-    recentTexts = new Set((feed.feed ?? [])
+    for (const text of (feed.feed ?? [])
       .filter(({ post }) => Date.parse(post?.indexedAt ?? post?.record?.createdAt ?? 0) >= Date.now() - 14 * 24 * 60 * 60 * 1000)
       .map(({ post }) => post?.record?.text?.trim())
-      .filter(Boolean));
+      .filter(Boolean)) recentTexts.add(text);
   }
 } catch {
   // Keep the fallback deterministic if the public endpoint is unavailable.

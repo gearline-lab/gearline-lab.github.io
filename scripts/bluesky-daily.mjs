@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const args = new Set(process.argv.slice(2));
@@ -11,6 +11,7 @@ const verifySession = args.has("--verify-session");
 const articleIntro = args.has("--article-intro");
 const engagementOnly = args.has("--engagement-only");
 const root = process.cwd();
+const historyPath = resolve(root, "data/bluesky-post-history.json");
 const forbiddenUrl = /(?:https?:\/\/|www\.|amzn\.to|amazon\.[a-z.]+|tag=)/iu;
 const gearlineSiteUrl = /https:\/\/gearline-lab\.github\.io\/[a-z0-9-]+\.html(?:\?[^\s]+)?/giu;
 
@@ -37,6 +38,9 @@ const fail = (message) => {
 };
 
 const readPlan = async () => JSON.parse(await readFile(resolve(root, planPath), "utf8"));
+const readHistory = async () => {
+  try { return JSON.parse(await readFile(historyPath, "utf8")); } catch { return []; }
+};
 
 const assertPlan = (plan, { articleIntro = false, engagementOnly = false } = {}) => {
   if (!plan || typeof plan !== "object") fail("JSONオブジェクトが必要です。");
@@ -94,10 +98,12 @@ const createRecord = (service, accessJwt, repo, collection, record) => api(servi
 });
 
 const hasDuplicateRecentPost = async (service, accessJwt, actor, text) => {
+  const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
+  const localHistory = await readHistory();
+  if (localHistory.some((entry) => entry?.text?.trim() === text && Date.parse(entry.createdAt ?? 0) >= cutoff)) return true;
   const feed = await api(service, `app.bsky.feed.getAuthorFeed?actor=${encodeURIComponent(actor)}&limit=100`, {
     headers: { Authorization: `Bearer ${accessJwt}` }
   });
-  const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
   return (feed.feed ?? []).some(({ post }) =>
     post?.record?.text?.trim() === text && Date.parse(post.indexedAt ?? post.record?.createdAt ?? 0) >= cutoff
   );
@@ -166,3 +172,10 @@ console.log(JSON.stringify({
   reposted: results.reposts.length,
   followed: results.follows.length
 }));
+
+if (results.post) {
+  const history = await readHistory();
+  history.push({ createdAt: now, text: plan.post.text, uri: results.post.uri });
+  await mkdir(resolve(root, "data"), { recursive: true });
+  await writeFile(historyPath, `${JSON.stringify(history.slice(-200), null, 2)}\n`);
+}
