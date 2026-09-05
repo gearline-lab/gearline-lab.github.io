@@ -136,7 +136,7 @@
     },
     {
       "id": "bambu-lab-p2s",
-      "publicationEligible": false,
+      "publicationEligible": true,
       "keywords": "Bambu Lab P2S 3Dプリンター",
       "requiredTerms": ["Bambu Lab", "P2S", "256×256×256"],
       "excludedTerms": ["Combo", "AMS", "P1S", "A1", "A1 mini", "H2D", "ノズル"],
