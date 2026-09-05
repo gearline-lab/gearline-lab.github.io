@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-05T02:55:07.824Z",
+  "checkedAt": "2026-09-05T23:34:24.446Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -47,7 +47,7 @@
       "publicationEligible": true,
       "status": "ambiguous",
       "item": null,
-      "matchCount": 2,
+      "matchCount": 3,
       "candidates": [
         {
           "asin": "B0D1XLNWP2",
@@ -60,6 +60,12 @@
           "title": "UGREEN Revodok USB-C ハブ 6in1 拡張ハブ DP出力 4K@60Hz PD100W充電",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0F24B1VJN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/41YSrMTH5lL._SL500_.jpg"
+        },
+        {
+          "asin": "B0BY8QNV1C",
+          "title": "UGREEN Revodok 206 6 in 1 USB Cハブ 2HDMI出力 4K60Hz 100W PD充電 5Gbpsデータ転送",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0BY8QNV1C?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41aj7Mv8F0L._SL500_.jpg"
         }
       ]
     },
@@ -92,16 +98,16 @@
           "imageURL": "https://m.media-amazon.com/images/I/21Fc56KQjUL._SL500_.jpg"
         },
         {
-          "asin": "B0CYBRLBM9",
-          "title": "Anker 332 USB-C ハブ (5-in-1) ブルー",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBRLBM9?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/21QppvfyG1L._SL500_.jpg"
-        },
-        {
           "asin": "B0CYBSLZ9B",
           "title": "Anker 332 USB-C ハブ (5-in-1) ホワイト",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBSLZ9B?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/21aOwHE50UL._SL500_.jpg"
+        },
+        {
+          "asin": "B0CYBRLBM9",
+          "title": "Anker 332 USB-C ハブ (5-in-1) ブルー",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBRLBM9?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21QppvfyG1L._SL500_.jpg"
         },
         {
           "asin": "B0CYBGKTPG",
@@ -244,7 +250,7 @@
         "evidence": "Bluetooth・テンキー・Mac・USBポートという複数条件を含む比較/悩み解決型の検索意図。"
       },
       "searchOpportunityScore": 76,
-      "publicationEligible": false,
+      "publicationEligible": true,
       "status": "resolved",
       "item": {
         "asin": "B0FDQK9T7D",
@@ -415,6 +421,29 @@
           "imageURL": "https://m.media-amazon.com/images/I/31XH9M2cqJL._SL500_.jpg"
         }
       ]
+    },
+    {
+      "id": "elgato-wave-3",
+      "query": "Elgato Wave:3 USBマイク",
+      "searchIntent": {
+        "primaryQuery": "Elgato Wave:3 Mac USBマイク 配信 会議 選び方",
+        "readerSituation": "Macで会議・収録・配信の音声を整えたいが、USBマイクの設置と接続条件を先に確認したい利用者",
+        "decisionToMake": "Wave:3の接続方式、設置、入力調整が自分の作業環境に合うか判断する",
+        "comparisonAxis": "USB接続、入力調整、設置スペース、会議と収録の切り替え"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Elgato公式製品ページがUSB接続、入力調整、設置に関わる仕様を公開しており、Macの会議・収録用途で購入前条件を比較できる。"
+      },
+      "searchOpportunityScore": 83,
+      "publicationEligible": true,
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     }
   ]
 }
