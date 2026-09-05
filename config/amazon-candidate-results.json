@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-02T23:49:45.943Z",
+  "checkedAt": "2026-09-05T02:55:07.824Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -47,7 +47,7 @@
       "publicationEligible": true,
       "status": "ambiguous",
       "item": null,
-      "matchCount": 3,
+      "matchCount": 2,
       "candidates": [
         {
           "asin": "B0D1XLNWP2",
@@ -60,12 +60,6 @@
           "title": "UGREEN Revodok USB-C ハブ 6in1 拡張ハブ DP出力 4K@60Hz PD100W充電",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0F24B1VJN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/41YSrMTH5lL._SL500_.jpg"
-        },
-        {
-          "asin": "B0BY8QNV1C",
-          "title": "UGREEN Revodok 206 6 in 1 USB Cハブ 2HDMI出力 4K60Hz 100W PD充電 5Gbpsデータ転送",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0BY8QNV1C?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/41aj7Mv8F0L._SL500_.jpg"
         }
       ]
     },
@@ -89,7 +83,7 @@
       "publicationEligible": true,
       "status": "ambiguous",
       "item": null,
-      "matchCount": 5,
+      "matchCount": 6,
       "candidates": [
         {
           "asin": "B0BQMSXFP7",
@@ -120,6 +114,12 @@
           "title": "Anker 332 USB-C ハブ (5-in-1) グレー",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBV27NH?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/21UARC0iw2L._SL500_.jpg"
+        },
+        {
+          "asin": "B0D78JJCX3",
+          "title": "Anker 332 USB-CHub 5-in-1 A8355011",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0D78JJCX3?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31iabQuh8VL._SL500_.jpg"
         }
       ]
     },
@@ -141,22 +141,10 @@
       },
       "searchOpportunityScore": 80,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0BJL8SJ59",
-        "title": "Elgato Stream Deck +【並行輸入品】",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0BJL8SJ59?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/31oPaAlexKL._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0BJL8SJ59",
-          "title": "Elgato Stream Deck +【並行輸入品】",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0BJL8SJ59?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/31oPaAlexKL._SL500_.jpg"
-        }
-      ]
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
       "id": "apple-studio-display",
@@ -292,7 +280,7 @@
         "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
       },
       "searchOpportunityScore": 88,
-      "publicationEligible": false,
+      "publicationEligible": true,
       "status": "resolved",
       "item": {
         "asin": "B0FT7ZLSSC",
