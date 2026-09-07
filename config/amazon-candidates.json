@@ -227,9 +227,9 @@
     {
       "id": "elgato-wave-3",
       "publicationEligible": true,
-      "requiredTitlePrefix": "Elgato Wave:3",
-      "keywords": "Elgato Wave:3 USBマイク",
-      "requiredTerms": ["Elgato", "Wave:3", "USBマイク"],
+      "requiredTitlePrefix": "Elgato Wave",
+      "keywords": "Elgato Wave 3 USB マイク",
+      "requiredTerms": ["Elgato", "Wave", "3"],
       "excludedTerms": ["Wave:1", "Wave DX", "アーム", "スタンド", "ケーブル", "ポップガード"],
       "searchIntent": {
         "primaryQuery": "Elgato Wave:3 Mac USBマイク 配信 会議 選び方",
