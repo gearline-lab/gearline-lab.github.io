@@ -265,9 +265,9 @@
     {
       "id": "logicool-mx-master-3s",
       "publicationEligible": true,
-      "requiredTitlePrefix": "ロジクール MX Master 3S",
-      "keywords": "ロジクール MX Master 3S マウス",
-      "requiredTerms": ["ロジクール", "MX Master 3S"],
+      "requiredTitlePrefix": "ロジクール MX MASTER3s",
+      "keywords": "ロジクール MX MASTER3s MX2300GR",
+      "requiredTerms": ["ロジクール", "MX MASTER3s", "MX2300GR"],
       "excludedTerms": ["ケース", "カバー", "ソール", "交換", "マニュアル", "中古"],
       "searchIntent": {
         "primaryQuery": "MX Master 3S Mac 静音 スクロール ジェスチャー 選び方",
