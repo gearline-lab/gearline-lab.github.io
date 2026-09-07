@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-07T11:40:04.902Z",
+  "checkedAt": "2026-09-07T23:33:17.737Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -424,7 +424,7 @@
     },
     {
       "id": "elgato-wave-3",
-      "query": "Elgato Wave:3 USBマイク",
+      "query": "Elgato Wave 3 USB マイク",
       "searchIntent": {
         "primaryQuery": "Elgato Wave:3 Mac USBマイク 配信 会議 選び方",
         "readerSituation": "Macで会議・収録・配信の音声を整えたいが、USBマイクの設置と接続条件を先に確認したい利用者",
@@ -440,10 +440,23 @@
       },
       "searchOpportunityScore": 83,
       "publicationEligible": true,
-      "status": "not-found",
+      "status": "ambiguous",
       "item": null,
-      "matchCount": 0,
-      "candidates": []
+      "matchCount": 2,
+      "candidates": [
+        {
+          "asin": "B0GQRSQ86L",
+          "title": "Elgato Wave:3 – Wave FX Processor、オンボードDSP、Clipguard 2.0、VST insertsを搭載したプレミアムUSBコンデンサーマイク（配信＆ポッドキャスト向け）– PC&Mac対応",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0GQRSQ86L?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31s5b5k5jxL._SL500_.jpg"
+        },
+        {
+          "asin": "B0DHCGFBPN",
+          "title": "Elgato Wave:3 -プレミアムUSB容量ーマイク、 「 Call of Duty®: Black Ops 6 」スペシャルエディション 配信、ポッドキャスト、再生、およびホームオフィス適用、無料のミキサーソフトウェア、サウンドエフェクトプラグイン、歪みなし、プラグ&プレイMac/PC対応",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0DHCGFBPN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31LcVTA-NXL._SL500_.jpg"
+        }
+      ]
     },
     {
       "id": "apple-magic-trackpad-usbc",
