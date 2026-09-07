@@ -6,6 +6,11 @@ const inputPath = resolve(root, process.argv[2] ?? "config/amazon-candidates.jso
 const outputPath = resolve(root, process.argv[3] ?? "config/amazon-candidate-results.json");
 const input = JSON.parse(await readFile(inputPath, "utf8"));
 const searchPolicy = JSON.parse(await readFile(resolve(root, "config/search-intent-policy.json"), "utf8"));
+let previous = null;
+try { previous = JSON.parse(await readFile(outputPath, "utf8")); } catch { /* first resolution */ }
+const previousCheckedAt = Date.parse(previous?.checkedAt ?? "");
+const previousById = new Map((previous?.results ?? []).map((result) => [result.id, result]));
+const cacheFresh = Number.isFinite(previousCheckedAt) && Date.now() - previousCheckedAt < 6 * 24 * 60 * 60 * 1000;
 let growthPlan = null;
 try { growthPlan = JSON.parse(await readFile(resolve(root, "config/next-week-growth-plan.json"), "utf8")); } catch { /* first weekly review has not run yet */ }
 const dailyPolicy = searchPolicy.dailyArticle ?? {};
@@ -57,6 +62,14 @@ for (const candidate of input.candidates ?? []) {
   }
   if (!Number.isFinite(candidate.searchOpportunityScore) || candidate.searchOpportunityScore < minimumOpportunityScore || candidate.searchOpportunityScore > 100) {
     throw new Error(`候補 ${candidate.id} の検索機会スコアは ${minimumOpportunityScore}〜100 で設定してください。`);
+  }
+  // Reuse a recent verified result for unchanged candidates. This keeps the
+  // daily refresh focused on newly added products and avoids exhausting the
+  // Creators API SearchItems quota with identical queries.
+  const cached = previousById.get(candidate.id);
+  if (cacheFresh && cached && cached.query === candidate.keywords) {
+    results.push(cached);
+    continue;
   }
   let response;
   for (let attempt = 0; attempt < 4; attempt += 1) {
