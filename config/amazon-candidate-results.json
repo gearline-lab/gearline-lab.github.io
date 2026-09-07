@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-07T23:33:17.737Z",
+  "checkedAt": "2026-09-07T23:34:05.710Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -424,7 +424,7 @@
     },
     {
       "id": "elgato-wave-3",
-      "query": "Elgato Wave 3 USB マイク",
+      "query": "Elgato Wave 3 USB コンデンサーマイク",
       "searchIntent": {
         "primaryQuery": "Elgato Wave:3 Mac USBマイク 配信 会議 選び方",
         "readerSituation": "Macで会議・収録・配信の音声を整えたいが、USBマイクの設置と接続条件を先に確認したい利用者",
@@ -440,21 +440,20 @@
       },
       "searchOpportunityScore": 83,
       "publicationEligible": true,
-      "status": "ambiguous",
-      "item": null,
-      "matchCount": 2,
+      "status": "resolved",
+      "item": {
+        "asin": "B0GQRSQ86L",
+        "title": "Elgato Wave:3 – Wave FX Processor、オンボードDSP、Clipguard 2.0、VST insertsを搭載したプレミアムUSBコンデンサーマイク（配信＆ポッドキャスト向け）– PC&Mac対応",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0GQRSQ86L?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/31s5b5k5jxL._SL500_.jpg"
+      },
+      "matchCount": 1,
       "candidates": [
         {
           "asin": "B0GQRSQ86L",
           "title": "Elgato Wave:3 – Wave FX Processor、オンボードDSP、Clipguard 2.0、VST insertsを搭載したプレミアムUSBコンデンサーマイク（配信＆ポッドキャスト向け）– PC&Mac対応",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0GQRSQ86L?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/31s5b5k5jxL._SL500_.jpg"
-        },
-        {
-          "asin": "B0DHCGFBPN",
-          "title": "Elgato Wave:3 -プレミアムUSB容量ーマイク、 「 Call of Duty®: Black Ops 6 」スペシャルエディション 配信、ポッドキャスト、再生、およびホームオフィス適用、無料のミキサーソフトウェア、サウンドエフェクトプラグイン、歪みなし、プラグ&プレイMac/PC対応",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0DHCGFBPN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/31LcVTA-NXL._SL500_.jpg"
         }
       ]
     },
