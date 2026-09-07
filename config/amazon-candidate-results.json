@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-07T11:39:10.571Z",
+  "checkedAt": "2026-09-07T11:40:04.902Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -470,7 +470,7 @@
     },
     {
       "id": "logicool-mx-master-3s",
-      "query": "ロジクール MX Master 3S マウス",
+      "query": "ロジクール MX MASTER3s MX2300GR",
       "searchIntent": {
         "primaryQuery": "MX Master 3S Mac 静音 スクロール ジェスチャー 選び方",
         "readerSituation": "Macで長時間ポインタ操作や横スクロールを行い、マウスの静音性とボタン配置を見直したい利用者",
@@ -486,22 +486,15 @@
       },
       "searchOpportunityScore": 87,
       "publicationEligible": true,
-      "status": "ambiguous",
-      "item": null,
-      "matchCount": 3,
+      "status": "resolved",
+      "item": {
+        "asin": "B0B1Q6VB16",
+        "title": "ロジクール MX MASTER3s アドバンスド ワイヤレス マウス 静音 MX2300GR Logi Bolt Bluetooth Unifying非対応 8000dpi 高速スクロールホイール USB-C 充電式 無線 MX2300 グラファイト 国内正規品",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0B1Q6VB16?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/31vQk1d5KtL._SL500_.jpg"
+      },
+      "matchCount": 1,
       "candidates": [
-        {
-          "asin": "B0FR8BMDG1",
-          "title": "ロジクール MX MASTER 3S Bluetooth Edition アドバンスド ワイヤレス マウス 静音 MX2300CR Logi Bolt Bluetooth Unifying非対応 8000dpi 高速スクロールホイール USB-C 充電式 無線 MX2300 グラファイト 国内正規品",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0FR8BMDG1?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/31HmSa8C2wL._SL500_.jpg"
-        },
-        {
-          "asin": "B0B1Q4DJLP",
-          "title": "ロジクール MX MASTER3s アドバンスド ワイヤレス マウス 静音 MX2300PG Logi Bolt Bluetooth Unifying非対応 8000dpi 高速スクロールホイール USB-C 充電式 windows mac iPad Chrome Android OS 無線 ワイヤレスマウス MX2300 ペイルグレー 国内正規品",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0B1Q4DJLP?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/3178DrVXJnL._SL500_.jpg"
-        },
         {
           "asin": "B0B1Q6VB16",
           "title": "ロジクール MX MASTER3s アドバンスド ワイヤレス マウス 静音 MX2300GR Logi Bolt Bluetooth Unifying非対応 8000dpi 高速スクロールホイール USB-C 充電式 無線 MX2300 グラファイト 国内正規品",
