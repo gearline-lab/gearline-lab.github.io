@@ -261,6 +261,25 @@
         "evidence": "Apple公式製品ページがMulti-Touch、感圧タッチ、Bluetooth、USB-C、対応OSを公開しており、Macの入力デバイス選びを条件で比較できる。"
       },
       "searchOpportunityScore": 85
+    },
+    {
+      "id": "logicool-mx-master-3s",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "ロジクール MX Master 3S",
+      "keywords": "ロジクール MX Master 3S マウス",
+      "requiredTerms": ["ロジクール", "MX Master 3S"],
+      "excludedTerms": ["ケース", "カバー", "ソール", "交換", "マニュアル", "中古"],
+      "searchIntent": {
+        "primaryQuery": "MX Master 3S Mac 静音 スクロール ジェスチャー 選び方",
+        "readerSituation": "Macで長時間ポインタ操作や横スクロールを行い、マウスの静音性とボタン配置を見直したい利用者",
+        "decisionToMake": "MX Master 3Sの接続・ボタン・スクロール機能が自分の作業と机上スペースに必要か判断する",
+        "comparisonAxis": "静音クリック、MagSpeedスクロール、Bluetooth接続、ボタン数、手のサイズと設置"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "ロジクール公式製品ページが静音クリック、MagSpeedスクロール、Bluetooth接続、複数OS対応を公開しており、Macのポインタ操作改善を購入前条件で比較できる。"
+      },
+      "searchOpportunityScore": 87
     }
   ]
 }

@@ -26,7 +26,8 @@ const sourceById = {
   "logicool-k250": "https://www.logicool.co.jp/ja-jp/products/keyboards/k250.html",
   "bambu-lab-p2s": "https://jp.store.bambulab.com/products/p2s",
   "anker-675-usb-c-docking-station": "https://www.ankerjapan.com/products/a8377",
-  "anker-nano-docking-station-13in1": "https://www.ankerjapan.com/products/a83c3111"
+  "anker-nano-docking-station-13in1": "https://www.ankerjapan.com/products/a83c3111",
+  "logicool-mx-master-3s": "https://www.logicool.co.jp/ja-jp/products/mice/mx-master-3s.html"
 };
 const slugById = {
   "ugreen-revodok-6in1": "ugreen-revodok-6in1-buying-guide.html",
@@ -38,7 +39,8 @@ const slugById = {
   "logicool-k250": "logicool-k250-mac-number-input-guide.html",
   "bambu-lab-p2s": "bambu-lab-p2s-materials-guide.html",
   "anker-675-usb-c-docking-station": "anker-675-desk-layout-guide.html",
-  "anker-nano-docking-station-13in1": "anker-nano-docking-station-setup-guide.html"
+  "anker-nano-docking-station-13in1": "anker-nano-docking-station-setup-guide.html",
+  "logicool-mx-master-3s": "logicool-mx-master-3s-mac-guide.html"
 };
 const candidates = (data.results ?? [])
   .filter((item) => item.status === "resolved" && item.publicationEligible !== false && item.item && sourceById[item.id] && slugById[item.id] && !existing.has(slugById[item.id]))
@@ -63,6 +65,8 @@ const title = selected.id === "ugreen-revodok-6in1"
     ? "MX Keys SをMacで使う前に。配列と接続を決める購入ガイド"
   : selected.id === "logicool-k250"
     ? "ロジクール K250をMacで使う前に。テンキーと接続条件を整理する"
+  : selected.id === "logicool-mx-master-3s"
+    ? "MX Master 3SをMacで使う前に。静音クリックとスクロールの条件整理"
   : selected.id === "anker-675-usb-c-docking-station"
     ? "Anker 675を机に置く前に。モニタースタンド一体型ドックの配置条件"
     : "Anker Nanoを常設する前に。着脱式USB-Cハブの接続を決める条件";
@@ -80,6 +84,8 @@ const description = selected.id === "ugreen-revodok-6in1"
   ? "Bambu Lab P2Sの造形サイズ、ノズル、材料、設置条件を公式情報から整理し、必要な人と見送る人を分ける購入ガイドです。"
   : selected.id === "logicool-mx-keys-s"
     ? "Logicool MX Keys Sの配列、接続方式、複数端末切替、設置幅を公式情報から整理し、Macで使う条件を判断する購入ガイドです。"
+  : selected.id === "logicool-mx-master-3s"
+    ? "Logicool MX Master 3Sの静音クリック、スクロール、接続、ボタン構成を公式情報から整理し、Macのポインタ操作に合う条件を判断する購入ガイドです。"
   : selected.id === "logicool-k250"
     ? "ロジクール K250のBluetooth接続、テンキー、設置幅、耐水条件を公式情報から整理し、Macの数値入力に合うか判断する購入ガイドです。"
   : "ドッキングステーションを机へ置く前に、設置寸法、接続条件、常設と持ち出しの分け方を公式情報から整理する購入ガイドです。";
@@ -100,6 +106,8 @@ const thumbnailSource = selected.id === "ugreen-revodok-6in1"
   ? "assets/thumbnails/bambu-lab-p2s.png"
   : selected.id === "logicool-mx-keys-s"
     ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
+  : selected.id === "logicool-mx-master-3s"
+    ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
   : selected.id === "logicool-k250"
     ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
   : selected.id === "anker-675-usb-c-docking-station"
@@ -113,7 +121,9 @@ if (!productsConfig.products.some((item) => item.asin === product.asin)) {
 }
 const card = (placement) => `<!-- AMAZON_CARD:${product.asin}:START --><div class="product-card" data-affiliate-card data-asin="${product.asin}" data-article-slug="${slug.replace(/\.html$/u, "")}" data-placement="${placement}"><img src="${image}" alt="${product.title}（Amazon許諾画像）"><div><h3>${product.title}</h3><p>仕様と販売状況はAmazonの商品ページで確認できます。</p><a class="cta" data-affiliate-link href="${amazonUrl}">Amazon.co.jpで確認する</a></div></div><!-- AMAZON_CARD:${product.asin}:END -->`;
 const sectionLabel = selected.id.includes("bambu") ? "3D PRINT / BUYING GUIDE" : selected.id.includes("logicool") ? "KEYBOARD / MAC SETUP" : selected.id.includes("elgato") ? "MAC WORKFLOW / CONTROL" : "MAC PERIPHERALS / DESK SETUP";
-const specText = selected.id === "logicool-mx-keys-s"
+const specText = selected.id === "logicool-mx-master-3s"
+  ? "MX Master 3Sは静音クリックとMagSpeed電磁スクロール、Bluetooth接続などを公式仕様で案内しています。Macの作業で横スクロールや複数ボタンを使う頻度と、手のサイズ・机上スペースを照合します。"
+  : selected.id === "logicool-mx-keys-s"
   ? "MX Keys SはBluetooth Low EnergyとLogi Bolt USBレシーバーに対応し、複数端末の切り替えを公式仕様で案内しています。今回のAPI取得商品はMac向けUS配列モデルなので、購入前に配列と入力ソースを確認します。"
   : selected.id === "elgato-stream-deck-plus"
     ? "Stream Deck +はキーとダイヤルを組み合わせ、アプリごとのプロファイルで操作を切り替えられます。公式の技術仕様と対応ソフトを、自分の反復作業と照合します。"
@@ -124,7 +134,9 @@ const specText = selected.id === "logicool-mx-keys-s"
       : selected.id.includes("apple")
         ? "Studio Displayは表示、カメラ、音声、接続を一体化したモニターです。Macの対応条件と机の奥行きを、公式仕様を起点に照合します。"
         : "公式ページの仕様表を起点に、必要な機能と設置条件を照合します。";
-const useText = selected.id === "logicool-mx-keys-s"
+const useText = selected.id === "logicool-mx-master-3s"
+  ? "表計算やタイムラインでスクロールを多用するなら、ホイールとサイドボタンに割り当てる操作を先に3つ決めます。Bluetooth接続と充電の動線、マウスを置く幅も確認してから導入します。"
+  : selected.id === "logicool-mx-keys-s"
   ? "長文入力やショートカットが中心なら、テンキーの有無、手首の位置、バックライトの必要性を先に決めます。複数端末を切り替える場合は各端末の入力ソースも確認します。"
   : selected.id === "elgato-stream-deck-plus"
     ? "毎日繰り返す操作を3つだけ書き出し、キーに割り当てる操作とダイヤルで連続調整する操作を分けます。置き場所は手を伸ばす距離とケーブルの取り回しで決めます。"
