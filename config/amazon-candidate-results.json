@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-05T23:34:24.446Z",
+  "checkedAt": "2026-09-07T11:32:13.493Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -98,16 +98,16 @@
           "imageURL": "https://m.media-amazon.com/images/I/21Fc56KQjUL._SL500_.jpg"
         },
         {
-          "asin": "B0CYBSLZ9B",
-          "title": "Anker 332 USB-C ハブ (5-in-1) ホワイト",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBSLZ9B?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/21aOwHE50UL._SL500_.jpg"
-        },
-        {
           "asin": "B0CYBRLBM9",
           "title": "Anker 332 USB-C ハブ (5-in-1) ブルー",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBRLBM9?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/21QppvfyG1L._SL500_.jpg"
+        },
+        {
+          "asin": "B0CYBSLZ9B",
+          "title": "Anker 332 USB-C ハブ (5-in-1) ホワイト",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBSLZ9B?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21aOwHE50UL._SL500_.jpg"
         },
         {
           "asin": "B0CYBGKTPG",
