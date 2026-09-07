@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-07T11:32:13.493Z",
+  "checkedAt": "2026-09-07T11:35:20.894Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -439,6 +439,29 @@
         "evidence": "Elgato公式製品ページがUSB接続、入力調整、設置に関わる仕様を公開しており、Macの会議・収録用途で購入前条件を比較できる。"
       },
       "searchOpportunityScore": 83,
+      "publicationEligible": true,
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
+    },
+    {
+      "id": "apple-magic-trackpad-usbc",
+      "query": "Apple Magic Trackpad USB-C",
+      "searchIntent": {
+        "primaryQuery": "Apple Magic Trackpad USB-C Mac ジェスチャー 選び方",
+        "readerSituation": "MacのスクロールやMission Controlを指のジェスチャーで操作したく、マウスとの役割分担を見直したい利用者",
+        "decisionToMake": "Magic Trackpadのサイズ・接続・充電方式が自分の机上操作に必要か判断する",
+        "comparisonAxis": "ジェスチャー、机上スペース、Bluetooth接続、USB-C充電、マウスとの使い分け"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Apple公式製品ページがMulti-Touch、感圧タッチ、Bluetooth、USB-C、対応OSを公開しており、Macの入力デバイス選びを条件で比較できる。"
+      },
+      "searchOpportunityScore": 85,
       "publicationEligible": true,
       "status": "not-found",
       "item": null,
