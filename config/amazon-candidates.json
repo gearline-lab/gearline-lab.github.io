@@ -242,6 +242,25 @@
         "evidence": "Elgato公式製品ページがUSB接続、入力調整、設置に関わる仕様を公開しており、Macの会議・収録用途で購入前条件を比較できる。"
       },
       "searchOpportunityScore": 83
+    },
+    {
+      "id": "apple-magic-trackpad-usbc",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "Apple Magic Trackpad",
+      "keywords": "Apple Magic Trackpad USB-C",
+      "requiredTerms": ["Apple", "Magic Trackpad"],
+      "excludedTerms": ["ケース", "カバー", "交換", "保護フィルム", "中古"],
+      "searchIntent": {
+        "primaryQuery": "Apple Magic Trackpad USB-C Mac ジェスチャー 選び方",
+        "readerSituation": "MacのスクロールやMission Controlを指のジェスチャーで操作したく、マウスとの役割分担を見直したい利用者",
+        "decisionToMake": "Magic Trackpadのサイズ・接続・充電方式が自分の机上操作に必要か判断する",
+        "comparisonAxis": "ジェスチャー、机上スペース、Bluetooth接続、USB-C充電、マウスとの使い分け"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "Apple公式製品ページがMulti-Touch、感圧タッチ、Bluetooth、USB-C、対応OSを公開しており、Macの入力デバイス選びを条件で比較できる。"
+      },
+      "searchOpportunityScore": 85
     }
   ]
 }
