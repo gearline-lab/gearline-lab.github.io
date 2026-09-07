@@ -228,9 +228,9 @@
       "id": "elgato-wave-3",
       "publicationEligible": true,
       "requiredTitlePrefix": "Elgato Wave",
-      "keywords": "Elgato Wave 3 USB マイク",
+      "keywords": "Elgato Wave 3 USB コンデンサーマイク",
       "requiredTerms": ["Elgato", "Wave", "3"],
-      "excludedTerms": ["Wave:1", "Wave DX", "アーム", "スタンド", "ケーブル", "ポップガード"],
+      "excludedTerms": ["Wave:1", "Wave DX", "アーム", "スタンド", "ケーブル", "ポップガード", "Call of Duty", "スペシャルエディション"],
       "searchIntent": {
         "primaryQuery": "Elgato Wave:3 Mac USBマイク 配信 会議 選び方",
         "readerSituation": "Macで会議・収録・配信の音声を整えたいが、USBマイクの設置と接続条件を先に確認したい利用者",
