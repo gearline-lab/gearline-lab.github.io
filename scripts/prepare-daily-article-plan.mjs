@@ -41,7 +41,7 @@ const slugById = {
   "logicool-k250": "logicool-k250-mac-number-input-guide.html",
   "bambu-lab-p2s": "bambu-lab-p2s-materials-guide.html",
   "anker-675-usb-c-docking-station": "anker-675-desk-layout-guide.html",
-  "anker-nano-docking-station-13in1": "anker-nano-docking-station-setup-guide.html",
+  "anker-nano-docking-station-13in1": "anker-nano-docking-station-multi-display-guide.html",
   "logicool-mx-master-3s": "logicool-mx-master-3s-mac-guide.html",
   "elgato-wave-3": "elgato-wave-3-mac-mic-guide.html",
   "apple-magic-mouse-usbc-black": "apple-magic-mouse-usbc-mac-guide.html"
