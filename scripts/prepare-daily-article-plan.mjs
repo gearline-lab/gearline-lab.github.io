@@ -28,7 +28,8 @@ const sourceById = {
   "anker-675-usb-c-docking-station": "https://www.ankerjapan.com/products/a8377",
   "anker-nano-docking-station-13in1": "https://www.ankerjapan.com/products/a83c3111",
   "logicool-mx-master-3s": "https://www.logicool.co.jp/ja-jp/products/mice/mx-master-3s.html",
-  "elgato-wave-3": "https://www.elgato.com/ww/en/p/wave-3"
+  "elgato-wave-3": "https://www.elgato.com/ww/en/p/wave-3",
+  "apple-magic-mouse-usbc-black": "https://www.apple.com/jp/shop/product/mxk63za/a/magic-mouseusb-c-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AFmulti-touch%E5%AF%BE%E5%BF%9C"
 };
 const slugById = {
   "ugreen-revodok-6in1": "ugreen-revodok-6in1-buying-guide.html",
@@ -42,7 +43,8 @@ const slugById = {
   "anker-675-usb-c-docking-station": "anker-675-desk-layout-guide.html",
   "anker-nano-docking-station-13in1": "anker-nano-docking-station-setup-guide.html",
   "logicool-mx-master-3s": "logicool-mx-master-3s-mac-guide.html",
-  "elgato-wave-3": "elgato-wave-3-mac-mic-guide.html"
+  "elgato-wave-3": "elgato-wave-3-mac-mic-guide.html",
+  "apple-magic-mouse-usbc-black": "apple-magic-mouse-usbc-mac-guide.html"
 };
 const candidates = (data.results ?? [])
   .filter((item) => item.status === "resolved" && item.publicationEligible !== false && item.item && sourceById[item.id] && slugById[item.id] && !existing.has(slugById[item.id]))
@@ -71,6 +73,8 @@ const title = selected.id === "ugreen-revodok-6in1"
     ? "MX Master 3SをMacで使う前に。静音クリックとスクロールの条件整理"
   : selected.id === "elgato-wave-3"
     ? "Elgato Wave:3をMacで使う前に。会議と収録の音声条件を整理する"
+  : selected.id === "apple-magic-mouse-usbc-black"
+    ? "Magic Mouse（USB-C）をMacで使う前に。ジェスチャーと充電条件を整理する"
   : selected.id === "anker-675-usb-c-docking-station"
     ? "Anker 675を机に置く前に。モニタースタンド一体型ドックの配置条件"
     : "Anker Nanoを常設する前に。着脱式USB-Cハブの接続を決める条件";
@@ -92,6 +96,8 @@ const description = selected.id === "ugreen-revodok-6in1"
     ? "Logicool MX Master 3Sの静音クリック、スクロール、接続、ボタン構成を公式情報から整理し、Macのポインタ操作に合う条件を判断する購入ガイドです。"
   : selected.id === "elgato-wave-3"
     ? "Elgato Wave:3のUSB接続、入力調整、設置条件を公式情報から整理し、Macの会議・収録・配信に合うか判断する購入ガイドです。"
+  : selected.id === "apple-magic-mouse-usbc-black"
+    ? "Magic Mouse（USB-C）のMulti-Touch、Bluetooth、充電、設置条件を公式情報から整理し、Macの入力環境に合うか判断する購入ガイドです。"
   : selected.id === "logicool-k250"
     ? "ロジクール K250のBluetooth接続、テンキー、設置幅、耐水条件を公式情報から整理し、Macの数値入力に合うか判断する購入ガイドです。"
   : "ドッキングステーションを机へ置く前に、設置寸法、接続条件、常設と持ち出しの分け方を公式情報から整理する購入ガイドです。";
@@ -116,6 +122,8 @@ const thumbnailSource = selected.id === "ugreen-revodok-6in1"
     ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
   : selected.id === "elgato-wave-3"
     ? "assets/thumbnails/stream-deck-plus.png"
+  : selected.id === "apple-magic-mouse-usbc-black"
+    ? "assets/thumbnails/desk-setup-before-buying.png"
   : selected.id === "logicool-k250"
     ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
   : selected.id === "anker-675-usb-c-docking-station"
@@ -129,7 +137,9 @@ if (!productsConfig.products.some((item) => item.asin === product.asin)) {
 }
 const card = (placement) => `<!-- AMAZON_CARD:${product.asin}:START --><div class="product-card" data-affiliate-card data-asin="${product.asin}" data-article-slug="${slug.replace(/\.html$/u, "")}" data-placement="${placement}"><img src="${image}" alt="${product.title}（Amazon許諾画像）"><div><h3>${product.title}</h3><p>仕様と販売状況はAmazonの商品ページで確認できます。</p><a class="cta" data-affiliate-link href="${amazonUrl}">Amazon.co.jpで確認する</a></div></div><!-- AMAZON_CARD:${product.asin}:END -->`;
 const sectionLabel = selected.id.includes("bambu") ? "3D PRINT / BUYING GUIDE" : selected.id.includes("logicool") ? "KEYBOARD / MAC SETUP" : selected.id.includes("elgato") ? "MAC WORKFLOW / CONTROL" : "MAC PERIPHERALS / DESK SETUP";
-const specText = selected.id === "elgato-wave-3"
+const specText = selected.id === "apple-magic-mouse-usbc-black"
+  ? "Magic MouseはMulti-Touch、Bluetooth、USB-Cポートを公式仕様で案内しています。Macのスクロールやスワイプをマウス上で行いたいか、充電ケーブルを接続する位置と机上スペースを照合します。"
+  : selected.id === "elgato-wave-3"
   ? "Wave:3はUSB接続、入力ゲイン調整、ヘッドホン出力などを公式仕様で案内しています。Macの会議・収録で必要な入力調整と、マイクを置く机上スペースを照合します。"
   : selected.id === "logicool-mx-master-3s"
   ? "MX Master 3Sは静音クリックとMagSpeed電磁スクロール、Bluetooth接続などを公式仕様で案内しています。Macの作業で横スクロールや複数ボタンを使う頻度と、手のサイズ・机上スペースを照合します。"
@@ -144,7 +154,9 @@ const specText = selected.id === "elgato-wave-3"
       : selected.id.includes("apple")
         ? "Studio Displayは表示、カメラ、音声、接続を一体化したモニターです。Macの対応条件と机の奥行きを、公式仕様を起点に照合します。"
         : "公式ページの仕様表を起点に、必要な機能と設置条件を照合します。";
-const useText = selected.id === "elgato-wave-3"
+const useText = selected.id === "apple-magic-mouse-usbc-black"
+  ? "ページ操作や書類のスクロールを指のジェスチャーで行うか、細かなポインタ操作を優先するかを分けます。充電時にケーブルが机上の動線を塞がないか、トラックパッドとの使い分けも先に確認します。"
+  : selected.id === "elgato-wave-3"
   ? "会議・収録・配信のどれを主用途にするか先に決め、入力調整を手元で行う必要があるか確認します。USBケーブルの取り回しと、マイクを置いたときの画面・キーボードとの距離も測ります。"
   : selected.id === "logicool-mx-master-3s"
   ? "表計算やタイムラインでスクロールを多用するなら、ホイールとサイドボタンに割り当てる操作を先に3つ決めます。Bluetooth接続と充電の動線、マウスを置く幅も確認してから導入します。"

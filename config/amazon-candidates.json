@@ -280,6 +280,25 @@
         "evidence": "ロジクール公式製品ページが静音クリック、MagSpeedスクロール、Bluetooth接続、複数OS対応を公開しており、Macのポインタ操作改善を購入前条件で比較できる。"
       },
       "searchOpportunityScore": 87
+    },
+    {
+      "id": "apple-magic-mouse-usbc-black",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "Apple Magic Mouse",
+      "keywords": "Apple Magic Mouse USB-C ブラック Multi-Touch",
+      "requiredTerms": ["Apple", "Magic Mouse", "USB-C", "ブラック"],
+      "excludedTerms": ["ケース", "カバー", "交換", "中古", "Lightning"],
+      "searchIntent": {
+        "primaryQuery": "Apple Magic Mouse USB-C Mac ジェスチャー 充電 選び方",
+        "readerSituation": "Macのスクロールやスワイプを指先で操作したいが、マウスの充電方式と机上の操作感を購入前に確認したい利用者",
+        "decisionToMake": "Magic MouseのMulti-Touch、Bluetooth、USB-C充電、薄型形状が自分の操作と机に合うか判断する",
+        "comparisonAxis": "ジェスチャー、充電端子、薄型形状、机上スペース、トラックパッドとの役割分担"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "compatibility-change", "problem-query"],
+        "evidence": "Apple公式仕様がUSB-C、Multi-Touch、Bluetooth、対応OSを公開しており、Macの入力デバイスと充電方式を購入前に比較できる。"
+      },
+      "searchOpportunityScore": 84
     }
   ]
 }
