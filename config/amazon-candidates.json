@@ -282,6 +282,25 @@
       "searchOpportunityScore": 87
     },
     {
+      "id": "logicool-mx-master-3s-horizontal",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "ロジクール MX MASTER3s",
+      "keywords": "ロジクール MX MASTER3s MX2300GR",
+      "requiredTerms": ["ロジクール", "MX MASTER3s", "MX2300GR"],
+      "excludedTerms": ["ケース", "カバー", "ソール", "交換", "マニュアル", "中古"],
+      "searchIntent": {
+        "primaryQuery": "MX Master 3S 横スクロール Mac サイドボタン 使い分け",
+        "readerSituation": "Macの表計算やタイムラインで横スクロールを多用し、ホイールとサイドボタンの役割を整理したい利用者",
+        "decisionToMake": "MagSpeedとサイドボタンの操作が自分の作業に必要か、机上スペースと合わせて判断する",
+        "comparisonAxis": "横スクロール、静音クリック、サイドボタン、Bluetooth接続、手のサイズ"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "problem-query"],
+        "evidence": "ロジクール公式製品ページがMagSpeed、静音クリック、サイドボタン、Bluetooth接続を公開しており、横スクロール中心のMac作業で購入前条件を比較できる。"
+      },
+      "searchOpportunityScore": 81
+    },
+    {
       "id": "apple-magic-mouse-usbc-black",
       "publicationEligible": true,
       "requiredTitlePrefix": "Apple Magic Mouse",

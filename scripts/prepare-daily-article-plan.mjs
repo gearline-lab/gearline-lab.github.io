@@ -28,6 +28,7 @@ const sourceById = {
   "anker-675-usb-c-docking-station": "https://www.ankerjapan.com/products/a8377",
   "anker-nano-docking-station-13in1": "https://www.ankerjapan.com/products/a83c3111",
   "logicool-mx-master-3s": "https://www.logicool.co.jp/ja-jp/products/mice/mx-master-3s.html",
+  "logicool-mx-master-3s-horizontal": "https://www.logicool.co.jp/ja-jp/products/mice/mx-master-3s.html",
   "elgato-wave-3": "https://www.elgato.com/ww/en/p/wave-3",
   "apple-magic-mouse-usbc-black": "https://www.apple.com/jp/shop/product/mxk63za/a/magic-mouseusb-c-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AFmulti-touch%E5%AF%BE%E5%BF%9C"
 };
@@ -43,6 +44,7 @@ const slugById = {
   "anker-675-usb-c-docking-station": "anker-675-desk-layout-guide.html",
   "anker-nano-docking-station-13in1": "anker-nano-docking-station-multi-display-guide.html",
   "logicool-mx-master-3s": "logicool-mx-master-3s-mac-guide.html",
+  "logicool-mx-master-3s-horizontal": "logicool-mx-master-3s-horizontal-scroll-guide.html",
   "elgato-wave-3": "elgato-wave-3-mac-mic-guide.html",
   "apple-magic-mouse-usbc-black": "apple-magic-mouse-usbc-mac-guide.html"
 };
@@ -53,6 +55,7 @@ const selected = candidates[0];
 if (!selected) throw new Error("新規URLにできるCreators API確認済み候補がありません。");
 const product = selected.item;
 const slug = slugById[selected.id];
+const templateId = selected.id === "logicool-mx-master-3s-horizontal" ? "logicool-mx-master-3s" : selected.id;
 const title = selected.id === "ugreen-revodok-6in1"
   ? "UGREEN Revodok 6-in-1を選ぶ前に。Macの接続条件を整理する"
   : selected.id === "anker-332-usb-c-hub"
@@ -71,6 +74,8 @@ const title = selected.id === "ugreen-revodok-6in1"
     ? "ロジクール K250をMacで使う前に。テンキーと接続条件を整理する"
   : selected.id === "logicool-mx-master-3s"
     ? "MX Master 3SをMacで使う前に。静音クリックとスクロールの条件整理"
+  : selected.id === "logicool-mx-master-3s-horizontal"
+    ? "MX Master 3Sの横スクロールをMacで使う前に。ホイールとサイドボタンの条件整理"
   : selected.id === "elgato-wave-3"
     ? "Elgato Wave:3をMacで使う前に。会議と収録の音声条件を整理する"
   : selected.id === "apple-magic-mouse-usbc-black"
@@ -94,6 +99,8 @@ const description = selected.id === "ugreen-revodok-6in1"
     ? "Logicool MX Keys Sの配列、接続方式、複数端末切替、設置幅を公式情報から整理し、Macで使う条件を判断する購入ガイドです。"
   : selected.id === "logicool-mx-master-3s"
     ? "Logicool MX Master 3Sの静音クリック、スクロール、接続、ボタン構成を公式情報から整理し、Macのポインタ操作に合う条件を判断する購入ガイドです。"
+  : selected.id === "logicool-mx-master-3s-horizontal"
+    ? "Logicool MX Master 3Sの横スクロール、MagSpeed、サイドボタン、接続条件を公式情報から整理し、Macの表計算やタイムライン操作に合うか判断する購入ガイドです。"
   : selected.id === "elgato-wave-3"
     ? "Elgato Wave:3のUSB接続、入力調整、設置条件を公式情報から整理し、Macの会議・収録・配信に合うか判断する購入ガイドです。"
   : selected.id === "apple-magic-mouse-usbc-black"
@@ -119,7 +126,9 @@ const thumbnailSource = selected.id === "ugreen-revodok-6in1"
   : selected.id === "logicool-mx-keys-s"
     ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
   : selected.id === "logicool-mx-master-3s"
-    ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"
+    ? "assets/thumbnails/desk-setup-before-buying.png"
+  : selected.id === "logicool-mx-master-3s-horizontal"
+    ? "assets/thumbnails/desk-setup-before-buying.png"
   : selected.id === "elgato-wave-3"
     ? "assets/thumbnails/stream-deck-plus.png"
   : selected.id === "apple-magic-mouse-usbc-black"
@@ -137,34 +146,34 @@ if (!productsConfig.products.some((item) => item.asin === product.asin)) {
 }
 const card = (placement) => `<!-- AMAZON_CARD:${product.asin}:START --><div class="product-card" data-affiliate-card data-asin="${product.asin}" data-article-slug="${slug.replace(/\.html$/u, "")}" data-placement="${placement}"><img src="${image}" alt="${product.title}（Amazon許諾画像）"><div><h3>${product.title}</h3><p>仕様と販売状況はAmazonの商品ページで確認できます。</p><a class="cta" data-affiliate-link href="${amazonUrl}">Amazon.co.jpで確認する</a></div></div><!-- AMAZON_CARD:${product.asin}:END -->`;
 const sectionLabel = selected.id.includes("bambu") ? "3D PRINT / BUYING GUIDE" : selected.id.includes("logicool") ? "KEYBOARD / MAC SETUP" : selected.id.includes("elgato") ? "MAC WORKFLOW / CONTROL" : "MAC PERIPHERALS / DESK SETUP";
-const specText = selected.id === "apple-magic-mouse-usbc-black"
+const specText = templateId === "apple-magic-mouse-usbc-black"
   ? "Magic MouseはMulti-Touch、Bluetooth、USB-Cポートを公式仕様で案内しています。Macのスクロールやスワイプをマウス上で行いたいか、充電ケーブルを接続する位置と机上スペースを照合します。"
-  : selected.id === "elgato-wave-3"
+  : templateId === "elgato-wave-3"
   ? "Wave:3はUSB接続、入力ゲイン調整、ヘッドホン出力などを公式仕様で案内しています。Macの会議・収録で必要な入力調整と、マイクを置く机上スペースを照合します。"
-  : selected.id === "logicool-mx-master-3s"
+  : templateId === "logicool-mx-master-3s"
   ? "MX Master 3Sは静音クリックとMagSpeed電磁スクロール、Bluetooth接続などを公式仕様で案内しています。Macの作業で横スクロールや複数ボタンを使う頻度と、手のサイズ・机上スペースを照合します。"
-  : selected.id === "logicool-mx-keys-s"
+  : templateId === "logicool-mx-keys-s"
   ? "MX Keys SはBluetooth Low EnergyとLogi Bolt USBレシーバーに対応し、複数端末の切り替えを公式仕様で案内しています。今回のAPI取得商品はMac向けUS配列モデルなので、購入前に配列と入力ソースを確認します。"
   : selected.id === "elgato-stream-deck-plus"
     ? "Stream Deck +はキーとダイヤルを組み合わせ、アプリごとのプロファイルで操作を切り替えられます。公式の技術仕様と対応ソフトを、自分の反復作業と照合します。"
-    : selected.id === "logicool-k250"
+    : templateId === "logicool-k250"
       ? "K250はBluetooth接続とテンキーを備えたキーボードです。Macで数値入力を行う頻度、USBポートを空けたいか、設置幅と電池交換の動線を公式仕様と照合します。"
     : selected.id.includes("ugreen") || selected.id.includes("anker")
       ? "USB-Cハブは端子数だけでなく、映像・データ・給電の役割を分けて確認します。Mac側の対応仕様と、常設する端子／持ち出す端子を先に書き出します。"
       : selected.id.includes("apple")
         ? "Studio Displayは表示、カメラ、音声、接続を一体化したモニターです。Macの対応条件と机の奥行きを、公式仕様を起点に照合します。"
         : "公式ページの仕様表を起点に、必要な機能と設置条件を照合します。";
-const useText = selected.id === "apple-magic-mouse-usbc-black"
+const useText = templateId === "apple-magic-mouse-usbc-black"
   ? "ページ操作や書類のスクロールを指のジェスチャーで行うか、細かなポインタ操作を優先するかを分けます。充電時にケーブルが机上の動線を塞がないか、トラックパッドとの使い分けも先に確認します。"
-  : selected.id === "elgato-wave-3"
+  : templateId === "elgato-wave-3"
   ? "会議・収録・配信のどれを主用途にするか先に決め、入力調整を手元で行う必要があるか確認します。USBケーブルの取り回しと、マイクを置いたときの画面・キーボードとの距離も測ります。"
-  : selected.id === "logicool-mx-master-3s"
+  : templateId === "logicool-mx-master-3s"
   ? "表計算やタイムラインでスクロールを多用するなら、ホイールとサイドボタンに割り当てる操作を先に3つ決めます。Bluetooth接続と充電の動線、マウスを置く幅も確認してから導入します。"
-  : selected.id === "logicool-mx-keys-s"
+  : templateId === "logicool-mx-keys-s"
   ? "長文入力やショートカットが中心なら、テンキーの有無、手首の位置、バックライトの必要性を先に決めます。複数端末を切り替える場合は各端末の入力ソースも確認します。"
   : selected.id === "elgato-stream-deck-plus"
     ? "毎日繰り返す操作を3つだけ書き出し、キーに割り当てる操作とダイヤルで連続調整する操作を分けます。置き場所は手を伸ばす距離とケーブルの取り回しで決めます。"
-    : selected.id === "logicool-k250"
+    : templateId === "logicool-k250"
       ? "数値入力が多い作業ではテンキーの位置を先に決め、マウスまでの距離と机の幅を測ります。Bluetooth接続を使う場合は、Macの入力ソース切り替えと電池交換の手順も確認します。"
     : selected.id.includes("bambu")
       ? "本体の設置だけでなく、扉の開閉、材料交換、排熱、清掃の動線を確保します。増設機器を使う場合は、増設後のケーブルと置き場所も先に測ります。"
