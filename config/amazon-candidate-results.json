@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-08T23:33:04.957Z",
+  "checkedAt": "2026-09-09T23:33:11.217Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -327,6 +327,42 @@
       "item": null,
       "matchCount": 0,
       "candidates": []
+    },
+    {
+      "id": "bambu-lab-p2s-installation",
+      "query": "Bambu Lab P2S 3Dプリンター",
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab P2S 設置 排気 メンテナンス 3Dプリンター",
+        "readerSituation": "P2Sの密閉型構造を活かしたいが、机上の設置・排気・清掃動線を購入前に確認したい利用者",
+        "decisionToMake": "P2Sを安全に置けるスペースと、扉・材料交換・排気の動線を確保できるか判断する",
+        "comparisonAxis": "本体寸法、開閉と材料交換、排気・換気、清掃、設置後のケーブル動線"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "specification-query",
+          "problem-query"
+        ],
+        "evidence": "Bambu Lab公式ストアがP2Sの造形サイズ、密閉構造、排気と設置に関わる仕様を公開しており、購入前の設置・保守条件を比較できる。"
+      },
+      "searchOpportunityScore": 80,
+      "publicationEligible": true,
+      "status": "resolved",
+      "item": {
+        "asin": "B0FT7ZLSSC",
+        "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
+      },
+      "matchCount": 1,
+      "candidates": [
+        {
+          "asin": "B0FT7ZLSSC",
+          "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
+        }
+      ]
     },
     {
       "id": "bambu-lab-p1s",
