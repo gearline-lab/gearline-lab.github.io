@@ -1,4 +1,4 @@
-import { access, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { resolve, sep } from "node:path";
 import { spawn } from "node:child_process";
 
@@ -21,6 +21,15 @@ const paths = {
 };
 
 const exists = async (path) => access(path).then(() => true).catch(() => false);
+const articlePublishedToday = async () => {
+  for (const file of (await readdir(root)).filter((name) => name.endsWith(".html") && name !== "index.html")) {
+    const html = await readFile(resolve(root, file), "utf8");
+    if (!html.includes(`datePublished\":\"${dateJst}\"`)) continue;
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/u)?.[1];
+    if (canonical) return canonical;
+  }
+  return null;
+};
 // GitHub publishing must use the Gearline Lab credential configured for this
 // checkout. A parent shell can carry an unrelated GITHUB_TOKEN, which Git
 // prefers over the repository credential and causes a misleading 403.
@@ -136,6 +145,7 @@ const result = {
   mode: execute ? "execute" : "check",
   dailySocial: "waiting-for-validated-plan",
   article: "waiting-for-researched-article-plan",
+  articleUrl: null,
   weeklyReport: "not-due"
 };
 
@@ -156,11 +166,16 @@ if (!(await exists(paths.dailyPlan)) && execute) {
   await run("node", ["scripts/prepare-daily-social-plan.mjs", "config/bluesky-daily-candidates.json"]);
 }
 
-if (!(await exists(paths.articlePlan)) && execute) {
+const existingArticleUrl = execute ? await articlePublishedToday() : null;
+if (!(await exists(paths.articlePlan)) && execute && !existingArticleUrl) {
   // Use the latest locally verified Creator-API result to materialize a new
   // article URL and its QA-ready draft.  The publication path below still
   // performs the final Creator API card refresh and all existing QA gates.
   await run("node", ["scripts/prepare-daily-article-plan.mjs"]);
+}
+if (existingArticleUrl) {
+  result.article = "already-published-today";
+  result.articleUrl = existingArticleUrl;
 }
 
 if (await exists(paths.dailyPlan)) {
@@ -227,6 +242,7 @@ if (await exists(paths.articlePlan)) {
     await rm(paths.articleIntroPlan, { force: true });
     await rm(paths.articlePlan, { force: true });
       result.article = { published: plan.url, introPost: intro.posted };
+      result.articleUrl = plan.url;
     }
   }
 }
