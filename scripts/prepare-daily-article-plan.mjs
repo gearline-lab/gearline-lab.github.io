@@ -25,6 +25,7 @@ const sourceById = {
   "logicool-mx-keys-s": "https://www.logicool.co.jp/ja-jp/products/keyboards/mx-keys-s.html",
   "logicool-k250": "https://www.logicool.co.jp/ja-jp/products/keyboards/k250.html",
   "bambu-lab-p2s": "https://jp.store.bambulab.com/products/p2s",
+  "bambu-lab-p2s-installation": "https://jp.store.bambulab.com/products/p2s",
   "anker-675-usb-c-docking-station": "https://www.ankerjapan.com/products/a8377",
   "anker-nano-docking-station-13in1": "https://www.ankerjapan.com/products/a83c3111",
   "logicool-mx-master-3s": "https://www.logicool.co.jp/ja-jp/products/mice/mx-master-3s.html",
@@ -41,6 +42,7 @@ const slugById = {
   "logicool-mx-keys-s": "logicool-mx-keys-s-mac-guide.html",
   "logicool-k250": "logicool-k250-mac-number-input-guide.html",
   "bambu-lab-p2s": "bambu-lab-p2s-materials-guide.html",
+  "bambu-lab-p2s-installation": "bambu-lab-p2s-installation-guide.html",
   "anker-675-usb-c-docking-station": "anker-675-desk-layout-guide.html",
   "anker-nano-docking-station-13in1": "anker-nano-docking-station-multi-display-guide.html",
   "logicool-mx-master-3s": "logicool-mx-master-3s-mac-guide.html",
@@ -66,8 +68,10 @@ const title = selected.id === "ugreen-revodok-6in1"
   ? "Apple Studio Displayを机に置く前に。Mac向けモニターの条件整理"
   : selected.id === "bambu-lab-a1"
     ? "Bambu Lab A1を選ぶ前に。造形サイズと設置条件を確認する"
-    : selected.id === "bambu-lab-p2s"
+  : selected.id === "bambu-lab-p2s"
   ? "Bambu Lab P2Sの材料選びを購入前に整理。密閉型3Dプリンターを使い切る条件"
+  : selected.id === "bambu-lab-p2s-installation"
+  ? "Bambu Lab P2Sを置く前に。密閉型3Dプリンターの設置と排気条件を整理する"
   : selected.id === "logicool-mx-keys-s"
     ? "MX Keys SをMacで使う前に。配列と接続を決める購入ガイド"
   : selected.id === "logicool-k250"
@@ -93,8 +97,10 @@ const description = selected.id === "ugreen-revodok-6in1"
   ? "Apple Studio Displayの表示、接続、カメラ、音声、設置条件を公式情報から整理し、Macユーザーの購入判断を支援するガイドです。"
   : selected.id === "bambu-lab-a1"
     ? "Bambu Lab A1の造形サイズ、材料、設置、メンテナンス条件を公式情報から整理し、A1 miniとの差を判断する購入ガイドです。"
-    : selected.id === "bambu-lab-p2s"
+  : selected.id === "bambu-lab-p2s"
   ? "Bambu Lab P2Sの造形サイズ、ノズル、材料、設置条件を公式情報から整理し、必要な人と見送る人を分ける購入ガイドです。"
+  : selected.id === "bambu-lab-p2s-installation"
+  ? "Bambu Lab P2Sの本体寸法、密閉構造、排気、扉と材料交換の動線を公式情報から整理し、設置できる条件を判断する購入ガイドです。"
   : selected.id === "logicool-mx-keys-s"
     ? "Logicool MX Keys Sの配列、接続方式、複数端末切替、設置幅を公式情報から整理し、Macで使う条件を判断する購入ガイドです。"
   : selected.id === "logicool-mx-master-3s"
@@ -121,7 +127,9 @@ const thumbnailSource = selected.id === "ugreen-revodok-6in1"
   ? "assets/thumbnails/desk-setup-before-buying.png"
   : selected.id === "bambu-lab-a1"
     ? "assets/thumbnails/bambu-lab-a1-mini.png"
-    : selected.id === "bambu-lab-p2s"
+  : selected.id === "bambu-lab-p2s"
+  ? "assets/thumbnails/bambu-lab-p2s.png"
+  : selected.id === "bambu-lab-p2s-installation"
   ? "assets/thumbnails/bambu-lab-p2s.png"
   : selected.id === "logicool-mx-keys-s"
     ? "assets/thumbnails/logicool-k250-bluetooth-keyboard.png"

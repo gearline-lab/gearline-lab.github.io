@@ -171,6 +171,25 @@
       "searchOpportunityScore": 91
     },
     {
+      "id": "bambu-lab-p2s-installation",
+      "publicationEligible": true,
+      "requiredTitlePrefix": "Bambu Lab P2S",
+      "keywords": "Bambu Lab P2S 3Dプリンター",
+      "requiredTerms": ["Bambu Lab", "P2S", "256×256×256"],
+      "excludedTerms": ["Combo", "AMS", "P1S", "A1", "A1 mini", "H2D", "ノズル"],
+      "searchIntent": {
+        "primaryQuery": "Bambu Lab P2S 設置 排気 メンテナンス 3Dプリンター",
+        "readerSituation": "P2Sの密閉型構造を活かしたいが、机上の設置・排気・清掃動線を購入前に確認したい利用者",
+        "decisionToMake": "P2Sを安全に置けるスペースと、扉・材料交換・排気の動線を確保できるか判断する",
+        "comparisonAxis": "本体寸法、開閉と材料交換、排気・換気、清掃、設置後のケーブル動線"
+      },
+      "searchDemand": {
+        "signals": ["comparison-query", "specification-query", "problem-query"],
+        "evidence": "Bambu Lab公式ストアがP2Sの造形サイズ、密閉構造、排気と設置に関わる仕様を公開しており、購入前の設置・保守条件を比較できる。"
+      },
+      "searchOpportunityScore": 80
+    },
+    {
       "id": "bambu-lab-p1s",
       "requiredTitlePrefix": "Bambu Lab P1S",
       "keywords": "Bambu Lab P1S 3Dプリンター",
