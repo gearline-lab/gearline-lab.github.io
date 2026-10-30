@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { retryDelay, validateItem } from "./amazon-request-policy.mjs";
+import { createHash } from "node:crypto";
 
 const root = process.cwd();
 const inputPath = resolve(root, process.argv[2] ?? "config/amazon-candidates.json");
@@ -70,21 +71,23 @@ for (const candidate of input.candidates ?? []) {
   // daily refresh focused on newly added products and avoids exhausting the
   // Creators API SearchItems quota with identical queries.
   const cached = previousById.get(candidate.id);
+  const fingerprint = createHash("sha256").update(JSON.stringify(candidate)).digest("hex");
   const itemCheckedAt = Date.parse(cached?.checkedAt ?? "");
-  if (cacheFresh && cached && cached.query === candidate.keywords && Number.isFinite(itemCheckedAt) && Date.now() - itemCheckedAt < 6 * 24 * 60 * 60 * 1000) {
+  if (cacheFresh && cached?.fingerprint === fingerprint && Number.isFinite(itemCheckedAt) && Date.now() - itemCheckedAt < 6 * 24 * 60 * 60 * 1000) {
     if (cached.item) validateItem(cached.item);
     results.push(cached);
     continue;
   }
   let response;
+  if (candidate.exactAsin && !/^[A-Z0-9]{10}$/.test(candidate.exactAsin)) throw new Error("Invalid pinned ASIN");
+  await sleep(1100);
   for (let attempt = 0; attempt < 4; attempt += 1) {
-    response = await fetch("https://creatorsapi.amazon/catalog/v1/searchItems", {
+    response = await fetch(`https://creatorsapi.amazon/catalog/v1/${candidate.exactAsin ? "getItems" : "searchItems"}`, {
       redirect: "error",
       method: "POST",
       headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", "x-marketplace": input.marketplace ?? "www.amazon.co.jp" },
       body: JSON.stringify({
-        keywords: candidate.keywords,
-        itemCount: 10,
+        ...(candidate.exactAsin ? { itemIds: [candidate.exactAsin], itemIdType: "ASIN" } : { keywords: candidate.keywords, itemCount: 10 }),
         partnerTag: input.partnerTag ?? "gearlineweb-22",
         resources: ["itemInfo.title", "images.primary.large", "images.primary.medium", "offersV2.listings.isBuyBoxWinner"]
       })
@@ -96,14 +99,14 @@ for (const candidate of input.candidates ?? []) {
   }
   if (!response.ok) throw new Error(`SearchItemsに失敗しました: ${response.status}`);
   const data = await response.json();
-  const items = data.searchResult?.items ?? [];
+  const items = candidate.exactAsin ? (data.itemsResult?.items ?? data.itemResults?.items ?? []) : (data.searchResult?.items ?? []);
   const requiredTitlePrefix = normalize(candidate.requiredTitlePrefix ?? "");
   const matches = items.filter((item) => {
     const title = normalize(item.itemInfo?.title?.displayValue);
     const includesRequired = candidate.requiredTerms.every((term) => title.includes(normalize(term)));
     const includesExcluded = (candidate.excludedTerms ?? []).some((term) => title.includes(normalize(term)));
     const hasRequiredPrefix = !requiredTitlePrefix || title.startsWith(requiredTitlePrefix);
-    return includesRequired && !includesExcluded && hasRequiredPrefix;
+    return includesRequired && !includesExcluded && hasRequiredPrefix && (!candidate.exactAsin || item.asin === candidate.exactAsin);
   });
   const purchasable = matches.filter((item) => item.detailPageURL && (item.images?.primary?.large?.url || item.images?.primary?.medium?.url));
   const candidates = purchasable.map((item) => validateItem({
@@ -113,6 +116,7 @@ for (const candidate of input.candidates ?? []) {
     imageURL: item.images?.primary?.large?.url ?? item.images?.primary?.medium?.url
   }));
   results.push({
+    fingerprint,
     checkedAt: new Date().toISOString(),
     id: candidate.id,
     query: candidate.keywords,

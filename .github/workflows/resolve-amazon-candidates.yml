@@ -2,6 +2,12 @@ name: Resolve Amazon article candidates
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '10 21 * * *'
+
+concurrency:
+  group: amazon-candidate-refresh
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -20,6 +26,7 @@ jobs:
           AMAZON_CREATOR_SECRET: ${{ secrets.AMAZON_CREATOR_SECRET }}
           AMAZON_CREATOR_VERSION: ${{ secrets.AMAZON_CREATOR_VERSION }}
         run: |
+          node --test scripts/amazon-request-policy.test.mjs
           node scripts/resolve-amazon-candidates.mjs || status=$?
           test "${status:-0}" -eq 0 -o "${status:-0}" -eq 2
       - name: Commit verified candidate result
