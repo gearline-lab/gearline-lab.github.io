@@ -1,10 +1,12 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { retryDelay, validateItem } from "./amazon-request-policy.mjs";
 
 const root = process.cwd();
 const inputPath = resolve(root, process.argv[2] ?? "config/amazon-candidates.json");
 const outputPath = resolve(root, process.argv[3] ?? "config/amazon-candidate-results.json");
 const input = JSON.parse(await readFile(inputPath, "utf8"));
+if (input.marketplace !== "www.amazon.co.jp" || input.partnerTag !== "gearlineweb-22") throw new Error("Gearline Japan marketplace/tag required");
 const searchPolicy = JSON.parse(await readFile(resolve(root, "config/search-intent-policy.json"), "utf8"));
 let previous = null;
 try { previous = JSON.parse(await readFile(outputPath, "utf8")); } catch { /* first resolution */ }
@@ -34,6 +36,7 @@ const auth = {
 if (!auth) throw new Error(`未対応のCreators API認証情報Versionです: ${version}`);
 const [tokenEndpoint, jsonBody, scope] = auth;
 const tokenResponse = await fetch(tokenEndpoint, {
+  redirect: "error",
   method: "POST",
   headers: { "Content-Type": jsonBody ? "application/json" : "application/x-www-form-urlencoded" },
   body: jsonBody
@@ -67,13 +70,16 @@ for (const candidate of input.candidates ?? []) {
   // daily refresh focused on newly added products and avoids exhausting the
   // Creators API SearchItems quota with identical queries.
   const cached = previousById.get(candidate.id);
-  if (cacheFresh && cached && cached.query === candidate.keywords) {
+  const itemCheckedAt = Date.parse(cached?.checkedAt ?? "");
+  if (cacheFresh && cached && cached.query === candidate.keywords && Number.isFinite(itemCheckedAt) && Date.now() - itemCheckedAt < 6 * 24 * 60 * 60 * 1000) {
+    if (cached.item) validateItem(cached.item);
     results.push(cached);
     continue;
   }
   let response;
   for (let attempt = 0; attempt < 4; attempt += 1) {
     response = await fetch("https://creatorsapi.amazon/catalog/v1/searchItems", {
+      redirect: "error",
       method: "POST",
       headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json", "x-marketplace": input.marketplace ?? "www.amazon.co.jp" },
       body: JSON.stringify({
@@ -84,8 +90,9 @@ for (const candidate of input.candidates ?? []) {
       })
     });
     if (response.ok || response.status !== 429 || attempt === 3) break;
-    const retryAfterSeconds = Number(response.headers.get("retry-after"));
-    await sleep(Number.isFinite(retryAfterSeconds) ? retryAfterSeconds * 1000 : 1_000 * (attempt + 1));
+    const delay = retryDelay(response.headers.get("retry-after"), attempt);
+    if (delay > 60_000) throw new Error("Amazon rate limit requires a later run; stopping without further requests");
+    await sleep(delay);
   }
   if (!response.ok) throw new Error(`SearchItemsに失敗しました: ${response.status}`);
   const data = await response.json();
@@ -99,13 +106,14 @@ for (const candidate of input.candidates ?? []) {
     return includesRequired && !includesExcluded && hasRequiredPrefix;
   });
   const purchasable = matches.filter((item) => item.detailPageURL && (item.images?.primary?.large?.url || item.images?.primary?.medium?.url));
-  const candidates = purchasable.map((item) => ({
+  const candidates = purchasable.map((item) => validateItem({
     asin: item.asin,
     title: item.itemInfo?.title?.displayValue,
     detailPageURL: item.detailPageURL,
     imageURL: item.images?.primary?.large?.url ?? item.images?.primary?.medium?.url
   }));
   results.push({
+    checkedAt: new Date().toISOString(),
     id: candidate.id,
     query: candidate.keywords,
     searchIntent: candidate.searchIntent,
