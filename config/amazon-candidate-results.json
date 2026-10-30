@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-30T13:12:18.031Z",
+  "checkedAt": "2026-10-30T23:27:37.034Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -27,8 +27,8 @@
   },
   "results": [
     {
-      "fingerprint": "ffa3beadc1dfdc8ad38a90145b8eab211c06b512f7ce9c42591cd6fabd4d1351",
-      "checkedAt": "2026-10-30T13:11:54.497Z",
+      "fingerprint": "57b65c221075aa70b6882fe55493a086b60eab720579f8288384885da946ac42",
+      "checkedAt": "2026-10-30T23:27:37.033Z",
       "id": "ugreen-revodok-6in1",
       "query": "UGREEN Revodok USB-C ハブ 6-in-1 100W",
       "searchIntent": {
@@ -46,21 +46,20 @@
       },
       "searchOpportunityScore": 82,
       "publicationEligible": true,
-      "status": "ambiguous",
-      "item": null,
-      "matchCount": 2,
+      "status": "resolved",
+      "item": {
+        "asin": "B0D1XLNWP2",
+        "title": "UGREEN Revodok USB-C ハブ 6in1 100W USB PD対応 4K 60Hz 10Gbps 高速データ転送 | HDMIポート USB C 3.2 & USB-A 3.2 MacBook Pro/Air iPhone 18 Pro / Pro Max / Duo 対応 Windows対応",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0D1XLNWP2?tag=gearlineweb-22&linkCode=ogi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/41WuZUNHBSL._SL500_.jpg"
+      },
+      "matchCount": 1,
       "candidates": [
         {
           "asin": "B0D1XLNWP2",
           "title": "UGREEN Revodok USB-C ハブ 6in1 100W USB PD対応 4K 60Hz 10Gbps 高速データ転送 | HDMIポート USB C 3.2 & USB-A 3.2 MacBook Pro/Air iPhone 18 Pro / Pro Max / Duo 対応 Windows対応",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0D1XLNWP2?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0D1XLNWP2?tag=gearlineweb-22&linkCode=ogi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/41WuZUNHBSL._SL500_.jpg"
-        },
-        {
-          "asin": "B0F24B1VJN",
-          "title": "UGREEN Revodok USB-C ハブ 6in1 拡張ハブ DP出力 4K@60Hz PD100W充電 | USB-A & USB-C 10Gbps 高速転送 小型 軽量 アルミ製 MacBook Pro/Air iPhone 18 Pro / Pro Max / Duo対応 Windows対応 iPad/Thinkpad/Surface対応",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0F24B1VJN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/41YSrMTH5lL._SL500_.jpg"
         }
       ]
     },
