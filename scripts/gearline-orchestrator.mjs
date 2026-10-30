@@ -4,6 +4,11 @@ import { spawn } from "node:child_process";
 
 const root = process.cwd();
 const args = new Set(process.argv.slice(2));
+if (args.has("--article-only")) {
+  const child = spawn("node", ["scripts/publish-reviewed-article.mjs", ...(args.has("--execute") ? ["--execute"] : [])], {cwd:root,stdio:"inherit"});
+  const code = await new Promise((resolveRun,rejectRun)=>{ child.on("error",rejectRun); child.on("close",resolveRun); });
+  process.exit(code ?? 1);
+}
 const dateArg = process.argv.find((arg) => arg.startsWith("--date="))?.slice(7);
 const date = dateArg ? new Date(`${dateArg}T12:00:00+09:00`) : new Date();
 if (Number.isNaN(date.valueOf())) throw new Error("--date は YYYY-MM-DD で指定してください。");
@@ -198,6 +203,18 @@ if (await exists(paths.articlePlan)) {
     result.article = execute ? "stale-published-plan-cleared" : "stale-published-plan";
   } else {
     await assertNewDailyArticle(plan);
+    if (execute) {
+      // Publish only reviewed content and verify the public page before social promotion.
+      const publication = JSON.parse((await run("node", ["scripts/publish-reviewed-article.mjs", "--execute"])).split("\n").at(-1));
+      await writeFile(paths.articleIntroPlan, `${JSON.stringify({post:plan.introPost,reposts:[],follows:[]},null,2)}\n`);
+      const intro = JSON.parse(await run("zsh", ["scripts/run-bluesky-daily-with-keychain.sh", "--article-intro", "--plan", "config/article-intro-plan.json"]));
+      await rm(paths.articleIntroPlan, {force:true});
+      await rm(paths.articlePlan, {force:true});
+      result.article = {...publication,introPost:intro.posted};
+      result.articleUrl = plan.url;
+      console.log(JSON.stringify(result));
+      process.exit(0);
+    }
     await run("node", ["scripts/gearline-article-qa.mjs", plan.articleFile, "--pre-creator"]);
     result.article = execute ? "qa-passed-awaiting-publish" : "qa-passed";
     if (execute) {
