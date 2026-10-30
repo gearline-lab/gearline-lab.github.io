@@ -1,33 +1,33 @@
 {
-  "checkedAt": "2026-09-09T23:33:11.217Z",
+  "checkedAt": "2026-10-30T13:09:36.928Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
-    "asin": "B0FLD8KKN7",
-    "title": "Anker Nano ドッキングステーション (13-in-1, 着脱式USB-C ハブ)",
-    "detailPageURL": "https://www.amazon.co.jp/dp/B0FLD8KKN7?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-    "imageURL": "https://m.media-amazon.com/images/I/31XH9M2cqJL._SL500_.jpg"
+    "asin": "B0B1Q6VB16",
+    "title": "ロジクール MX MASTER3s アドバンスド ワイヤレス マウス 静音 MX2300GR Logi Bolt Bluetooth Unifying非対応 8000dpi 高速スクロールホイール USB-C 充電式 無線 MX2300 グラファイト 国内正規品",
+    "detailPageURL": "https://www.amazon.co.jp/dp/B0B1Q6VB16?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+    "imageURL": "https://m.media-amazon.com/images/I/31vQk1d5KtL._SL500_.jpg"
   },
   "selectedCandidateContext": {
-    "id": "anker-nano-docking-station-13in1",
+    "id": "logicool-mx-master-3s",
     "searchIntent": {
-      "primaryQuery": "Anker Nano ドッキングステーション 13-in-1 Mac 設置 複数モニター",
-      "readerSituation": "MacBookの映像・有線LAN・周辺機器をまとめたい一方、持ち運べるUSB-Cハブも併用したい利用者",
-      "decisionToMake": "据え置きドックと着脱式ハブを1台にまとめる構成が、自分の接続・設置条件に合うか判断する",
-      "comparisonAxis": "映像出力の条件、常設する端子、着脱式ハブの使い方、机上と持ち出しの切り替え"
+      "primaryQuery": "MX Master 3S Mac 静音 スクロール ジェスチャー 選び方",
+      "readerSituation": "Macで長時間ポインタ操作や横スクロールを行い、マウスの静音性とボタン配置を見直したい利用者",
+      "decisionToMake": "MX Master 3Sの接続・ボタン・スクロール機能が自分の作業と机上スペースに必要か判断する",
+      "comparisonAxis": "静音クリック、MagSpeedスクロール、Bluetooth接続、ボタン数、手のサイズと設置"
     },
     "searchDemand": {
       "signals": [
-        "new-release",
         "comparison-query",
         "problem-query"
       ],
-      "evidence": "Anker Japan公式製品ページが2026年1月発売の着脱式USB-Cハブを備えた13-in-1ドックとして仕様とmacOSでの映像出力注意点を公開している。"
+      "evidence": "ロジクール公式製品ページが静音クリック、MagSpeedスクロール、Bluetooth接続、複数OS対応を公開しており、Macのポインタ操作改善を購入前条件で比較できる。"
     },
-    "searchOpportunityScore": 90
+    "searchOpportunityScore": 87
   },
   "results": [
     {
+      "checkedAt": "2026-10-30T13:09:10.402Z",
       "id": "ugreen-revodok-6in1",
       "query": "UGREEN Revodok USB-C ハブ 6-in-1 100W",
       "searchIntent": {
@@ -47,29 +47,24 @@
       "publicationEligible": true,
       "status": "ambiguous",
       "item": null,
-      "matchCount": 3,
+      "matchCount": 2,
       "candidates": [
         {
           "asin": "B0D1XLNWP2",
-          "title": "UGREEN Revodok USB-C ハブ 6in1 100W USB PD対応 4K 60Hz 10Gbps 高速データ転送",
+          "title": "UGREEN Revodok USB-C ハブ 6in1 100W USB PD対応 4K 60Hz 10Gbps 高速データ転送 | HDMIポート USB C 3.2 & USB-A 3.2 MacBook Pro/Air iPhone 18 Pro / Pro Max / Duo 対応 Windows対応",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0D1XLNWP2?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/41WuZUNHBSL._SL500_.jpg"
         },
         {
           "asin": "B0F24B1VJN",
-          "title": "UGREEN Revodok USB-C ハブ 6in1 拡張ハブ DP出力 4K@60Hz PD100W充電",
+          "title": "UGREEN Revodok USB-C ハブ 6in1 拡張ハブ DP出力 4K@60Hz PD100W充電 | USB-A & USB-C 10Gbps 高速転送 小型 軽量 アルミ製 MacBook Pro/Air iPhone 18 Pro / Pro Max / Duo対応 Windows対応 iPad/Thinkpad/Surface対応",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0F24B1VJN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/41YSrMTH5lL._SL500_.jpg"
-        },
-        {
-          "asin": "B0BY8QNV1C",
-          "title": "UGREEN Revodok 206 6 in 1 USB Cハブ 2HDMI出力 4K60Hz 100W PD充電 5Gbpsデータ転送",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0BY8QNV1C?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/41aj7Mv8F0L._SL500_.jpg"
         }
       ]
     },
     {
+      "checkedAt": "2026-10-30T13:09:10.645Z",
       "id": "anker-332-usb-c-hub",
       "query": "Anker 332 USB-C ハブ 5-in-1",
       "searchIntent": {
@@ -89,47 +84,30 @@
       "publicationEligible": true,
       "status": "ambiguous",
       "item": null,
-      "matchCount": 6,
+      "matchCount": 3,
       "candidates": [
         {
           "asin": "B0BQMSXFP7",
-          "title": "Anker 332 USB-C ハブ (5-in-1)",
+          "title": "Anker 332 USB-C ハブ (5-in-1) | 【MacBook/Windows専用】100W PD対応 4K@30Hz HDMI 5Gbps USB-C/USB-A ※スマホ・iPad非対応　簡単接続",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0BQMSXFP7?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/21Fc56KQjUL._SL500_.jpg"
         },
         {
-          "asin": "B0CYBRLBM9",
-          "title": "Anker 332 USB-C ハブ (5-in-1) ブルー",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBRLBM9?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/21QppvfyG1L._SL500_.jpg"
-        },
-        {
           "asin": "B0CYBSLZ9B",
-          "title": "Anker 332 USB-C ハブ (5-in-1) ホワイト",
+          "title": "Anker 332 USB-C ハブ (5-in-1) ホワイト | 【MacBook/Windows専用】100W PD対応 4K@30Hz HDMI 5Gbps USB-C/USB-A ※スマホ・iPad非対応　簡単接続",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBSLZ9B?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/21aOwHE50UL._SL500_.jpg"
         },
         {
-          "asin": "B0CYBGKTPG",
-          "title": "Anker 332 USB-C ハブ (5-in-1) グリーン",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBGKTPG?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/21uXEmlv0gL._SL500_.jpg"
-        },
-        {
-          "asin": "B0CYBV27NH",
-          "title": "Anker 332 USB-C ハブ (5-in-1) グレー",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBV27NH?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/21UARC0iw2L._SL500_.jpg"
-        },
-        {
-          "asin": "B0D78JJCX3",
-          "title": "Anker 332 USB-CHub 5-in-1 A8355011",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0D78JJCX3?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/31iabQuh8VL._SL500_.jpg"
+          "asin": "B0CYBRLBM9",
+          "title": "Anker 332 USB-C ハブ (5-in-1) ブルー | 【MacBook/Windows専用】100W PD対応 4K@30Hz HDMI 5Gbps USB-C/USB-A ※スマホ・iPad非対応　簡単接続",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CYBRLBM9?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21QppvfyG1L._SL500_.jpg"
         }
       ]
     },
     {
+      "checkedAt": "2026-10-30T13:09:11.112Z",
       "id": "elgato-stream-deck-plus",
       "query": "Elgato Stream Deck +",
       "searchIntent": {
@@ -147,12 +125,26 @@
       },
       "searchOpportunityScore": 80,
       "publicationEligible": true,
-      "status": "not-found",
+      "status": "ambiguous",
       "item": null,
-      "matchCount": 0,
-      "candidates": []
+      "matchCount": 2,
+      "candidates": [
+        {
+          "asin": "B0BJL8SJ59",
+          "title": "Elgato Stream Deck +【並行輸入品】",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0BJL8SJ59?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/41fY23nWkML._SL500_.jpg"
+        },
+        {
+          "asin": "B0CH7W93HW",
+          "title": "Elgato Stream Deck +専用 ダイアル/つまみ 青 ブルー 34GBD9901 BLU-SP Blue Dials for Stream Deck +",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CH7W93HW?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31AYL7y2GvL._SL500_.jpg"
+        }
+      ]
     },
     {
+      "checkedAt": "2026-10-30T13:09:11.477Z",
       "id": "apple-studio-display",
       "query": "Apple Studio Display 27インチ",
       "searchIntent": {
@@ -176,6 +168,7 @@
       "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:11.869Z",
       "id": "bambu-lab-a1",
       "query": "Bambu Lab A1 3Dプリンター",
       "searchIntent": {
@@ -199,6 +192,7 @@
       "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:17.338Z",
       "id": "logicool-mx-keys-s",
       "query": "ロジクール MX Keys S キーボード",
       "searchIntent": {
@@ -234,6 +228,7 @@
       ]
     },
     {
+      "checkedAt": "2026-10-30T13:09:17.693Z",
       "id": "logicool-k250",
       "query": "ロジクール K250GR Bluetooth キーボード",
       "searchIntent": {
@@ -269,6 +264,7 @@
       ]
     },
     {
+      "checkedAt": "2026-10-30T13:09:23.197Z",
       "id": "bambu-lab-p2s",
       "query": "Bambu Lab P2S 3Dプリンター",
       "searchIntent": {
@@ -287,24 +283,13 @@
       },
       "searchOpportunityScore": 88,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0FT7ZLSSC",
-        "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0FT7ZLSSC",
-          "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
-        }
-      ]
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:23.544Z",
       "id": "bambu-lab-h2s",
       "query": "Bambu Lab H2S 3Dプリンター",
       "searchIntent": {
@@ -329,6 +314,7 @@
       "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:23.767Z",
       "id": "bambu-lab-p2s-installation",
       "query": "Bambu Lab P2S 3Dプリンター",
       "searchIntent": {
@@ -347,24 +333,13 @@
       },
       "searchOpportunityScore": 80,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0FT7ZLSSC",
-        "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0FT7ZLSSC",
-          "title": "Bambu Lab P2S 3Dプリンター CoreXY構造 600mm/s高速 多色造形対応 自動調整 造形サイズ：256×256×256mm³",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0FT7ZLSSC?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/318nENiL4yL._SL500_.jpg"
-        }
-      ]
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:24.123Z",
       "id": "bambu-lab-p1s",
       "query": "Bambu Lab P1S 3Dプリンター",
       "searchIntent": {
@@ -388,6 +363,7 @@
       "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:24.510Z",
       "id": "anker-675-usb-c-docking-station",
       "query": "Anker 675 USB-C ドッキングステーション 12-in-1",
       "searchIntent": {
@@ -405,24 +381,13 @@
       },
       "searchOpportunityScore": 86,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0BP67HQ9W",
-        "title": "Anker 675 USB-C ドッキングステーション (12-in-1, Monitor Stand, Wireless)",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0BP67HQ9W?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/31HDj5jzPqL._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0BP67HQ9W",
-          "title": "Anker 675 USB-C ドッキングステーション (12-in-1, Monitor Stand, Wireless)",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0BP67HQ9W?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/31HDj5jzPqL._SL500_.jpg"
-        }
-      ]
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:24.862Z",
       "id": "anker-nano-docking-station-13in1",
       "query": "Anker Nano ドッキングステーション 13-in-1 着脱式 USB-C ハブ",
       "searchIntent": {
@@ -441,24 +406,13 @@
       },
       "searchOpportunityScore": 90,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0FLD8KKN7",
-        "title": "Anker Nano ドッキングステーション (13-in-1, 着脱式USB-C ハブ)",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0FLD8KKN7?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/31XH9M2cqJL._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0FLD8KKN7",
-          "title": "Anker Nano ドッキングステーション (13-in-1, 着脱式USB-C ハブ)",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0FLD8KKN7?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/31XH9M2cqJL._SL500_.jpg"
-        }
-      ]
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:30.388Z",
       "id": "elgato-wave-3",
       "query": "Elgato Wave 3 USB コンデンサーマイク",
       "searchIntent": {
@@ -476,24 +430,32 @@
       },
       "searchOpportunityScore": 83,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0GQRSQ86L",
-        "title": "Elgato Wave:3 – Wave FX Processor、オンボードDSP、Clipguard 2.0、VST insertsを搭載したプレミアムUSBコンデンサーマイク（配信＆ポッドキャスト向け）– PC&Mac対応",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0GQRSQ86L?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/31s5b5k5jxL._SL500_.jpg"
-      },
-      "matchCount": 1,
+      "status": "ambiguous",
+      "item": null,
+      "matchCount": 3,
       "candidates": [
         {
           "asin": "B0GQRSQ86L",
           "title": "Elgato Wave:3 – Wave FX Processor、オンボードDSP、Clipguard 2.0、VST insertsを搭載したプレミアムUSBコンデンサーマイク（配信＆ポッドキャスト向け）– PC&Mac対応",
           "detailPageURL": "https://www.amazon.co.jp/dp/B0GQRSQ86L?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/31s5b5k5jxL._SL500_.jpg"
+        },
+        {
+          "asin": "B088HHWC47",
+          "title": "Elgato Wave:3 - プレミアムUSBコンデンサーマイク, 【ブラック】黒 配信、ポッドキャスト、ゲーミング、およびホームオフィス適用, 無料のミキサーソフトウェア, サウンドエフェクトプラグイン, 歪みなし, プラグ&プレイ Mac/PC対応",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B088HHWC47?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31p+apOTAiL._SL500_.jpg"
+        },
+        {
+          "asin": "B0GYPVQDQN",
+          "title": "Elgato Wave:3 ピンク - プレミアムスタジオ品質 USBコンデンサーマイク ストリーミング/ポッドキャスト/ゲーム/ホームオフィス用 無料のミキサーソフトウェア プラグアンドプレイ Mac/PC用",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0GYPVQDQN?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/31ybqyoBbbL._SL500_.jpg"
         }
       ]
     },
     {
+      "checkedAt": "2026-10-30T13:09:30.738Z",
       "id": "apple-magic-trackpad-usbc",
       "query": "Apple Magic Trackpad USB-C",
       "searchIntent": {
@@ -517,6 +479,7 @@
       "candidates": []
     },
     {
+      "checkedAt": "2026-10-30T13:09:36.295Z",
       "id": "logicool-mx-master-3s",
       "query": "ロジクール MX MASTER3s MX2300GR",
       "searchIntent": {
@@ -552,6 +515,7 @@
       ]
     },
     {
+      "checkedAt": "2026-10-30T13:09:36.528Z",
       "id": "logicool-mx-master-3s-horizontal",
       "query": "ロジクール MX MASTER3s MX2300GR",
       "searchIntent": {
@@ -587,6 +551,7 @@
       ]
     },
     {
+      "checkedAt": "2026-10-30T13:09:36.928Z",
       "id": "apple-magic-mouse-usbc-black",
       "query": "Apple Magic Mouse USB-C ブラック Multi-Touch",
       "searchIntent": {
