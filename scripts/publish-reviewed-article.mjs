@@ -1,15 +1,30 @@
 // Article-only publishing: no Threads or routine social actions.
-import { readFile, writeFile, access } from "node:fs/promises";
+import { readFile, writeFile, access, readdir } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { validateItem } from "./amazon-request-policy.mjs";
 const execute = process.argv.includes("--execute");
-const plan = JSON.parse(await readFile("config/article-publish-plan.json", "utf8"));
+const today = new Intl.DateTimeFormat("en-CA", {timeZone:"Asia/Tokyo"}).format(new Date());
+const planText = await readFile("config/article-publish-plan.json", "utf8").catch(error => { if(error.code === "ENOENT") return null; throw error; });
+if (!planText) {
+  for (const file of (await readdir(".")).filter(x=>/^[a-z0-9-]+\.html$/.test(x))) {
+    const local=await readFile(file,"utf8");
+    if(!local.includes(`"datePublished":"${today}"`)) continue;
+    const url=`https://gearline-lab.github.io/${file}`;
+    const r=await fetch(url,{redirect:"error",cache:"no-store",signal:AbortSignal.timeout(20000)});
+    const live=await r.text();
+    if(r.ok && live.includes(`"datePublished":"${today}"`) && live.includes(`href="${url}"`)) {
+      console.log(JSON.stringify({article:"already-published-today",published:url,publicVerified:true}));
+      process.exit(0);
+    }
+  }
+  throw Error("Research-backed reviewed article plan required; no article has been published today");
+}
+const plan = JSON.parse(planText);
 const file = plan.articleFile;
 if (plan.publicationType !== "new" || !/^[a-z0-9-]+\.html$/.test(file)) throw Error("New article slug required");
 const url = `https://gearline-lab.github.io/${file}`;
 const html = await readFile(file, "utf8");
-const today = new Intl.DateTimeFormat("en-CA", {timeZone:"Asia/Tokyo"}).format(new Date());
 const data = JSON.parse(await readFile("config/amazon-candidate-results.json", "utf8"));
 const verified = data.results.find(x => x.status === "resolved" && x.item?.asin === plan.product.asin);
 if (!verified || Date.now() - Date.parse(verified.checkedAt) > 86400000 || !Number.isFinite(Date.parse(verified.checkedAt))) throw Error("Fresh API item required");
