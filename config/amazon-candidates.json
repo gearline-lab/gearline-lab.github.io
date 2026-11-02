@@ -4,6 +4,8 @@
   "candidates": [
     {
       "id": "logicool-mx-anywhere-3s",
+      "exactAsin": "B0C65MQZ65",
+      "variantEvidence": "公式ニュースリリースの一般向けグラファイトMX1800GRと、APIの国内正規品・単品商品名を照合。レシーバー同梱セットB0CW59N8K9/B0FX8TQ7CDは対象外。",
       "publicationEligible": true,
       "keywords": "ロジクール MX ANYWHERE 3S MX1800GR",
       "requiredTerms": [
@@ -18,6 +20,7 @@
         "交換",
         "ソール",
         "MX1800BGR",
+        "セット買い",
         "並行輸入"
       ],
       "searchIntent": {
