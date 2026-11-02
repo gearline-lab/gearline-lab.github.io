@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02T23:35:49.480Z",
+  "checkedAt": "2026-11-02T23:36:41.974Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -27,8 +27,8 @@
   },
   "results": [
     {
-      "fingerprint": "83f41558c381c4b581e9f3cfd8957c316650b55a7e84ee449f92ce04b339d8c6",
-      "checkedAt": "2026-11-02T23:35:47.992Z",
+      "fingerprint": "dbf8c641daeec58fd6e91a82b9313d224d9420a592f0e0b759c5dde0f3522e7c",
+      "checkedAt": "2026-11-02T23:36:41.973Z",
       "id": "logicool-mx-anywhere-3s",
       "query": "ロジクール MX ANYWHERE 3S MX1800GR",
       "searchIntent": {
@@ -46,27 +46,20 @@
       },
       "searchOpportunityScore": 80,
       "publicationEligible": true,
-      "status": "ambiguous",
-      "item": null,
-      "matchCount": 3,
+      "status": "resolved",
+      "item": {
+        "asin": "B0C65MQZ65",
+        "title": "ロジクール MX ANYWHERE 3S MX1800GR 静音 マウス Bluetooth Logi Bolt Unifying非対応 コンパクト Smart Actions 対応 高速スクロールホイール 充電式 ワイヤレスマウス 無線 Windows Mac Chrome iPad OS Android MX1800 グラファイト 国内正規品",
+        "detailPageURL": "https://www.amazon.co.jp/dp/B0C65MQZ65?tag=gearlineweb-22&linkCode=ogi&th=1&psc=1",
+        "imageURL": "https://m.media-amazon.com/images/I/312jQ3H3eRL._SL500_.jpg"
+      },
+      "matchCount": 1,
       "candidates": [
         {
           "asin": "B0C65MQZ65",
           "title": "ロジクール MX ANYWHERE 3S MX1800GR 静音 マウス Bluetooth Logi Bolt Unifying非対応 コンパクト Smart Actions 対応 高速スクロールホイール 充電式 ワイヤレスマウス 無線 Windows Mac Chrome iPad OS Android MX1800 グラファイト 国内正規品",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0C65MQZ65?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0C65MQZ65?tag=gearlineweb-22&linkCode=ogi&th=1&psc=1",
           "imageURL": "https://m.media-amazon.com/images/I/312jQ3H3eRL._SL500_.jpg"
-        },
-        {
-          "asin": "B0CW59N8K9",
-          "title": "【セット買い】ロジクール MX ANYWHERE 3S MX1800GR 静音 マウス Bluetooth Logi Bolt Unifying非対応 コンパクト Smart Actions 対応ワイヤレスマウス 無線 グラファイト 国内正規品 + Logi Bolt USB レシーバー LBUSB1 国内正規品 ブラック",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0CW59N8K9?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/2147jkV5OTL._SL500_.jpg"
-        },
-        {
-          "asin": "B0FX8TQ7CD",
-          "title": "【セット買い】ロジクール MX ANYWHERE 3S MX1800GR 静音 マウス Bluetooth Logi Bolt Unifying非対応 コンパクト 高速スクロールホイール 充電式 ワイヤレスマウス 無線 グラファイト 国内正規品 + Logi Bolt USB Type-C レシーバー LBUSBC windows mac chromeOS ブラック 国内正規品",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0FX8TQ7CD?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/21glA9aCrFL._SL500_.jpg"
         }
       ]
     },
