@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02T02:07:38.306Z",
+  "checkedAt": "2026-11-02T23:35:49.480Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -26,6 +26,50 @@
     "searchOpportunityScore": 87
   },
   "results": [
+    {
+      "fingerprint": "83f41558c381c4b581e9f3cfd8957c316650b55a7e84ee449f92ce04b339d8c6",
+      "checkedAt": "2026-11-02T23:35:47.992Z",
+      "id": "logicool-mx-anywhere-3s",
+      "query": "ロジクール MX ANYWHERE 3S MX1800GR",
+      "searchIntent": {
+        "primaryQuery": "MX Anywhere 3S Mac Bluetooth Logi Bolt レシーバー 同梱",
+        "readerSituation": "MacのUSBポートを空けたい一方、持ち運ぶ小型マウスの接続方式を決めたい人",
+        "decisionToMake": "Bluetoothだけで使うか、別売Logi Boltレシーバーも用意するかを型番と同梱品で判断する",
+        "comparisonAxis": "接続方法・同梱品・複数端末・持ち運び・充電"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Logicool公式製品ページがBluetooth複数端末接続、Logi Bolt対応とレシーバー別売を案内。公式ニュースリリースの一般向けMX1800GRとビジネス用を区別する。https://www.logicool.co.jp/ja-jp/shop/p/mx-anywhere-3s https://press.logicool.co.jp/ja-jp/mxanywhere-3s-mxkeys-s/"
+      },
+      "searchOpportunityScore": 80,
+      "publicationEligible": true,
+      "status": "ambiguous",
+      "item": null,
+      "matchCount": 3,
+      "candidates": [
+        {
+          "asin": "B0C65MQZ65",
+          "title": "ロジクール MX ANYWHERE 3S MX1800GR 静音 マウス Bluetooth Logi Bolt Unifying非対応 コンパクト Smart Actions 対応 高速スクロールホイール 充電式 ワイヤレスマウス 無線 Windows Mac Chrome iPad OS Android MX1800 グラファイト 国内正規品",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0C65MQZ65?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/312jQ3H3eRL._SL500_.jpg"
+        },
+        {
+          "asin": "B0CW59N8K9",
+          "title": "【セット買い】ロジクール MX ANYWHERE 3S MX1800GR 静音 マウス Bluetooth Logi Bolt Unifying非対応 コンパクト Smart Actions 対応ワイヤレスマウス 無線 グラファイト 国内正規品 + Logi Bolt USB レシーバー LBUSB1 国内正規品 ブラック",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0CW59N8K9?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/2147jkV5OTL._SL500_.jpg"
+        },
+        {
+          "asin": "B0FX8TQ7CD",
+          "title": "【セット買い】ロジクール MX ANYWHERE 3S MX1800GR 静音 マウス Bluetooth Logi Bolt Unifying非対応 コンパクト 高速スクロールホイール 充電式 ワイヤレスマウス 無線 グラファイト 国内正規品 + Logi Bolt USB Type-C レシーバー LBUSBC windows mac chromeOS ブラック 国内正規品",
+          "detailPageURL": "https://www.amazon.co.jp/dp/B0FX8TQ7CD?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
+          "imageURL": "https://m.media-amazon.com/images/I/21glA9aCrFL._SL500_.jpg"
+        }
+      ]
+    },
     {
       "fingerprint": "57b65c221075aa70b6882fe55493a086b60eab720579f8288384885da946ac42",
       "checkedAt": "2026-11-02T02:07:13.242Z",
@@ -101,8 +145,8 @@
       ]
     },
     {
-      "fingerprint": "44a534be04d7689bcca95a3a45b292793a7122830b24b124a9ac5ff5521e0ddb",
-      "checkedAt": "2026-11-02T02:07:15.962Z",
+      "fingerprint": "184196f54c365ae1db359dff3bea09b4e2a19b23b44a3e66331b105b2cfa5ecb",
+      "checkedAt": "2026-11-02T23:35:49.479Z",
       "id": "elgato-stream-deck-plus",
       "query": "Elgato Stream Deck +",
       "searchIntent": {
@@ -119,23 +163,11 @@
         "evidence": "Elgato公式仕様がキー・ダイヤル・プロファイルの機能を公開しており、Mac作業への適合を条件で比較できる。"
       },
       "searchOpportunityScore": 80,
-      "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0CH7W93HW",
-        "title": "Elgato Stream Deck +専用 ダイアル/つまみ 青 ブルー 34GBD9901 BLU-SP Blue Dials for Stream Deck +",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0CH7W93HW?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/31AYL7y2GvL._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0CH7W93HW",
-          "title": "Elgato Stream Deck +専用 ダイアル/つまみ 青 ブルー 34GBD9901 BLU-SP Blue Dials for Stream Deck +",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0CH7W93HW?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/31AYL7y2GvL._SL500_.jpg"
-        }
-      ]
+      "publicationEligible": false,
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
       "fingerprint": "2a9697c04c85026973a5df84ac7ea527cf2319aa211c58eadf017192063e370e",
