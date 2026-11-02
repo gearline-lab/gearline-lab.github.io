@@ -13,7 +13,7 @@ let previous = null;
 try { previous = JSON.parse(await readFile(outputPath, "utf8")); } catch { /* first resolution */ }
 const previousCheckedAt = Date.parse(previous?.checkedAt ?? "");
 const previousById = new Map((previous?.results ?? []).map((result) => [result.id, result]));
-const cacheFresh = Number.isFinite(previousCheckedAt) && Date.now() - previousCheckedAt < 6 * 24 * 60 * 60 * 1000;
+const cacheFresh = Number.isFinite(previousCheckedAt) && Date.now() - previousCheckedAt < 24 * 60 * 60 * 1000;
 let growthPlan = null;
 try { growthPlan = JSON.parse(await readFile(resolve(root, "config/next-week-growth-plan.json"), "utf8")); } catch { /* first weekly review has not run yet */ }
 const dailyPolicy = searchPolicy.dailyArticle ?? {};
@@ -73,7 +73,7 @@ for (const candidate of input.candidates ?? []) {
   const cached = previousById.get(candidate.id);
   const fingerprint = createHash("sha256").update(JSON.stringify(candidate)).digest("hex");
   const itemCheckedAt = Date.parse(cached?.checkedAt ?? "");
-  if (cacheFresh && cached?.fingerprint === fingerprint && Number.isFinite(itemCheckedAt) && Date.now() - itemCheckedAt < 6 * 24 * 60 * 60 * 1000) {
+  if (cacheFresh && cached?.fingerprint === fingerprint && Number.isFinite(itemCheckedAt) && Date.now() - itemCheckedAt < 24 * 60 * 60 * 1000) {
     if (cached.item) validateItem(cached.item);
     results.push(cached);
     continue;
