@@ -3,14 +3,56 @@
   "partnerTag": "gearlineweb-22",
   "candidates": [
     {
+      "id": "logicool-mx-anywhere-3s",
+      "publicationEligible": true,
+      "keywords": "ロジクール MX ANYWHERE 3S MX1800GR",
+      "requiredTerms": [
+        "ロジクール",
+        "ANYWHERE",
+        "3S",
+        "MX1800GR"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "カバー",
+        "交換",
+        "ソール",
+        "MX1800BGR",
+        "並行輸入"
+      ],
+      "searchIntent": {
+        "primaryQuery": "MX Anywhere 3S Mac Bluetooth Logi Bolt レシーバー 同梱",
+        "readerSituation": "MacのUSBポートを空けたい一方、持ち運ぶ小型マウスの接続方式を決めたい人",
+        "decisionToMake": "Bluetoothだけで使うか、別売Logi Boltレシーバーも用意するかを型番と同梱品で判断する",
+        "comparisonAxis": "接続方法・同梱品・複数端末・持ち運び・充電"
+      },
+      "searchDemand": {
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
+        "evidence": "Logicool公式製品ページがBluetooth複数端末接続、Logi Bolt対応とレシーバー別売を案内。公式ニュースリリースの一般向けMX1800GRとビジネス用を区別する。https://www.logicool.co.jp/ja-jp/shop/p/mx-anywhere-3s https://press.logicool.co.jp/ja-jp/mxanywhere-3s-mxkeys-s/"
+      },
+      "searchOpportunityScore": 80
+    },
+    {
       "id": "ugreen-revodok-6in1",
       "exactAsin": "B0D1XLNWP2",
       "variantEvidence": "UGREEN Japan公式ページ（型番45363）のAmazon購入リンクがB0D1XLNWP2を指すことを2026-10-31確認。HDMIモデルのみ、DP出力モデルB0F24B1VJNを除外。",
       "publicationEligible": true,
       "requiredTitlePrefix": "UGREEN Revodok",
       "keywords": "UGREEN Revodok USB-C ハブ 6-in-1 100W",
-      "requiredTerms": ["UGREEN", "Revodok", "6-in-1"],
-      "excludedTerms": ["ケース", "ケーブルのみ", "交換", "マニュアル"],
+      "requiredTerms": [
+        "UGREEN",
+        "Revodok",
+        "6-in-1"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "ケーブルのみ",
+        "交換",
+        "マニュアル"
+      ],
       "searchIntent": {
         "primaryQuery": "UGREEN Revodok 6-in-1 Mac 4K60Hz 10Gbps 選び方",
         "readerSituation": "MacBookの外部ディスプレイと高速ストレージを1台のUSB-Cハブへまとめたい利用者",
@@ -18,7 +60,10 @@
         "comparisonAxis": "4K60Hz、10Gbps、PD入力、端子の常設と持ち出し"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "UGREEN公式製品ページが映像・データ・給電の仕様を公開しており、Macの接続条件を購入前に比較できる。"
       },
       "searchOpportunityScore": 82
@@ -30,8 +75,17 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "Anker 332",
       "keywords": "Anker 332 USB-C ハブ 5-in-1",
-      "requiredTerms": ["Anker", "332", "USB-C"],
-      "excludedTerms": ["ケース", "ケーブルのみ", "交換", "マニュアル"],
+      "requiredTerms": [
+        "Anker",
+        "332",
+        "USB-C"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "ケーブルのみ",
+        "交換",
+        "マニュアル"
+      ],
       "searchIntent": {
         "primaryQuery": "Anker 332 USB-C ハブ Mac ポート不足 5-in-1 比較",
         "readerSituation": "MacBookのポート不足を最小限の端子追加で解消したい利用者",
@@ -39,18 +93,36 @@
         "comparisonAxis": "必要端子、映像出力、給電、常設と持ち出しの切り替え"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Anker公式製品ページが端子構成と対応条件を公開しており、ポート不足の具体的な解決策として比較できる。"
       },
       "searchOpportunityScore": 78
     },
     {
       "id": "elgato-stream-deck-plus",
-      "publicationEligible": true,
+      "publicationEligible": false,
       "requiredTitlePrefix": "Elgato Stream Deck +",
       "keywords": "Elgato Stream Deck +",
-      "requiredTerms": ["Elgato", "Stream Deck +"],
-      "excludedTerms": ["mini", "XL", "Neo", "ケース", "カバー", "交換", "キーキャップ"],
+      "requiredTerms": [
+        "Elgato",
+        "Stream Deck +"
+      ],
+      "excludedTerms": [
+        "mini",
+        "XL",
+        "Neo",
+        "ケース",
+        "カバー",
+        "交換",
+        "キーキャップ",
+        "専用",
+        "ダイアル",
+        "つまみ",
+        "Dials"
+      ],
       "searchIntent": {
         "primaryQuery": "Stream Deck + Mac ショートカット ダイヤル 使い道 比較",
         "readerSituation": "反復操作や連続調整をキーボード以外へ分け、Mac作業の切り替えを減らしたい利用者",
@@ -58,18 +130,32 @@
         "comparisonAxis": "反復操作、連続調整、プロファイル、設置位置、導入後の管理"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Elgato公式仕様がキー・ダイヤル・プロファイルの機能を公開しており、Mac作業への適合を条件で比較できる。"
       },
-      "searchOpportunityScore": 80
+      "searchOpportunityScore": 80,
+      "safetyNote": "2026-11-03: 交換用ダイヤルB0CH7W93HWを本体候補から除外。本体の正規型番・ASINの特定まで記事対象外。"
     },
     {
       "id": "apple-studio-display",
       "publicationEligible": true,
       "requiredTitlePrefix": "Apple Studio Display",
       "keywords": "Apple Studio Display 27インチ",
-      "requiredTerms": ["Apple", "Studio Display"],
-      "excludedTerms": ["壁掛け", "スタンド", "保護", "ケーブル", "マウント", "中古"],
+      "requiredTerms": [
+        "Apple",
+        "Studio Display"
+      ],
+      "excludedTerms": [
+        "壁掛け",
+        "スタンド",
+        "保護",
+        "ケーブル",
+        "マウント",
+        "中古"
+      ],
       "searchIntent": {
         "primaryQuery": "Apple Studio Display 27インチ Mac デスク環境 仕様 比較",
         "readerSituation": "Macの作業領域を広げたいが、解像度・カメラ・スピーカーを一体で導入する必要性を見極めたい利用者",
@@ -77,7 +163,10 @@
         "comparisonAxis": "解像度、接続方式、カメラと音声、スタンド仕様、机の奥行き"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Apple公式仕様が表示・カメラ・音声・Mac互換条件を公開しており、購入前の設置と用途比較に使える。"
       },
       "searchOpportunityScore": 89
@@ -87,8 +176,21 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "Bambu Lab A1",
       "keywords": "Bambu Lab A1 3Dプリンター",
-      "requiredTerms": ["Bambu Lab", "A1", "3Dプリンター"],
-      "excludedTerms": ["A1 mini", "Combo", "P1S", "P2S", "H2D", "ノズル", "部品", "フィラメント"],
+      "requiredTerms": [
+        "Bambu Lab",
+        "A1",
+        "3Dプリンター"
+      ],
+      "excludedTerms": [
+        "A1 mini",
+        "Combo",
+        "P1S",
+        "P2S",
+        "H2D",
+        "ノズル",
+        "部品",
+        "フィラメント"
+      ],
       "searchIntent": {
         "primaryQuery": "Bambu Lab A1 3Dプリンター 造形サイズ 設置条件 比較",
         "readerSituation": "A1 miniより大きな造形物を作りたいが、開放型機の設置と材料運用を確認したい利用者",
@@ -96,7 +198,10 @@
         "comparisonAxis": "造形サイズ、設置幅、材料、メンテナンス、A1 miniとの差"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Bambu Lab公式製品情報が造形サイズ・対応材料・設置条件を公開し、小型機からの買い替え比較を構成できる。"
       },
       "searchOpportunityScore": 86
@@ -106,8 +211,17 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "ロジクール MX Keys S",
       "keywords": "ロジクール MX Keys S キーボード",
-      "requiredTerms": ["ロジクール", "MX Keys S"],
-      "excludedTerms": ["ケース", "カバー", "キーキャップ", "交換", "マニュアル"],
+      "requiredTerms": [
+        "ロジクール",
+        "MX Keys S"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "カバー",
+        "キーキャップ",
+        "交換",
+        "マニュアル"
+      ],
       "searchIntent": {
         "primaryQuery": "MX Keys S Mac 日本語配列 Bluetooth Logi Options+ 比較",
         "readerSituation": "Macで長文入力や複数端末の切り替えを行い、テンキーの有無と接続方式を見直したい利用者",
@@ -115,7 +229,10 @@
         "comparisonAxis": "テンキーと机上幅、Bluetooth／Logi Bolt、複数端末切替、バックライト運用"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Logicool公式製品ページがMac対応、複数端末切替、配列、接続方式を掲載しており、購入前の条件比較を構成できる。"
       },
       "searchOpportunityScore": 84
@@ -124,8 +241,15 @@
       "id": "logicool-k250",
       "publicationEligible": true,
       "keywords": "ロジクール K250GR Bluetooth キーボード",
-      "requiredTerms": ["K250GR", "ロジクール"],
-      "excludedTerms": ["K250GRd", "MK250", "Amazon.co.jp限定"],
+      "requiredTerms": [
+        "K250GR",
+        "ロジクール"
+      ],
+      "excludedTerms": [
+        "K250GRd",
+        "MK250",
+        "Amazon.co.jp限定"
+      ],
       "searchIntent": {
         "primaryQuery": "Bluetooth テンキー キーボード Mac USBポート",
         "readerSituation": "テンキーを残しつつ、MacBookのUSBポートをレシーバーで塞ぎたくない利用者",
@@ -133,7 +257,10 @@
         "comparisonAxis": "数値入力の頻度とマウスまでの距離、USBポートの優先順位"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Bluetooth・テンキー・Mac・USBポートという複数条件を含む比較/悩み解決型の検索意図。"
       },
       "searchOpportunityScore": 76
@@ -142,8 +269,20 @@
       "id": "bambu-lab-p2s",
       "publicationEligible": true,
       "keywords": "Bambu Lab P2S 3Dプリンター",
-      "requiredTerms": ["Bambu Lab", "P2S", "256×256×256"],
-      "excludedTerms": ["Combo", "AMS", "P1S", "A1", "A1 mini", "H2D", "ノズル"],
+      "requiredTerms": [
+        "Bambu Lab",
+        "P2S",
+        "256×256×256"
+      ],
+      "excludedTerms": [
+        "Combo",
+        "AMS",
+        "P1S",
+        "A1",
+        "A1 mini",
+        "H2D",
+        "ノズル"
+      ],
       "searchIntent": {
         "primaryQuery": "Bambu Lab P2S 3Dプリンター 仕様 設置条件 比較",
         "readerSituation": "A1 miniなどの小型機から、密閉型・高温材料対応の機種へ移行を検討している利用者",
@@ -151,7 +290,11 @@
         "comparisonAxis": "小型オープン機との設置・材料・運用負担の差と、購入後に使い切れる機能か"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "specification-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "specification-query",
+          "problem-query"
+        ],
         "evidence": "公式ストアのP2S仕様ページが現行機の寸法・造形・ノズル・安全設計を掲載し、検索結果でもP2Sの購入比較・価格変動への関心が確認できる。"
       },
       "searchOpportunityScore": 88
@@ -160,8 +303,25 @@
       "id": "bambu-lab-h2s",
       "requiredTitlePrefix": "Bambu Lab H2S",
       "keywords": "Bambu Lab H2S 3Dプリンター",
-      "requiredTerms": ["Bambu Lab", "H2S"],
-      "excludedTerms": ["Combo", "AMS", "H2D", "H2C", "レーザー", "ノズル", "Hotend", "暖房", "ヒーター", "Assembly", "Parts", "組立", "Extruder"],
+      "requiredTerms": [
+        "Bambu Lab",
+        "H2S"
+      ],
+      "excludedTerms": [
+        "Combo",
+        "AMS",
+        "H2D",
+        "H2C",
+        "レーザー",
+        "ノズル",
+        "Hotend",
+        "暖房",
+        "ヒーター",
+        "Assembly",
+        "Parts",
+        "組立",
+        "Extruder"
+      ],
       "searchIntent": {
         "primaryQuery": "Bambu Lab H2S 3Dプリンター 設置サイズ 材料 比較",
         "readerSituation": "大型パーツや耐熱性を要する実用品を造形したく、密閉型の大型機を検討している利用者",
@@ -169,7 +329,11 @@
         "comparisonAxis": "大型造形と高温材料の必要性、設置・換気・運用負担を小型機と比較する"
       },
       "searchDemand": {
-        "signals": ["new-release", "comparison-query", "problem-query"],
+        "signals": [
+          "new-release",
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Bambu Lab公式製品ページがH2Sの大型造形・高温対応・設置に関わる仕様を公開しており、機種比較と実用品造形の購入判断を求める検索意図に対応できる。"
       },
       "searchOpportunityScore": 91
@@ -179,8 +343,20 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "Bambu Lab P2S",
       "keywords": "Bambu Lab P2S 3Dプリンター",
-      "requiredTerms": ["Bambu Lab", "P2S", "256×256×256"],
-      "excludedTerms": ["Combo", "AMS", "P1S", "A1", "A1 mini", "H2D", "ノズル"],
+      "requiredTerms": [
+        "Bambu Lab",
+        "P2S",
+        "256×256×256"
+      ],
+      "excludedTerms": [
+        "Combo",
+        "AMS",
+        "P1S",
+        "A1",
+        "A1 mini",
+        "H2D",
+        "ノズル"
+      ],
       "searchIntent": {
         "primaryQuery": "Bambu Lab P2S 設置 排気 メンテナンス 3Dプリンター",
         "readerSituation": "P2Sの密閉型構造を活かしたいが、机上の設置・排気・清掃動線を購入前に確認したい利用者",
@@ -188,7 +364,11 @@
         "comparisonAxis": "本体寸法、開閉と材料交換、排気・換気、清掃、設置後のケーブル動線"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "specification-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "specification-query",
+          "problem-query"
+        ],
         "evidence": "Bambu Lab公式ストアがP2Sの造形サイズ、密閉構造、排気と設置に関わる仕様を公開しており、購入前の設置・保守条件を比較できる。"
       },
       "searchOpportunityScore": 80
@@ -197,8 +377,22 @@
       "id": "bambu-lab-p1s",
       "requiredTitlePrefix": "Bambu Lab P1S",
       "keywords": "Bambu Lab P1S 3Dプリンター",
-      "requiredTerms": ["Bambu Lab", "P1S", "3Dプリンター"],
-      "excludedTerms": ["Combo", "AMS", "Hotend", "ノズル", "フィラメント", "パーツ", "部品", "フィルター", "Filter"],
+      "requiredTerms": [
+        "Bambu Lab",
+        "P1S",
+        "3Dプリンター"
+      ],
+      "excludedTerms": [
+        "Combo",
+        "AMS",
+        "Hotend",
+        "ノズル",
+        "フィラメント",
+        "パーツ",
+        "部品",
+        "フィルター",
+        "Filter"
+      ],
       "searchIntent": {
         "primaryQuery": "Bambu Lab P1S P2S 違い 3Dプリンター 比較",
         "readerSituation": "密閉型3Dプリンターを検討しており、P1SとP2Sのどちらが用途と設置環境に合うか決めたい利用者",
@@ -206,7 +400,10 @@
         "comparisonAxis": "造形サイズ・材料対応・設置負担・将来の多色造形を、実際に作る物の大きさから比較する"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Bambu Lab公式P1Sページが密閉型・造形サイズ・AMS連携の仕様を公開しており、P2Sとの比較を必要とする購入検討者の条件分岐を作れる。"
       },
       "searchOpportunityScore": 87
@@ -215,8 +412,19 @@
       "id": "anker-675-usb-c-docking-station",
       "keywords": "Anker 675 USB-C ドッキングステーション 12-in-1",
       "requiredTitlePrefix": "Anker 675",
-      "requiredTerms": ["Anker", "675", "USB-C", "ドッキングステーション"],
-      "excludedTerms": ["ケース", "スタンドのみ", "マニュアル", "交換", "対応"],
+      "requiredTerms": [
+        "Anker",
+        "675",
+        "USB-C",
+        "ドッキングステーション"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "スタンドのみ",
+        "マニュアル",
+        "交換",
+        "対応"
+      ],
       "searchIntent": {
         "primaryQuery": "Anker 675 USB-C ドッキングステーション Mac モニタースタンド 設置",
         "readerSituation": "モニター下の空間を使いながら、MacBookの充電・映像・周辺機器の接続を一箇所にまとめたい利用者",
@@ -224,7 +432,10 @@
         "comparisonAxis": "机の奥行き、モニター重量、必要なポート、DisplayPort Alt Mode対応を個別ハブと比較する"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Anker公式製品ページがスタンド一体型の設置寸法、ポート構成、対応機種と接続条件を公開しており、デスク配線とモニター下収納を同時に見直したい購入前の判断に対応できる。"
       },
       "searchOpportunityScore": 86
@@ -233,8 +444,19 @@
       "id": "anker-nano-docking-station-13in1",
       "requiredTitlePrefix": "Anker Nano",
       "keywords": "Anker Nano ドッキングステーション 13-in-1 着脱式 USB-C ハブ",
-      "requiredTerms": ["Anker", "Nano", "13-in-1"],
-      "excludedTerms": ["ケース", "ケーブルのみ", "マニュアル", "交換", "対応", "スタンドのみ"],
+      "requiredTerms": [
+        "Anker",
+        "Nano",
+        "13-in-1"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "ケーブルのみ",
+        "マニュアル",
+        "交換",
+        "対応",
+        "スタンドのみ"
+      ],
       "searchIntent": {
         "primaryQuery": "Anker Nano ドッキングステーション 13-in-1 Mac 設置 複数モニター",
         "readerSituation": "MacBookの映像・有線LAN・周辺機器をまとめたい一方、持ち運べるUSB-Cハブも併用したい利用者",
@@ -242,7 +464,11 @@
         "comparisonAxis": "映像出力の条件、常設する端子、着脱式ハブの使い方、机上と持ち出しの切り替え"
       },
       "searchDemand": {
-        "signals": ["new-release", "comparison-query", "problem-query"],
+        "signals": [
+          "new-release",
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Anker Japan公式製品ページが2026年1月発売の着脱式USB-Cハブを備えた13-in-1ドックとして仕様とmacOSでの映像出力注意点を公開している。"
       },
       "searchOpportunityScore": 90
@@ -252,8 +478,21 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "Elgato Wave",
       "keywords": "Elgato Wave 3 USB コンデンサーマイク",
-      "requiredTerms": ["Elgato", "Wave", "3"],
-      "excludedTerms": ["Wave:1", "Wave DX", "アーム", "スタンド", "ケーブル", "ポップガード", "Call of Duty", "スペシャルエディション"],
+      "requiredTerms": [
+        "Elgato",
+        "Wave",
+        "3"
+      ],
+      "excludedTerms": [
+        "Wave:1",
+        "Wave DX",
+        "アーム",
+        "スタンド",
+        "ケーブル",
+        "ポップガード",
+        "Call of Duty",
+        "スペシャルエディション"
+      ],
       "searchIntent": {
         "primaryQuery": "Elgato Wave:3 Mac USBマイク 配信 会議 選び方",
         "readerSituation": "Macで会議・収録・配信の音声を整えたいが、USBマイクの設置と接続条件を先に確認したい利用者",
@@ -261,7 +500,10 @@
         "comparisonAxis": "USB接続、入力調整、設置スペース、会議と収録の切り替え"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Elgato公式製品ページがUSB接続、入力調整、設置に関わる仕様を公開しており、Macの会議・収録用途で購入前条件を比較できる。"
       },
       "searchOpportunityScore": 83
@@ -271,8 +513,17 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "Apple Magic Trackpad",
       "keywords": "Apple Magic Trackpad USB-C",
-      "requiredTerms": ["Apple", "Magic Trackpad"],
-      "excludedTerms": ["ケース", "カバー", "交換", "保護フィルム", "中古"],
+      "requiredTerms": [
+        "Apple",
+        "Magic Trackpad"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "カバー",
+        "交換",
+        "保護フィルム",
+        "中古"
+      ],
       "searchIntent": {
         "primaryQuery": "Apple Magic Trackpad USB-C Mac ジェスチャー 選び方",
         "readerSituation": "MacのスクロールやMission Controlを指のジェスチャーで操作したく、マウスとの役割分担を見直したい利用者",
@@ -280,7 +531,10 @@
         "comparisonAxis": "ジェスチャー、机上スペース、Bluetooth接続、USB-C充電、マウスとの使い分け"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "Apple公式製品ページがMulti-Touch、感圧タッチ、Bluetooth、USB-C、対応OSを公開しており、Macの入力デバイス選びを条件で比較できる。"
       },
       "searchOpportunityScore": 85
@@ -290,8 +544,19 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "ロジクール MX MASTER3s",
       "keywords": "ロジクール MX MASTER3s MX2300GR",
-      "requiredTerms": ["ロジクール", "MX MASTER3s", "MX2300GR"],
-      "excludedTerms": ["ケース", "カバー", "ソール", "交換", "マニュアル", "中古"],
+      "requiredTerms": [
+        "ロジクール",
+        "MX MASTER3s",
+        "MX2300GR"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "カバー",
+        "ソール",
+        "交換",
+        "マニュアル",
+        "中古"
+      ],
       "searchIntent": {
         "primaryQuery": "MX Master 3S Mac 静音 スクロール ジェスチャー 選び方",
         "readerSituation": "Macで長時間ポインタ操作や横スクロールを行い、マウスの静音性とボタン配置を見直したい利用者",
@@ -299,7 +564,10 @@
         "comparisonAxis": "静音クリック、MagSpeedスクロール、Bluetooth接続、ボタン数、手のサイズと設置"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "ロジクール公式製品ページが静音クリック、MagSpeedスクロール、Bluetooth接続、複数OS対応を公開しており、Macのポインタ操作改善を購入前条件で比較できる。"
       },
       "searchOpportunityScore": 87
@@ -309,8 +577,19 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "ロジクール MX MASTER3s",
       "keywords": "ロジクール MX MASTER3s MX2300GR",
-      "requiredTerms": ["ロジクール", "MX MASTER3s", "MX2300GR"],
-      "excludedTerms": ["ケース", "カバー", "ソール", "交換", "マニュアル", "中古"],
+      "requiredTerms": [
+        "ロジクール",
+        "MX MASTER3s",
+        "MX2300GR"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "カバー",
+        "ソール",
+        "交換",
+        "マニュアル",
+        "中古"
+      ],
       "searchIntent": {
         "primaryQuery": "MX Master 3S 横スクロール Mac サイドボタン 使い分け",
         "readerSituation": "Macの表計算やタイムラインで横スクロールを多用し、ホイールとサイドボタンの役割を整理したい利用者",
@@ -318,7 +597,10 @@
         "comparisonAxis": "横スクロール、静音クリック、サイドボタン、Bluetooth接続、手のサイズ"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "problem-query"
+        ],
         "evidence": "ロジクール公式製品ページがMagSpeed、静音クリック、サイドボタン、Bluetooth接続を公開しており、横スクロール中心のMac作業で購入前条件を比較できる。"
       },
       "searchOpportunityScore": 81
@@ -328,8 +610,19 @@
       "publicationEligible": true,
       "requiredTitlePrefix": "Apple Magic Mouse",
       "keywords": "Apple Magic Mouse USB-C ブラック Multi-Touch",
-      "requiredTerms": ["Apple", "Magic Mouse", "USB-C", "ブラック"],
-      "excludedTerms": ["ケース", "カバー", "交換", "中古", "Lightning"],
+      "requiredTerms": [
+        "Apple",
+        "Magic Mouse",
+        "USB-C",
+        "ブラック"
+      ],
+      "excludedTerms": [
+        "ケース",
+        "カバー",
+        "交換",
+        "中古",
+        "Lightning"
+      ],
       "searchIntent": {
         "primaryQuery": "Apple Magic Mouse USB-C Mac ジェスチャー 充電 選び方",
         "readerSituation": "Macのスクロールやスワイプを指先で操作したいが、マウスの充電方式と机上の操作感を購入前に確認したい利用者",
@@ -337,7 +630,11 @@
         "comparisonAxis": "ジェスチャー、充電端子、薄型形状、机上スペース、トラックパッドとの役割分担"
       },
       "searchDemand": {
-        "signals": ["comparison-query", "compatibility-change", "problem-query"],
+        "signals": [
+          "comparison-query",
+          "compatibility-change",
+          "problem-query"
+        ],
         "evidence": "Apple公式仕様がUSB-C、Multi-Touch、Bluetooth、対応OSを公開しており、Macの入力デバイスと充電方式を購入前に比較できる。"
       },
       "searchOpportunityScore": 84
