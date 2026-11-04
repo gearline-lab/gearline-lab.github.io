@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-03T23:32:12.730Z",
+  "checkedAt": "2026-11-04T01:18:40.541Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -28,7 +28,7 @@
   "results": [
     {
       "fingerprint": "dbf8c641daeec58fd6e91a82b9313d224d9420a592f0e0b759c5dde0f3522e7c",
-      "checkedAt": "2026-11-02T23:36:41.973Z",
+      "checkedAt": "2026-11-04T01:18:38.948Z",
       "id": "logicool-mx-anywhere-3s",
       "query": "ロジクール MX ANYWHERE 3S MX1800GR",
       "searchIntent": {
@@ -139,7 +139,7 @@
     },
     {
       "fingerprint": "184196f54c365ae1db359dff3bea09b4e2a19b23b44a3e66331b105b2cfa5ecb",
-      "checkedAt": "2026-11-02T23:35:49.479Z",
+      "checkedAt": "2026-11-04T01:18:40.540Z",
       "id": "elgato-stream-deck-plus",
       "query": "Elgato Stream Deck +",
       "searchIntent": {
