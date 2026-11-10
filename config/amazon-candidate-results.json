@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-09T00:51:14.126Z",
+  "checkedAt": "2026-11-10T03:33:30.895Z",
   "marketplace": "www.amazon.co.jp",
   "growthDirective": null,
   "selectedCandidate": {
@@ -29,7 +29,7 @@
   "results": [
     {
       "fingerprint": "dbf8c641daeec58fd6e91a82b9313d224d9420a592f0e0b759c5dde0f3522e7c",
-      "checkedAt": "2026-11-09T00:50:48.104Z",
+      "checkedAt": "2026-11-10T03:33:04.920Z",
       "id": "logicool-mx-anywhere-3s",
       "query": "ロジクール MX ANYWHERE 3S MX1800GR",
       "searchIntent": {
@@ -66,7 +66,7 @@
     },
     {
       "fingerprint": "57b65c221075aa70b6882fe55493a086b60eab720579f8288384885da946ac42",
-      "checkedAt": "2026-11-09T00:50:49.349Z",
+      "checkedAt": "2026-11-10T03:33:06.169Z",
       "id": "ugreen-revodok-6in1",
       "query": "UGREEN Revodok USB-C ハブ 6-in-1 100W",
       "searchIntent": {
@@ -103,7 +103,7 @@
     },
     {
       "fingerprint": "6c40899d29123aa5b567d5c102ecf85f149cb5e2bef75eb26470a10911a428b5",
-      "checkedAt": "2026-11-09T00:50:50.539Z",
+      "checkedAt": "2026-11-10T03:33:07.418Z",
       "id": "anker-332-usb-c-hub",
       "query": "Anker 332 USB-C ハブ 5-in-1",
       "searchIntent": {
@@ -140,7 +140,7 @@
     },
     {
       "fingerprint": "184196f54c365ae1db359dff3bea09b4e2a19b23b44a3e66331b105b2cfa5ecb",
-      "checkedAt": "2026-11-09T00:50:52.098Z",
+      "checkedAt": "2026-11-10T03:33:08.924Z",
       "id": "elgato-stream-deck-plus",
       "query": "Elgato Stream Deck +",
       "searchIntent": {
@@ -165,7 +165,7 @@
     },
     {
       "fingerprint": "2a9697c04c85026973a5df84ac7ea527cf2319aa211c58eadf017192063e370e",
-      "checkedAt": "2026-11-09T00:50:53.583Z",
+      "checkedAt": "2026-11-10T03:33:10.436Z",
       "id": "apple-studio-display",
       "query": "Apple Studio Display 27インチ",
       "searchIntent": {
@@ -190,7 +190,7 @@
     },
     {
       "fingerprint": "157c46a951f74450a2300660d918a4703caca91c5b5a8c0110ca03610bfafb0a",
-      "checkedAt": "2026-11-09T00:50:55.133Z",
+      "checkedAt": "2026-11-10T03:33:11.908Z",
       "id": "bambu-lab-a1",
       "query": "Bambu Lab A1 3Dプリンター",
       "searchIntent": {
@@ -215,7 +215,7 @@
     },
     {
       "fingerprint": "9ca69a68421439de93b2ed588aa36358ea3e41bedbec1d0f568ea21fadc64225",
-      "checkedAt": "2026-11-09T00:50:56.640Z",
+      "checkedAt": "2026-11-10T03:33:13.386Z",
       "id": "logicool-mx-keys-s",
       "query": "ロジクール MX Keys S キーボード",
       "searchIntent": {
@@ -233,26 +233,14 @@
       },
       "searchOpportunityScore": 84,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0D7ZN2JXZ",
-        "title": "ロジクール MX KEYS S ワイヤレス キーボード for Mac KX800sMSG US配列 Bluetooth Smart Actions 対応 Mac iPad iOS 無線 薄型 USB TYPE-C 充電式 ワイヤレスキーボード KX800s スペースグレー 国内正規品",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0D7ZN2JXZ?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/41o5rj12trL._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0D7ZN2JXZ",
-          "title": "ロジクール MX KEYS S ワイヤレス キーボード for Mac KX800sMSG US配列 Bluetooth Smart Actions 対応 Mac iPad iOS 無線 薄型 USB TYPE-C 充電式 ワイヤレスキーボード KX800s スペースグレー 国内正規品",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0D7ZN2JXZ?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/41o5rj12trL._SL500_.jpg"
-        }
-      ]
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
       "fingerprint": "1e4a2055baba6ad1089c92251dfdfe8745d4ddde048f95139a0c8088a16cd39b",
-      "checkedAt": "2026-11-09T00:50:58.157Z",
+      "checkedAt": "2026-11-10T03:33:14.837Z",
       "id": "logicool-k250",
       "query": "ロジクール K250GR Bluetooth キーボード",
       "searchIntent": {
@@ -270,26 +258,14 @@
       },
       "searchOpportunityScore": 76,
       "publicationEligible": true,
-      "status": "resolved",
-      "item": {
-        "asin": "B0FDQK9T7D",
-        "title": "ロジクール Bluetooth ワイヤレスキーボード K250GR キーボード テンキー コンパクト 日本語配列 耐水 無線 ワイヤレス K250 Windows Mac Chrome グラファイト 国内正規品",
-        "detailPageURL": "https://www.amazon.co.jp/dp/B0FDQK9T7D?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-        "imageURL": "https://m.media-amazon.com/images/I/41NzS62Rf5L._SL500_.jpg"
-      },
-      "matchCount": 1,
-      "candidates": [
-        {
-          "asin": "B0FDQK9T7D",
-          "title": "ロジクール Bluetooth ワイヤレスキーボード K250GR キーボード テンキー コンパクト 日本語配列 耐水 無線 ワイヤレス K250 Windows Mac Chrome グラファイト 国内正規品",
-          "detailPageURL": "https://www.amazon.co.jp/dp/B0FDQK9T7D?tag=gearlineweb-22&linkCode=osi&th=1&psc=1",
-          "imageURL": "https://m.media-amazon.com/images/I/41NzS62Rf5L._SL500_.jpg"
-        }
-      ]
+      "status": "not-found",
+      "item": null,
+      "matchCount": 0,
+      "candidates": []
     },
     {
       "fingerprint": "59a1637e05048129b393697f1aa1b85ccb47c7f555e71eff5f118cbdaf583272",
-      "checkedAt": "2026-11-09T00:50:59.639Z",
+      "checkedAt": "2026-11-10T03:33:16.295Z",
       "id": "bambu-lab-p2s",
       "query": "Bambu Lab P2S 3Dプリンター",
       "searchIntent": {
@@ -327,7 +303,7 @@
     },
     {
       "fingerprint": "c0763bc940c00c2a301f530a67729a520647ba7151ca24d3eac63e0ddd4466da",
-      "checkedAt": "2026-11-09T00:51:01.125Z",
+      "checkedAt": "2026-11-10T03:33:17.753Z",
       "id": "bambu-lab-h2s",
       "query": "Bambu Lab H2S 3Dプリンター",
       "searchIntent": {
@@ -353,7 +329,7 @@
     },
     {
       "fingerprint": "68ca873c819a590eaaa4e71d4a28281a3f541c5a7b8b09dd307763a0bf973d1d",
-      "checkedAt": "2026-11-09T00:51:02.436Z",
+      "checkedAt": "2026-11-10T03:33:19.084Z",
       "id": "bambu-lab-p2s-installation",
       "query": "Bambu Lab P2S 3Dプリンター",
       "searchIntent": {
@@ -391,7 +367,7 @@
     },
     {
       "fingerprint": "7d787b51d34cf6e9a28eb1b048b38b7873db71fb0a32dffd4149ae8a84abaf59",
-      "checkedAt": "2026-11-09T00:51:03.864Z",
+      "checkedAt": "2026-11-10T03:33:20.593Z",
       "id": "bambu-lab-p1s",
       "query": "Bambu Lab P1S 3Dプリンター",
       "searchIntent": {
@@ -416,7 +392,7 @@
     },
     {
       "fingerprint": "9e39743e3bd816d17bc196e37c7024454f7e8f8549c7a1f4d70b4d761915a3b6",
-      "checkedAt": "2026-11-09T00:51:05.330Z",
+      "checkedAt": "2026-11-10T03:33:22.040Z",
       "id": "anker-675-usb-c-docking-station",
       "query": "Anker 675 USB-C ドッキングステーション 12-in-1",
       "searchIntent": {
@@ -441,7 +417,7 @@
     },
     {
       "fingerprint": "afeaee923fd3038355e974729953310e30d3a958eada8192e0f55c4eff2a7604",
-      "checkedAt": "2026-11-09T00:51:06.756Z",
+      "checkedAt": "2026-11-10T03:33:23.589Z",
       "id": "anker-nano-docking-station-13in1",
       "query": "Anker Nano ドッキングステーション 13-in-1 着脱式 USB-C ハブ",
       "searchIntent": {
@@ -467,7 +443,7 @@
     },
     {
       "fingerprint": "3519e2adf819e77e613292d19af652d0c6cdc29ba6f5bb86ce9dee4d22710908",
-      "checkedAt": "2026-11-09T00:51:08.249Z",
+      "checkedAt": "2026-11-10T03:33:25.111Z",
       "id": "elgato-wave-3",
       "query": "Elgato Wave 3 USB コンデンサーマイク",
       "searchIntent": {
@@ -511,7 +487,7 @@
     },
     {
       "fingerprint": "e19b341e853946dbbb7af8849bf7b04c8456cb8dd7bde30fa6406740e1ab51ec",
-      "checkedAt": "2026-11-09T00:51:09.691Z",
+      "checkedAt": "2026-11-10T03:33:26.601Z",
       "id": "apple-magic-trackpad-usbc",
       "query": "Apple Magic Trackpad USB-C",
       "searchIntent": {
@@ -536,7 +512,7 @@
     },
     {
       "fingerprint": "037dbf4848ba917ba1e890bbfba21d48de307651fab5c9996d846a609ce63939",
-      "checkedAt": "2026-11-09T00:51:11.288Z",
+      "checkedAt": "2026-11-10T03:33:28.058Z",
       "id": "logicool-mx-master-3s",
       "query": "ロジクール MX MASTER3s MX2300GR",
       "searchIntent": {
@@ -573,7 +549,7 @@
     },
     {
       "fingerprint": "dd7dc5ddd746b350215bb3df5dc6f0338588204a2f21245209925e472a3a724f",
-      "checkedAt": "2026-11-09T00:51:12.608Z",
+      "checkedAt": "2026-11-10T03:33:29.365Z",
       "id": "logicool-mx-master-3s-horizontal",
       "query": "ロジクール MX MASTER3s MX2300GR",
       "searchIntent": {
@@ -610,7 +586,7 @@
     },
     {
       "fingerprint": "e6746103a960e19a6db768f8ff0e8bebe3d15ec332bbc622ee135b7f25c771b8",
-      "checkedAt": "2026-11-09T00:51:14.126Z",
+      "checkedAt": "2026-11-10T03:33:30.894Z",
       "id": "apple-magic-mouse-usbc-black",
       "query": "Apple Magic Mouse USB-C ブラック Multi-Touch",
       "searchIntent": {
